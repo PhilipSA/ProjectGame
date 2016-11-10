@@ -1,0 +1,14 @@
+C:\Users\Public\Documents\Unity Projects\Pogo 2.CSharpTests\bin\Debug\Pogo 2.CSharpTests.dll
+C:\Users\Public\Documents\Unity Projects\Pogo 2.CSharpTests\bin\Debug\Pogo 2.CSharpTests.pdb
+C:\Users\Public\Documents\Unity Projects\Pogo 2.CSharpTests\bin\Debug\Assembly-CSharp.dll
+C:\Users\Public\Documents\Unity Projects\Pogo 2.CSharpTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Public\Documents\Unity Projects\Pogo 2.CSharpTests\bin\Debug\UnityEngine.dll
+C:\Users\Public\Documents\Unity Projects\Pogo 2.CSharpTests\bin\Debug\UnityEngine.UI.dll
+C:\Users\Public\Documents\Unity Projects\Pogo 2.CSharpTests\bin\Debug\UnityEditor.dll
+C:\Users\Public\Documents\Unity Projects\Pogo 2.CSharpTests\bin\Debug\Assembly-CSharp.pdb
+C:\Users\Public\Documents\Unity Projects\Pogo 2.CSharpTests\bin\Debug\UnityEngine.xml
+C:\Users\Public\Documents\Unity Projects\Pogo 2.CSharpTests\bin\Debug\UnityEngine.UI.xml
+C:\Users\Public\Documents\Unity Projects\Pogo 2.CSharpTests\bin\Debug\UnityEditor.xml
+C:\Users\Public\Documents\Unity Projects\Pogo 2.CSharpTests\obj\Debug\Pogo 2.CSharpTests.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\Unity Projects\Pogo 2.CSharpTests\obj\Debug\Pogo 2.CSharpTests.dll
+C:\Users\Public\Documents\Unity Projects\Pogo 2.CSharpTests\obj\Debug\Pogo 2.CSharpTests.pdb
