@@ -8,7 +8,7 @@ namespace Assets.Scripts.Player
         public const float MinimumBouncePower = 1.4f;
         public const float BouncePowerIncrease = 0.2f;
         public const float BouncePowerDecrease = 0.002f;
-        public static float BouncePower = 1.4f;
+        public float BouncePower = 1.4f;
         // Use this for initialization
 
         public float GetBouncePower()

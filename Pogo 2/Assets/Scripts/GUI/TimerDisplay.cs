@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Assets.CustomComponents;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,7 +15,7 @@ namespace Assets.Scripts.GUI
         // Use this for initialization
         void Start()
         {
-            _text = GetComponent<Text>();
+            _text = (Text)GameObject.Find("TimerText").GetComponent(typeof(Text));
             timer = new Timer();
         }
 

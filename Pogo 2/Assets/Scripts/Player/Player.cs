@@ -6,34 +6,37 @@ namespace Assets.Scripts.Player
 {
     public class Player : MonoBehaviour
     {
-        private Rigidbody2D playerRigidbody2D;
-        private PolygonCollider2D footCollider;
-        private BoxCollider2D headCollider;
+        private Rigidbody2D _playerRigidbody2D;
+        private PolygonCollider2D _footCollider;
+        private BoxCollider2D _headCollider;
 
-        private PlayerControl playerControl;
-        private PlayerBounceLogic playerBounceLogic;
-        private PlayerHitpoints playerHitpoints;
+        private PlayerControl _playerControl;
+        public PlayerBounceLogic PlayerBounceLogic;
+        private PlayerHitpoints _playerHitpoints;
+
+        private GUIHandler _guiHandler;
 
         // Use this for initialization
         void Start ()
-        {
-            playerControl = new PlayerControl();
-            playerBounceLogic = new PlayerBounceLogic();
-            playerHitpoints = new PlayerHitpoints();
+        {          
+            _guiHandler = gameObject.AddComponent<GUIHandler>();
+            _playerControl = new PlayerControl();
+            PlayerBounceLogic = new PlayerBounceLogic();
+            _playerHitpoints = new PlayerHitpoints();
 
-            playerRigidbody2D = GetComponent<Rigidbody2D>();
-            playerRigidbody2D.freezeRotation = true;
+            _playerRigidbody2D = GetComponent<Rigidbody2D>();
+            _playerRigidbody2D.freezeRotation = true;
             var childComponents = GetComponentsInChildren<Component>();
 
             foreach (var component in childComponents)
             {
                 if (component.name == "Foot")
                 {
-                    footCollider = component.GetComponent<PolygonCollider2D>();
+                    _footCollider = component.GetComponent<PolygonCollider2D>();
                 }
                 if (component.name == "Head")
                 {
-                    headCollider = component.GetComponent<BoxCollider2D>();
+                    _headCollider = component.GetComponent<BoxCollider2D>();
                 }
             }
         }
@@ -42,13 +45,13 @@ namespace Assets.Scripts.Player
         void Update ()
         {
             Bounce();
-            if (playerControl.HasMousePositionChanged()) AnglePlayer();
+            if (_playerControl.HasMousePositionChanged()) AnglePlayer();
             StraightenUp();
         }
 
         public void OnHeadCollision()
         {
-            playerHitpoints.CalculateDamage();
+            _playerHitpoints.CalculateDamage();
             DeadCheck();
         }
 
@@ -58,9 +61,19 @@ namespace Assets.Scripts.Player
             MovePlayer();
         }
 
+        public void OnGoalCollision()
+        {
+            Victory();
+        }
+
+        void Victory()
+        {
+            _guiHandler.DisplayVictoryScreen();
+        }
+
         void DeadCheck()
         {
-            if (playerHitpoints.Hitpoints <= 0)
+            if (_playerHitpoints.Hitpoints <= 0)
             {
                 //LevelHandler.ChangeLevel("MainMenu");
             }
@@ -68,19 +81,18 @@ namespace Assets.Scripts.Player
 
         void Bounce()
         {
-            var test = playerBounceLogic.GetBouncePower();
-            playerRigidbody2D.velocity = new Vector2(playerRigidbody2D.velocity.x, -test*10);
+            _footCollider.sharedMaterial.bounciness = PlayerBounceLogic.GetBouncePower();
         }
 
         void MovePlayer()
         {
-            var moveDirection = playerControl.GetMoveDirection(playerRigidbody2D);
-            playerRigidbody2D.velocity = moveDirection;
+            var moveDirection = _playerControl.GetMoveDirection(_playerRigidbody2D);
+            _playerRigidbody2D.velocity = moveDirection;
         }
 
         void AnglePlayer()
         {
-            var newRotationAngle = playerControl.GetRotationAngle(playerRigidbody2D);
+            var newRotationAngle = _playerControl.GetRotationAngle(_playerRigidbody2D);
             transform.rotation = Quaternion.Slerp(transform.rotation, newRotationAngle, 0.02f);
         }
 
