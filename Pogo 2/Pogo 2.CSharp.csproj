@@ -66,9 +66,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CustomComponents\Timer.cs" />
+    <Compile Include="Assets\Engine\GameEngine.cs" />
+    <Compile Include="Assets\Engine\GameEngineHelper.cs" />
     <Compile Include="Assets\Scripts\Cameras\MainCamera.cs" />
     <Compile Include="Assets\Scripts\Enums\LevelEnums.cs" />
     <Compile Include="Assets\Scripts\GUI\ChargeBar.cs" />
+    <Compile Include="Assets\Scripts\GUI\FPSDisplay.cs" />
     <Compile Include="Assets\Scripts\GUI\GUIHandler.cs" />
     <Compile Include="Assets\Scripts\GUI\HealthBar.cs" />
     <Compile Include="Assets\Scripts\GUI\TimerDisplay.cs" />

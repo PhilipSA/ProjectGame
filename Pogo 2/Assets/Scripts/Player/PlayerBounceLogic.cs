@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts.Player
 {
@@ -15,9 +16,9 @@ namespace Assets.Scripts.Player
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (BouncePower < MaximumBouncePower) BouncePower += BouncePowerIncrease;
+                if (BouncePower < MaximumBouncePower)  BouncePower += BouncePowerIncrease;
             }
-
+            
             if (BouncePower > MinimumBouncePower) BouncePower -= BouncePowerDecrease;
 
             return BouncePower;

@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.GUI;
-using Assets.Scripts.Menus;
+﻿using Assets.Engine;
 using UnityEngine;
 
 namespace Assets.Scripts.Player
@@ -12,14 +11,11 @@ namespace Assets.Scripts.Player
 
         private PlayerControl _playerControl;
         public PlayerBounceLogic PlayerBounceLogic;
-        private PlayerHitpoints _playerHitpoints;
-
-        private GUIHandler _guiHandler;
+        public PlayerHitpoints _playerHitpoints;
 
         // Use this for initialization
         void Start ()
         {          
-            _guiHandler = gameObject.AddComponent<GUIHandler>();
             _playerControl = new PlayerControl();
             PlayerBounceLogic = new PlayerBounceLogic();
             _playerHitpoints = new PlayerHitpoints();
@@ -63,12 +59,7 @@ namespace Assets.Scripts.Player
 
         public void OnGoalCollision()
         {
-            Victory();
-        }
-
-        void Victory()
-        {
-            _guiHandler.DisplayVictoryScreen();
+            GameEngineHelper.GetCurrentGameEngine().Victory();
         }
 
         void DeadCheck()
