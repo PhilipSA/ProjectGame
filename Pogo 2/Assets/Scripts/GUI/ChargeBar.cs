@@ -19,7 +19,7 @@ namespace Assets.Scripts.GUI
             UnityEngine.GUI.skin.box.normal.background = texture;
             for (float i = PlayerBounceLogic.MinimumBouncePower; i <= Math.Round(BarDisplay, 2); i += PlayerBounceLogic.BouncePowerIncrease)
             {
-                Debug.Log(BarDisplay);
+                //Debug.Log(BarDisplay);
                 var displayPos = new Vector2(Pos.x, Pos.y * i / 10 + 20);
                 UnityEngine.GUI.Box(new Rect(displayPos, Size), GUIContent.none);
             }

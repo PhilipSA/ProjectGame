@@ -13,15 +13,15 @@ namespace Assets.Scripts.Player
         // Use this for initialization
 
         public float GetBouncePower()
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (BouncePower < MaximumBouncePower)  BouncePower += BouncePowerIncrease;
-            }
-            
+        {          
             if (BouncePower > MinimumBouncePower) BouncePower -= BouncePowerDecrease;
 
             return BouncePower;
+        }
+
+        public void IncreaseBouncePower()
+        {
+            if (BouncePower < MaximumBouncePower) BouncePower += BouncePowerIncrease;
         }
     }
 }

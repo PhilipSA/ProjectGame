@@ -1,4 +1,5 @@
-﻿using Assets.Engine;
+﻿using System;
+using Assets.Engine;
 using UnityEngine;
 
 namespace Assets.Scripts.Player
@@ -43,6 +44,14 @@ namespace Assets.Scripts.Player
             Bounce();
             if (_playerControl.HasMousePositionChanged()) AnglePlayer();
             StraightenUp();
+        }
+
+        public void ProcessInputs(string e)
+        {
+            if (e == "test")
+            {
+                PlayerBounceLogic.IncreaseBouncePower();
+            }
         }
 
         public void OnHeadCollision()

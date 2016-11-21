@@ -2,16 +2,8 @@
 
 namespace Assets.Scripts.Enums
 {
-    public class LevelEnums : MonoBehaviour {
+    public class LevelEnum
+    {
 
-        // Use this for initialization
-        void Start () {
-	
-        }
-	
-        // Update is called once per frame
-        void Update () {
-	
-        }
     }
 }
