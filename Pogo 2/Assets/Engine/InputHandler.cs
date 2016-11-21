@@ -1,5 +1,5 @@
-﻿using System;
-using Assets.Scripts.Enums;
+﻿using Assets.Scripts.Enums;
+using Assets.Scripts.GUI;
 using Assets.Scripts.Player;
 using UnityEngine;
 
@@ -8,26 +8,27 @@ namespace Assets.Engine
     public class InputHandler : MonoBehaviour
     {
         private InputDeviceEnum _currentInputDevice;
-        private event InputCaller handleInput;
-        private delegate void InputCaller(string e); 
+        private InputEvents inputEvents;
+
+        InputHandler()
+        {
+            inputEvents = new InputEvents();
+        }
 
         void Update()
         {
             ChangeInputDevice();
-            CheckAllInputsForEvents();
+            inputEvents.CheckAllInputsForEvents();
         }
 
         public void PlayerSubscribe(Player player)
         {
-            handleInput += player.ProcessInputs;
+            inputEvents.LeftMouseButtonClicked += player.ProcessInputs;
         }
 
-        private void CheckAllInputsForEvents()
+        public void GUISubscribe(GUIHandler guiHandler)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                handleInput.Invoke("test");
-            }
+            inputEvents.EscapeButtonClicked += guiHandler.ProcessInputs;
         }
 
         void ChangeInputDevice()

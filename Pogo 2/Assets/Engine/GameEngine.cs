@@ -9,6 +9,7 @@ namespace Assets.Engine
         public GUIHandler GuiHandler;
         public Player Player;
         public InputHandler InputHandler;
+        public bool Paused { get; private set; }
 
         void Start()
         {
@@ -16,6 +17,7 @@ namespace Assets.Engine
             Player = GameObject.Find("Player").AddComponent(typeof(Player)) as Player;
             InputHandler = gameObject.AddComponent<InputHandler>();
             InputSubscriptions();
+            Paused = false;
         }
 
         void Update()
@@ -26,21 +28,24 @@ namespace Assets.Engine
         void InputSubscriptions()
         {
             InputHandler.PlayerSubscribe(Player);
+            InputHandler.GUISubscribe(GuiHandler);
         }
 
         public void Victory()
         {
-            GuiHandler.DisplayVictoryScreen();
+            GuiHandler.ToggleOverlayScreen(GuiHandler.VictoryScreen);
         }
 
-        public void DisplayPauseMenu()
+        public void TogglePauseMenu()
         {
-            GuiHandler.DisplayPauseMenu();
+            GuiHandler.ToggleOverlayScreen(GuiHandler.PauseMenu);
         }
 
         public void Pause()
         {
-            Time.timeScale = 0;
+            Paused = !Paused;
+            TogglePauseMenu();
+            Time.timeScale = Paused ? 0 : 1;
         }
 
     }

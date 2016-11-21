@@ -46,9 +46,9 @@ namespace Assets.Scripts.Player
             StraightenUp();
         }
 
-        public void ProcessInputs(string e)
+        public void ProcessInputs(KeyCode keyCode)
         {
-            if (e == "test")
+            if (keyCode == KeyCode.Mouse0)
             {
                 PlayerBounceLogic.IncreaseBouncePower();
             }

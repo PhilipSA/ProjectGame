@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Assets.Engine;
+using Assets.Scripts.GUI.OverlayScreens;
+using UnityEngine;
 
 namespace Assets.Scripts.GUI
 {
@@ -7,10 +9,10 @@ namespace Assets.Scripts.GUI
         private TimerDisplay _timerDisplay;
         private ChargeBar _chargeBar;
         private HealthBar _healthBar;
-        private VictoryScreen _victoryScreen;
+        public VictoryScreen VictoryScreen { get; private set; }
         private DefeatScreen _defeatScreen;
         private FPSDisplay _fpsDisplay;
-        private PauseMenu _pauseMenu;
+        public PauseScreen PauseMenu { get; private set; }
         public Player.Player PlayerData { get; private set; }
 
         void Start()
@@ -18,10 +20,10 @@ namespace Assets.Scripts.GUI
             _timerDisplay = gameObject.AddComponent<TimerDisplay>();
             _chargeBar = gameObject.AddComponent<ChargeBar>();
             _healthBar = gameObject.AddComponent<HealthBar>();
-            _victoryScreen = gameObject.AddComponent<VictoryScreen>();
+            VictoryScreen = gameObject.AddComponent<VictoryScreen>();
             _defeatScreen = gameObject.AddComponent<DefeatScreen>();
             _fpsDisplay = gameObject.AddComponent<FPSDisplay>();
-            _pauseMenu = gameObject.AddComponent<PauseMenu>();
+            PauseMenu = gameObject.AddComponent<PauseScreen>();
             PlayerData = FindObjectOfType(typeof(Player.Player)) as Player.Player;
         }
 
@@ -31,15 +33,17 @@ namespace Assets.Scripts.GUI
             _healthBar.BarDisplay = PlayerData._playerHitpoints.Hitpoints;
         }
 
-        public void DisplayVictoryScreen()
+        public void ProcessInputs(KeyCode keyCode)
         {
-            _victoryScreen.SetVisibility(true);
+            if (keyCode == KeyCode.Escape)
+            {
+                GameEngineHelper.GetCurrentGameEngine().Pause();
+            }
         }
 
-
-        public void DisplayPauseMenu()
+        public void ToggleOverlayScreen(OverlayScreen overlayScreen)
         {
-            _pauseMenu.SetVisibility(true);
+            overlayScreen.SetVisibility(!overlayScreen.IsVisible);
         }
     }
 }
