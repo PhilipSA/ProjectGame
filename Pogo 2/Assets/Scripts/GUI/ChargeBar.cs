@@ -7,7 +7,7 @@ namespace Assets.Scripts.GUI
     public class ChargeBar : MonoBehaviour {
 
         public float BarDisplay; //current progress
-        public Vector2 Pos = new Vector2(20, 1600);
+        public Vector2 Pos = new Vector2(20, 500);
         public Vector2 Size = new Vector2(10, 20);
 
         void OnGUI()
@@ -19,8 +19,8 @@ namespace Assets.Scripts.GUI
             UnityEngine.GUI.skin.box.normal.background = texture;
             for (float i = PlayerBounceLogic.MinimumBouncePower; i <= Math.Round(BarDisplay, 2); i += PlayerBounceLogic.BouncePowerIncrease)
             {
-                //Debug.Log(BarDisplay);
-                var displayPos = new Vector2(Pos.x, Pos.y * i / 10 + 20);
+                float posY = Pos.y * i / 10;
+                var displayPos = new Vector2(Pos.x, Pos.y - posY);
                 UnityEngine.GUI.Box(new Rect(displayPos, Size), GUIContent.none);
             }
         }

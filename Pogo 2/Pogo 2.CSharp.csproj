@@ -74,10 +74,14 @@
     <Compile Include="Assets\Scripts\Enums\InputDeviceEnum.cs" />
     <Compile Include="Assets\Scripts\Enums\LevelEnums.cs" />
     <Compile Include="Assets\Scripts\GUI\ChargeBar.cs" />
+    <Compile Include="Assets\Scripts\GUI\OptionsMenu\AudioOptions.cs" />
+    <Compile Include="Assets\Scripts\GUI\OptionsMenu\ControlOptions.cs" />
+    <Compile Include="Assets\Scripts\GUI\OptionsMenu\GraphicsOptions.cs" />
     <Compile Include="Assets\Scripts\GUI\OverlayScreens\DefeatScreen.cs" />
     <Compile Include="Assets\Scripts\GUI\FPSDisplay.cs" />
     <Compile Include="Assets\Scripts\GUI\GUIHandler.cs" />
     <Compile Include="Assets\Scripts\GUI\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\GUI\OverlayScreens\OptionsScreen.cs" />
     <Compile Include="Assets\Scripts\GUI\OverlayScreens\OverlayScreen.cs" />
     <Compile Include="Assets\Scripts\GUI\OverlayScreens\PauseScreen.cs" />
     <Compile Include="Assets\Scripts\GUI\TimerDisplay.cs" />
