@@ -1,4 +1,4 @@
-﻿using System;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.GUI.OverlayScreens
 {
@@ -6,7 +6,8 @@ namespace Assets.Scripts.GUI.OverlayScreens
     {
         protected override void Start()
         {
-            throw new NotImplementedException();
+            _canvas = GameObject.Find("OptionsScreen");
+            _canvas.SetActive(false);
         }
     }
 }

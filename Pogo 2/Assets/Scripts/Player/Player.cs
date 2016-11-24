@@ -39,10 +39,9 @@ namespace Assets.Scripts.Player
         }
 	
         // Update is called once per frame
-        void Update ()
+        void Update()
         {
             Bounce();
-            if (_playerControl.HasMousePositionChanged()) AnglePlayer();
             StraightenUp();
         }
 
@@ -51,6 +50,10 @@ namespace Assets.Scripts.Player
             if (keyCode == KeyCode.Mouse0)
             {
                 PlayerBounceLogic.IncreaseBouncePower();
+            }
+            if (keyCode == KeyCode.Mouse6)
+            {
+                AnglePlayer();
             }
         }
 

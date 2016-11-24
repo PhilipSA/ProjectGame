@@ -26,15 +26,5 @@ namespace Assets.Scripts.Player
             var mousePosition = Input.mousePosition;
             return Camera.main.ScreenToWorldPoint(mousePosition);
         }
-
-        public bool HasMousePositionChanged()
-        {
-            if (Input.mousePosition != MousePosition)
-            {
-                MousePosition = Input.mousePosition;
-                return true;
-            }
-            return false;
-        }
     }
 }

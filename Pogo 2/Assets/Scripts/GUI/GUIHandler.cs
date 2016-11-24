@@ -13,6 +13,7 @@ namespace Assets.Scripts.GUI
         private DefeatScreen _defeatScreen;
         private FPSDisplay _fpsDisplay;
         public PauseScreen PauseMenu { get; private set; }
+        public OptionsScreen OptionsScreen { get; private set; }
         public Player.Player PlayerData { get; private set; }
 
         void Start()
@@ -24,6 +25,7 @@ namespace Assets.Scripts.GUI
             _defeatScreen = gameObject.AddComponent<DefeatScreen>();
             _fpsDisplay = gameObject.AddComponent<FPSDisplay>();
             PauseMenu = gameObject.AddComponent<PauseScreen>();
+            OptionsScreen = gameObject.AddComponent<OptionsScreen>();
             PlayerData = FindObjectOfType(typeof(Player.Player)) as Player.Player;
         }
 
