@@ -2,7 +2,7 @@
 using Assets.Scripts.GUI.OverlayScreens;
 using UnityEngine;
 
-namespace Assets.Scripts.GUI
+namespace Assets.Scripts.GUI.GUIElements
 {
     public class GUIHandler : MonoBehaviour
     {
@@ -46,6 +46,11 @@ namespace Assets.Scripts.GUI
         public void ToggleOverlayScreen(OverlayScreen overlayScreen)
         {
             overlayScreen.SetVisibility(!overlayScreen.IsVisible);
+        }
+
+        public void StopTimer()
+        {
+            _timerDisplay.StopTimer();
         }
     }
 }

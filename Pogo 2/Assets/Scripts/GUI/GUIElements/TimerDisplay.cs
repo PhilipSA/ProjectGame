@@ -8,22 +8,26 @@ namespace Assets.Scripts.GUI
 {
     public class TimerDisplay : MonoBehaviour
     {
-        public Timer timer;
-
+        public StopWatch StopWatch;
         private Text _text;
 
         // Use this for initialization
         void Start()
         {
             _text = (Text)GameObject.Find("TimerText").GetComponent(typeof(Text));
-            timer = new Timer();
+            StopWatch = new StopWatch(true);
         }
 
         // Update is called once per frame
         void Update()
         {
-            timer.Tick();
-            _text.text = timer.GetTimeInMmssffFormat();
+            StopWatch.Tick();
+            _text.text = StopWatch.GetTimeInMmssffFormat();
+        }
+
+        public void StopTimer()
+        {
+            StopWatch.Enabled = false;
         }
 
         void OnGUI()

@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.GUI;
+using Assets.Scripts.GUI.GUIElements;
 using Assets.Scripts.Player;
 using UnityEngine;
 
@@ -35,6 +36,7 @@ namespace Assets.Engine
         {
             GuiHandler.ToggleOverlayScreen(GuiHandler.VictoryScreen);
             InputHandler.ToggleIgnorePlayerInputs(true, Player);
+            GuiHandler.StopTimer();
         }
 
         public void TogglePauseMenu()

@@ -1,16 +1,23 @@
 ﻿using System;
+using System.Threading;
 using UnityEngine;
 
 namespace Assets.CustomComponents
 {
-    public class Timer
+    public class StopWatch
     {
-        public float TimeSinceStarted { get; private set; }        
+        public float TimeSinceStarted { get; private set; }   
+        public bool Enabled { get; set; }
+
+        public StopWatch(bool enabled)
+        {
+            Enabled = enabled;
+        }
 	
         // Update is called once per frame
         public void Tick()
         {
-            TimeSinceStarted += Time.deltaTime;
+            if (Enabled) TimeSinceStarted += Time.deltaTime;
         }
 
         public string GetTimeInMmssffFormat()

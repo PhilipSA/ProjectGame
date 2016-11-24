@@ -2,7 +2,7 @@
 using Assets.Scripts.Player;
 using UnityEngine;
 
-namespace Assets.Scripts.GUI
+namespace Assets.Scripts.GUI.GUIElements
 {
     public class ChargeBar : MonoBehaviour {
 

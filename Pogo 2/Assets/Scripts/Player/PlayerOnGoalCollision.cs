@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerOnGoalCollision : MonoBehaviour {
 
     private GameObject parent;
+    public bool HasTriggered = false;
 
     void Start()
     {
@@ -12,6 +13,7 @@ public class PlayerOnGoalCollision : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        parent.SendMessage("OnGoalCollision");
+        if(!HasTriggered) parent.SendMessage("OnGoalCollision");
+        HasTriggered = true;
     }
 }
