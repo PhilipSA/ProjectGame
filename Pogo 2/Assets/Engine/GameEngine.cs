@@ -34,6 +34,7 @@ namespace Assets.Engine
         public void Victory()
         {
             GuiHandler.ToggleOverlayScreen(GuiHandler.VictoryScreen);
+            InputHandler.ToggleIgnorePlayerInputs(true, Player);
         }
 
         public void TogglePauseMenu()
@@ -46,6 +47,8 @@ namespace Assets.Engine
             Paused = !Paused;
             TogglePauseMenu();
             Time.timeScale = Paused ? 0 : 1;
+            Player.enabled = !Paused;
+            InputHandler.ToggleIgnorePlayerInputs(Paused, Player);
         }
 
     }
