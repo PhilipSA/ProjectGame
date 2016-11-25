@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.GUI;
-using Assets.Scripts.GUI.GUIElements;
+﻿using Assets.Scripts.GUI.GUIElements;
 using Assets.Scripts.Player;
 using UnityEngine;
 
@@ -14,6 +13,7 @@ namespace Assets.Engine
 
         void Start()
         {
+            Time.timeScale = 1;
             GuiHandler = gameObject.AddComponent<GUIHandler>();
             Player = GameObject.Find("Player").AddComponent(typeof(Player)) as Player;
             InputHandler = gameObject.AddComponent<InputHandler>();
@@ -37,6 +37,15 @@ namespace Assets.Engine
             GuiHandler.ToggleOverlayScreen(GuiHandler.VictoryScreen);
             InputHandler.ToggleIgnorePlayerInputs(true, Player);
             GuiHandler.StopTimer();
+            Player.enabled = false;
+        }
+
+        public void Defeat()
+        {
+            GuiHandler.ToggleOverlayScreen(GuiHandler.DefeatScreen);
+            InputHandler.ToggleIgnorePlayerInputs(true, Player);
+            GuiHandler.StopTimer();
+            Player.enabled = false;
         }
 
         public void TogglePauseMenu()

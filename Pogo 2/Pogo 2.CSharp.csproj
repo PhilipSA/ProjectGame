@@ -90,15 +90,15 @@
     <Compile Include="Assets\Scripts\GUI\OverlayScreens\PauseScreen.cs" />
     <Compile Include="Assets\Scripts\GUI\GUIElements\TimerDisplay.cs" />
     <Compile Include="Assets\Scripts\GUI\OverlayScreens\VictoryScreen.cs" />
-    <Compile Include="Assets\Scripts\Menus\LevelHandler.cs" />
+    <Compile Include="Assets\Engine\Levels\LevelHandler.cs" />
     <Compile Include="Assets\Scripts\Menus\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Player\Parts\PlayerFoot.cs" />
+    <Compile Include="Assets\Scripts\Player\Parts\PlayerHead.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerBounceLogic.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerHitpoints.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerOnFootCollision.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerOnGoalCollision.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerOnHeadCollison.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />

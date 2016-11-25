@@ -1,5 +1,5 @@
-﻿using System;
-using Assets.Engine;
+﻿using Assets.Engine;
+using Assets.Scripts.Player.Parts;
 using UnityEngine;
 
 namespace Assets.Scripts.Player
@@ -7,8 +7,8 @@ namespace Assets.Scripts.Player
     public class Player : MonoBehaviour
     {
         private Rigidbody2D _playerRigidbody2D;
-        private PolygonCollider2D _footCollider;
-        private BoxCollider2D _headCollider;
+        private PlayerFoot _playerFoot;
+        private PlayerHead _playerHead;
 
         private PlayerControl _playerControl;
         public PlayerBounceLogic PlayerBounceLogic;
@@ -23,19 +23,9 @@ namespace Assets.Scripts.Player
 
             _playerRigidbody2D = GetComponent<Rigidbody2D>();
             _playerRigidbody2D.freezeRotation = true;
-            var childComponents = GetComponentsInChildren<Component>();
 
-            foreach (var component in childComponents)
-            {
-                if (component.name == "Foot")
-                {
-                    _footCollider = component.GetComponent<PolygonCollider2D>();
-                }
-                if (component.name == "Head")
-                {
-                    _headCollider = component.GetComponent<BoxCollider2D>();
-                }
-            }
+            _playerFoot = GameObject.Find("PlayerFoot").AddComponent(typeof(PlayerFoot)) as PlayerFoot;
+            _playerHead = GameObject.Find("PlayerHead").AddComponent(typeof(PlayerHead)) as PlayerHead;       
         }
 	
         // Update is called once per frame
@@ -78,13 +68,13 @@ namespace Assets.Scripts.Player
         {
             if (_playerHitpoints.Hitpoints <= 0)
             {
-                //LevelHandler.ChangeLevel("MainMenu");
+                GameEngineHelper.GetCurrentGameEngine().Defeat();
             }
         }
 
         void Bounce()
-        {
-            _footCollider.sharedMaterial.bounciness = PlayerBounceLogic.GetBouncePower();
+        {          
+            _playerFoot.Collider2D.sharedMaterial.bounciness = PlayerBounceLogic.GetBouncePower();
         }
 
         void MovePlayer()

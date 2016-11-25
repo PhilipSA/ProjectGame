@@ -10,7 +10,7 @@ namespace Assets.Scripts.GUI.GUIElements
         private ChargeBar _chargeBar;
         private HealthBar _healthBar;
         public VictoryScreen VictoryScreen { get; private set; }
-        private DefeatScreen _defeatScreen;
+        public DefeatScreen DefeatScreen { get; private set; }
         private FPSDisplay _fpsDisplay;
         public PauseScreen PauseMenu { get; private set; }
         public OptionsScreen OptionsScreen { get; private set; }
@@ -22,7 +22,7 @@ namespace Assets.Scripts.GUI.GUIElements
             _chargeBar = gameObject.AddComponent<ChargeBar>();
             _healthBar = gameObject.AddComponent<HealthBar>();
             VictoryScreen = gameObject.AddComponent<VictoryScreen>();
-            _defeatScreen = gameObject.AddComponent<DefeatScreen>();
+            DefeatScreen = gameObject.AddComponent<DefeatScreen>();
             _fpsDisplay = gameObject.AddComponent<FPSDisplay>();
             PauseMenu = gameObject.AddComponent<PauseScreen>();
             OptionsScreen = gameObject.AddComponent<OptionsScreen>();
