@@ -68,6 +68,7 @@
     <Compile Include="Assets\CustomComponents\StopWatch.cs" />
     <Compile Include="Assets\Engine\GameEngine.cs" />
     <Compile Include="Assets\Engine\GameEngineHelper.cs" />
+    <Compile Include="Assets\Engine\GameEvents.cs" />
     <Compile Include="Assets\Engine\InputEvents.cs" />
     <Compile Include="Assets\Engine\InputHandler.cs" />
     <Compile Include="Assets\Scripts\Cameras\MainCamera.cs" />

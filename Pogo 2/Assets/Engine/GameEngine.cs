@@ -9,6 +9,7 @@ namespace Assets.Engine
         public GUIHandler GuiHandler;
         public Player Player;
         public InputHandler InputHandler;
+        public GameEvents GameEvents;
         public bool Paused { get; private set; }
 
         void Start()
@@ -17,6 +18,8 @@ namespace Assets.Engine
             GuiHandler = gameObject.AddComponent<GUIHandler>();
             Player = GameObject.Find("Player").AddComponent(typeof(Player)) as Player;
             InputHandler = gameObject.AddComponent<InputHandler>();
+            GameEvents = new GameEvents();
+            GameEvents.PlayerOnGoalCollision += Victory;
             InputSubscriptions();
             Paused = false;
         }
@@ -34,6 +37,7 @@ namespace Assets.Engine
 
         public void Victory()
         {
+            GameEvents.PlayerOnGoalCollision -= Victory;
             GuiHandler.ToggleOverlayScreen(GuiHandler.VictoryScreen);
             InputHandler.ToggleIgnorePlayerInputs(true, Player);
             GuiHandler.StopTimer();

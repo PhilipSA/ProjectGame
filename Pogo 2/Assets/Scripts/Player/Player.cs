@@ -59,11 +59,6 @@ namespace Assets.Scripts.Player
             MovePlayer();
         }
 
-        public void OnGoalCollision()
-        {
-            GameEngineHelper.GetCurrentGameEngine().Victory();
-        }
-
         void DeadCheck()
         {
             if (_playerHitpoints.Hitpoints <= 0)
