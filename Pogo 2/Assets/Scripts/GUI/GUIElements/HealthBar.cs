@@ -15,7 +15,7 @@ namespace Assets.Scripts.GUI.GUIElements
             texture.SetPixel(0, 0, Color.red);
             texture.Apply();
             UnityEngine.GUI.skin.box.normal.background = texture;
-            for (float i = 0; i <= BarDisplay; i++)
+            for (float i = 0; i < BarDisplay; i++)
             {
                 var displayPos = new Vector2(Pos.x + i, Pos.y);
                 UnityEngine.GUI.Box(new Rect(displayPos, Size), GUIContent.none);

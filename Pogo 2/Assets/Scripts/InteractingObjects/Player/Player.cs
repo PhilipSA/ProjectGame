@@ -1,8 +1,8 @@
 ﻿using Assets.Engine;
-using Assets.Scripts.Player.Parts;
+using Assets.Scripts.InteractingObjects.Player.Parts;
 using UnityEngine;
 
-namespace Assets.Scripts.Player
+namespace Assets.Scripts.InteractingObjects.Player
 {
     public class Player : MonoBehaviour
     {

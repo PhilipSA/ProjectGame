@@ -1,5 +1,5 @@
 ﻿using System;
-using Assets.Scripts.Player;
+using Assets.Scripts.InteractingObjects.Player;
 using UnityEngine;
 
 namespace Assets.Scripts.GUI.GUIElements

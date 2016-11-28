@@ -1,10 +1,8 @@
-﻿using System;
-using System.Linq;
-using Assets.CustomComponents;
+﻿using Assets.CustomComponents;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.GUI
+namespace Assets.Scripts.GUI.GUIElements
 {
     public class TimerDisplay : MonoBehaviour
     {

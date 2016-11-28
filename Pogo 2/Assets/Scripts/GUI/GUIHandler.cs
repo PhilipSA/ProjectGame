@@ -1,8 +1,10 @@
 ﻿using Assets.Engine;
+using Assets.Scripts.GUI.GUIElements;
 using Assets.Scripts.GUI.OverlayScreens;
+using Assets.Scripts.InteractingObjects.Player;
 using UnityEngine;
 
-namespace Assets.Scripts.GUI.GUIElements
+namespace Assets.Scripts.GUI
 {
     public class GUIHandler : MonoBehaviour
     {
@@ -14,7 +16,7 @@ namespace Assets.Scripts.GUI.GUIElements
         private FPSDisplay _fpsDisplay;
         public PauseScreen PauseMenu { get; private set; }
         public OptionsScreen OptionsScreen { get; private set; }
-        public Player.Player PlayerData { get; private set; }
+        public Player PlayerData { get; private set; }
 
         void Start()
         {
@@ -26,7 +28,7 @@ namespace Assets.Scripts.GUI.GUIElements
             _fpsDisplay = gameObject.AddComponent<FPSDisplay>();
             PauseMenu = gameObject.AddComponent<PauseScreen>();
             OptionsScreen = gameObject.AddComponent<OptionsScreen>();
-            PlayerData = FindObjectOfType(typeof(Player.Player)) as Player.Player;
+            PlayerData = FindObjectOfType(typeof(Player)) as Player;
         }
 
         void Update()

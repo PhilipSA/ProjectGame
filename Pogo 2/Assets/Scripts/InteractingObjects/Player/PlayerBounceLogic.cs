@@ -1,7 +1,4 @@
-﻿using System;
-using UnityEngine;
-
-namespace Assets.Scripts.Player
+﻿namespace Assets.Scripts.InteractingObjects.Player
 {
     public class PlayerBounceLogic {
 

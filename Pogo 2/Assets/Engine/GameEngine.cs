@@ -1,5 +1,6 @@
-﻿using Assets.Scripts.GUI.GUIElements;
-using Assets.Scripts.Player;
+﻿using Assets.Scripts.GUI;
+using Assets.Scripts.GUI.GUIElements;
+using Assets.Scripts.InteractingObjects.Player;
 using UnityEngine;
 
 namespace Assets.Engine

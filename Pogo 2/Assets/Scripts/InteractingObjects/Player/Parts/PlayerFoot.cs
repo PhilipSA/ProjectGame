@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Player.Parts
+namespace Assets.Scripts.InteractingObjects.Player.Parts
 {
     public class PlayerFoot : MonoBehaviour
     {
