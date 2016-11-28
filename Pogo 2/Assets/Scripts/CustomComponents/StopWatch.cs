@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Threading;
 using UnityEngine;
 
-namespace Assets.CustomComponents
+namespace Assets.Scripts.CustomComponents
 {
     public class StopWatch
     {

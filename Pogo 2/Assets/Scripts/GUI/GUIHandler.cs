@@ -1,4 +1,4 @@
-﻿using Assets.Engine;
+﻿using Assets.Scripts.Engine;
 using Assets.Scripts.GUI.GUIElements;
 using Assets.Scripts.GUI.OverlayScreens;
 using Assets.Scripts.InteractingObjects.Player;
@@ -20,15 +20,17 @@ namespace Assets.Scripts.GUI
 
         void Start()
         {
-            _timerDisplay = gameObject.AddComponent<TimerDisplay>();
+            _timerDisplay = (TimerDisplay)GetComponentInChildren(typeof(TimerDisplay), true);
+            VictoryScreen = (VictoryScreen)GetComponentInChildren(typeof(VictoryScreen), true);
+            DefeatScreen = (DefeatScreen)GetComponentInChildren(typeof(DefeatScreen), true);
+            PauseMenu = (PauseScreen)GetComponentInChildren(typeof(PauseScreen), true); 
+            OptionsScreen = (OptionsScreen)GetComponentInChildren(typeof(OptionsScreen), true);
+            PlayerData = FindObjectOfType<Player>();
+            Debug.Log(VictoryScreen);
+
             _chargeBar = gameObject.AddComponent<ChargeBar>();
             _healthBar = gameObject.AddComponent<HealthBar>();
-            VictoryScreen = gameObject.AddComponent<VictoryScreen>();
-            DefeatScreen = gameObject.AddComponent<DefeatScreen>();
             _fpsDisplay = gameObject.AddComponent<FPSDisplay>();
-            PauseMenu = gameObject.AddComponent<PauseScreen>();
-            OptionsScreen = gameObject.AddComponent<OptionsScreen>();
-            PlayerData = FindObjectOfType(typeof(Player)) as Player;
         }
 
         void Update()

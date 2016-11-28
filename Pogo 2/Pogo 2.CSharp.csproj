@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.1f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -65,13 +63,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CustomComponents\StopWatch.cs" />
-    <Compile Include="Assets\Engine\GameEngine.cs" />
-    <Compile Include="Assets\Engine\GameEngineHelper.cs" />
-    <Compile Include="Assets\Engine\GameEvents.cs" />
-    <Compile Include="Assets\Engine\InputEvents.cs" />
-    <Compile Include="Assets\Engine\InputHandler.cs" />
     <Compile Include="Assets\Scripts\Cameras\MainCamera.cs" />
+    <Compile Include="Assets\Scripts\CustomComponents\StopWatch.cs" />
+    <Compile Include="Assets\Scripts\Engine\AudioHandler.cs" />
+    <Compile Include="Assets\Scripts\Engine\GameEngine.cs" />
+    <Compile Include="Assets\Scripts\Engine\GameEngineHelper.cs" />
+    <Compile Include="Assets\Scripts\Engine\GameEvents.cs" />
+    <Compile Include="Assets\Scripts\Engine\InputEvents.cs" />
+    <Compile Include="Assets\Scripts\Engine\InputHandler.cs" />
+    <Compile Include="Assets\Scripts\Engine\Levels\LevelHandler.cs" />
     <Compile Include="Assets\Scripts\Enums\InputDeviceEnum.cs" />
     <Compile Include="Assets\Scripts\Enums\LevelEnums.cs" />
     <Compile Include="Assets\Scripts\GUI\Buttons\ContinueButton.cs" />
@@ -79,20 +79,18 @@
     <Compile Include="Assets\Scripts\GUI\Buttons\NextLevelButton.cs" />
     <Compile Include="Assets\Scripts\GUI\Buttons\RestartLevelButton.cs" />
     <Compile Include="Assets\Scripts\GUI\GUIElements\ChargeBar.cs" />
+    <Compile Include="Assets\Scripts\GUI\GUIElements\FPSDisplay.cs" />
+    <Compile Include="Assets\Scripts\GUI\GUIElements\HealthBar.cs" />
+    <Compile Include="Assets\Scripts\GUI\GUIElements\TimerDisplay.cs" />
+    <Compile Include="Assets\Scripts\GUI\GUIHandler.cs" />
     <Compile Include="Assets\Scripts\GUI\OptionsMenu\AudioOptions.cs" />
     <Compile Include="Assets\Scripts\GUI\OptionsMenu\ControlOptions.cs" />
     <Compile Include="Assets\Scripts\GUI\OptionsMenu\GraphicsOptions.cs" />
     <Compile Include="Assets\Scripts\GUI\OverlayScreens\DefeatScreen.cs" />
-    <Compile Include="Assets\Scripts\GUI\GUIElements\FPSDisplay.cs" />
-    <Compile Include="Assets\Scripts\GUI\GUIHandler.cs" />
-    <Compile Include="Assets\Scripts\GUI\GUIElements\HealthBar.cs" />
     <Compile Include="Assets\Scripts\GUI\OverlayScreens\OptionsScreen.cs" />
     <Compile Include="Assets\Scripts\GUI\OverlayScreens\OverlayScreen.cs" />
     <Compile Include="Assets\Scripts\GUI\OverlayScreens\PauseScreen.cs" />
-    <Compile Include="Assets\Scripts\GUI\GUIElements\TimerDisplay.cs" />
     <Compile Include="Assets\Scripts\GUI\OverlayScreens\VictoryScreen.cs" />
-    <Compile Include="Assets\Engine\Levels\LevelHandler.cs" />
-    <Compile Include="Assets\Scripts\Menus\MainMenu.cs" />
     <Compile Include="Assets\Scripts\InteractingObjects\Player\Parts\PlayerFoot.cs" />
     <Compile Include="Assets\Scripts\InteractingObjects\Player\Parts\PlayerHead.cs" />
     <Compile Include="Assets\Scripts\InteractingObjects\Player\Player.cs" />
@@ -100,7 +98,7 @@
     <Compile Include="Assets\Scripts\InteractingObjects\Player\PlayerControl.cs" />
     <Compile Include="Assets\Scripts\InteractingObjects\Player\PlayerHitpoints.cs" />
     <Compile Include="Assets\Scripts\InteractingObjects\Player\PlayerOnGoalCollision.cs" />
+    <Compile Include="Assets\Scripts\Menus\MainMenu.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

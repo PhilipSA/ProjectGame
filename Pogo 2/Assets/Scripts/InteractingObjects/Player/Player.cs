@@ -1,5 +1,4 @@
-﻿using Assets.Engine;
-using Assets.Scripts.InteractingObjects.Player.Parts;
+﻿using Assets.Scripts.Engine;
 using UnityEngine;
 
 namespace Assets.Scripts.InteractingObjects.Player
@@ -7,16 +6,17 @@ namespace Assets.Scripts.InteractingObjects.Player
     public class Player : MonoBehaviour
     {
         private Rigidbody2D _playerRigidbody2D;
-        private PlayerFoot _playerFoot;
-        private PlayerHead _playerHead;
+        private PolygonCollider2D _playerFootCollider2D;
 
         private PlayerControl _playerControl;
         public PlayerBounceLogic PlayerBounceLogic;
         public PlayerHitpoints _playerHitpoints;
 
+        public Collider2D BoxCollider2D { get; private set; }
+
         // Use this for initialization
         void Start ()
-        {          
+        {
             _playerControl = new PlayerControl();
             PlayerBounceLogic = new PlayerBounceLogic();
             _playerHitpoints = new PlayerHitpoints();
@@ -24,8 +24,9 @@ namespace Assets.Scripts.InteractingObjects.Player
             _playerRigidbody2D = GetComponent<Rigidbody2D>();
             _playerRigidbody2D.freezeRotation = true;
 
-            _playerFoot = GameObject.Find("PlayerFoot").AddComponent(typeof(PlayerFoot)) as PlayerFoot;
-            _playerHead = GameObject.Find("PlayerHead").AddComponent(typeof(PlayerHead)) as PlayerHead;       
+            _playerFootCollider2D = GetComponentInChildren<PolygonCollider2D>();
+
+            BoxCollider2D = GetComponent<BoxCollider2D>();
         }
 	
         // Update is called once per frame
@@ -69,7 +70,7 @@ namespace Assets.Scripts.InteractingObjects.Player
 
         void Bounce()
         {          
-            _playerFoot.Collider2D.sharedMaterial.bounciness = PlayerBounceLogic.GetBouncePower();
+            _playerFootCollider2D.sharedMaterial.bounciness = PlayerBounceLogic.GetBouncePower();
         }
 
         void MovePlayer()

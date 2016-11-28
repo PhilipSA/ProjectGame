@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Assets.Engine
+﻿namespace Assets.Scripts.Engine
 {
     public class GameEvents
     {

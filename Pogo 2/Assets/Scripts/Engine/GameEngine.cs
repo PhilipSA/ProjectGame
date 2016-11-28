@@ -1,24 +1,24 @@
 ﻿using Assets.Scripts.GUI;
-using Assets.Scripts.GUI.GUIElements;
 using Assets.Scripts.InteractingObjects.Player;
 using UnityEngine;
 
-namespace Assets.Engine
+namespace Assets.Scripts.Engine
 {
     public class GameEngine : MonoBehaviour
     {
-        public GUIHandler GuiHandler;
-        public Player Player;
-        public InputHandler InputHandler;
-        public GameEvents GameEvents;
+        public GUIHandler GuiHandler { get; private set; }
+        public Player Player { get; private set; }
+        public InputHandler InputHandler { get; private set; }
+        public GameEvents GameEvents { get; private set; }
         public bool Paused { get; private set; }
 
         void Start()
         {
             Time.timeScale = 1;
-            GuiHandler = gameObject.AddComponent<GUIHandler>();
-            Player = GameObject.Find("Player").AddComponent(typeof(Player)) as Player;
-            InputHandler = gameObject.AddComponent<InputHandler>();
+            GuiHandler = (GUIHandler)GetComponentInChildren(typeof(GUIHandler));
+            Player = (Player)GetComponentInChildren(typeof(Player));
+            Debug.Log(Player);
+            InputHandler = (InputHandler)GetComponentInChildren(typeof(InputHandler));
             GameEvents = new GameEvents();
             GameEvents.PlayerOnGoalCollision += Victory;
             InputSubscriptions();

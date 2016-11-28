@@ -1,6 +1,6 @@
 ﻿using UnityEngine.SceneManagement;
 
-namespace Assets.Engine.Levels
+namespace Assets.Scripts.Engine.Levels
 {
     public static class LevelHandler {
 

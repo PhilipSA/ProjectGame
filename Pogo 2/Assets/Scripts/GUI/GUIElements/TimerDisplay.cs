@@ -1,4 +1,4 @@
-﻿using Assets.CustomComponents;
+﻿using Assets.Scripts.CustomComponents;
 using UnityEngine;
 using UnityEngine.UI;
 

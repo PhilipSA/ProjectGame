@@ -1,7 +1,6 @@
-﻿using Assets.Scripts.GUI;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Engine
+namespace Assets.Scripts.Engine
 {
     public class InputEvents
     {
