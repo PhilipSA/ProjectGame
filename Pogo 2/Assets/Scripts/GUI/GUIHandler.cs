@@ -26,7 +26,6 @@ namespace Assets.Scripts.GUI
             PauseMenu = (PauseScreen)GetComponentInChildren(typeof(PauseScreen), true); 
             OptionsScreen = (OptionsScreen)GetComponentInChildren(typeof(OptionsScreen), true);
             PlayerData = FindObjectOfType<Player>();
-            Debug.Log(VictoryScreen);
 
             _chargeBar = gameObject.AddComponent<ChargeBar>();
             _healthBar = gameObject.AddComponent<HealthBar>();

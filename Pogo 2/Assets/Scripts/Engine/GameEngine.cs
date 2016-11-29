@@ -17,7 +17,6 @@ namespace Assets.Scripts.Engine
             Time.timeScale = 1;
             GuiHandler = (GUIHandler)GetComponentInChildren(typeof(GUIHandler));
             Player = (Player)GetComponentInChildren(typeof(Player));
-            Debug.Log(Player);
             InputHandler = (InputHandler)GetComponentInChildren(typeof(InputHandler));
             GameEvents = new GameEvents();
             GameEvents.PlayerOnGoalCollision += Victory;

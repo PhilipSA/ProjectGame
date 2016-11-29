@@ -6,7 +6,7 @@ namespace Assets.Scripts.InteractingObjects.Player
     public class Player : MonoBehaviour
     {
         private Rigidbody2D _playerRigidbody2D;
-        private PolygonCollider2D _playerFootCollider2D;
+        private CircleCollider2D _playerFootCollider2D;
 
         private PlayerControl _playerControl;
         public PlayerBounceLogic PlayerBounceLogic;
@@ -24,7 +24,7 @@ namespace Assets.Scripts.InteractingObjects.Player
             _playerRigidbody2D = GetComponent<Rigidbody2D>();
             _playerRigidbody2D.freezeRotation = true;
 
-            _playerFootCollider2D = GetComponentInChildren<PolygonCollider2D>();
+            _playerFootCollider2D = GetComponentInChildren<CircleCollider2D>();
 
             BoxCollider2D = GetComponent<BoxCollider2D>();
         }
@@ -50,7 +50,7 @@ namespace Assets.Scripts.InteractingObjects.Player
 
         public void OnHeadCollision()
         {
-            _playerHitpoints.CalculateDamage();
+            _playerHitpoints.CalculateDamage(_playerRigidbody2D);
             DeadCheck();
         }
 
