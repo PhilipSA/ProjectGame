@@ -11,9 +11,12 @@
 
         public float GetBouncePower()
         {          
-            if (BouncePower > MinimumBouncePower) BouncePower -= BouncePowerDecrease;
-
             return BouncePower;
+        }
+
+        public void UpdateBouncePower()
+        {
+            if (BouncePower > MinimumBouncePower) BouncePower -= BouncePowerDecrease;
         }
 
         public void IncreaseBouncePower()

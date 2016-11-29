@@ -32,7 +32,7 @@ namespace Assets.Scripts.InteractingObjects.Player
         // Update is called once per frame
         void Update()
         {
-            Bounce();
+            PlayerBounceLogic.UpdateBouncePower();
             StraightenUp();
         }
 
@@ -76,6 +76,7 @@ namespace Assets.Scripts.InteractingObjects.Player
         void MovePlayer()
         {
             var moveDirection = _playerControl.GetMoveDirection(_playerRigidbody2D);
+            moveDirection.y *= PlayerBounceLogic.GetBouncePower();
             _playerRigidbody2D.velocity = moveDirection;
         }
 
