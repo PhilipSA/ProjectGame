@@ -44,7 +44,7 @@ namespace Assets.Scripts.InteractingObjects.Player
             }
             if (keyCode == KeyCode.Mouse6)
             {
-                AnglePlayer();
+                AnglePlayerTowardsMouse();
             }
         }
 
@@ -68,11 +68,6 @@ namespace Assets.Scripts.InteractingObjects.Player
             }
         }
 
-        void Bounce()
-        {          
-            _playerFootCollider2D.sharedMaterial.bounciness = PlayerBounceLogic.GetBouncePower();
-        }
-
         void MovePlayer()
         {
             var moveDirection = _playerControl.GetMoveDirection(_playerRigidbody2D);
@@ -83,13 +78,19 @@ namespace Assets.Scripts.InteractingObjects.Player
         void AnglePlayer()
         {
             var newRotationAngle = _playerControl.GetRotationAngle(_playerRigidbody2D);
-            transform.rotation = Quaternion.Slerp(transform.rotation, newRotationAngle, 0.02f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, newRotationAngle, 0.1f);
+        }
+
+        void AnglePlayerTowardsMouse()
+        {
+            var newRotationAngle = _playerControl.GetRotationAngle(_playerRigidbody2D);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotationAngle, 0.5f);
         }
 
         void StraightenUp()
         {
             var defaultAngle = Quaternion.Euler(0, 0, 0);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, defaultAngle, 0.2f);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, defaultAngle, 0.099f);
         }
     }
 }

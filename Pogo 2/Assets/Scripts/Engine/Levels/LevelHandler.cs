@@ -2,8 +2,8 @@
 
 namespace Assets.Scripts.Engine.Levels
 {
-    public static class LevelHandler {
-
+    public class LevelHandler
+    {
         public static void ChangeLevel(string levelName)
         {
             SceneManager.LoadScene(levelName);

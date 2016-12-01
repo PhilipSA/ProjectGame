@@ -10,7 +10,6 @@ namespace Assets.Scripts.InteractingObjects.Player
         {
             float deltaX = -playerRigidbody2D.rotation;
             float deltaY = Mathf.Sin(Mathf.Deg2Rad * (playerRigidbody2D.rotation + 90)) * 50;
-            Debug.Log(deltaY);
             var moveDirection = new Vector2(deltaX, deltaY);
             return moveDirection;
         }

@@ -11,9 +11,10 @@ namespace Assets.Scripts.GUI
         private TimerDisplay _timerDisplay;
         private ChargeBar _chargeBar;
         private HealthBar _healthBar;
+        private FPSDisplay _fpsDisplay;
+        private BestTimeDisplay _bestTimeDisplay;
         public VictoryScreen VictoryScreen { get; private set; }
         public DefeatScreen DefeatScreen { get; private set; }
-        private FPSDisplay _fpsDisplay;
         public PauseScreen PauseMenu { get; private set; }
         public OptionsScreen OptionsScreen { get; private set; }
         public Player PlayerData { get; private set; }
@@ -30,6 +31,12 @@ namespace Assets.Scripts.GUI
             _chargeBar = gameObject.AddComponent<ChargeBar>();
             _healthBar = gameObject.AddComponent<HealthBar>();
             _fpsDisplay = gameObject.AddComponent<FPSDisplay>();
+            _bestTimeDisplay = gameObject.AddComponent<BestTimeDisplay>();
+        }
+
+        public void SetBestTimeDisplay(float time)
+        {
+            _bestTimeDisplay.SetTime(time);
         }
 
         void Update()
@@ -51,9 +58,19 @@ namespace Assets.Scripts.GUI
             overlayScreen.SetVisibility(!overlayScreen.IsVisible);
         }
 
+        public void SetVictoryScreenText(string text)
+        {
+            VictoryScreen.SetClearingTimeText(text);
+        }
+
         public void StopTimer()
         {
             _timerDisplay.StopTimer();
+        }
+
+        public float GetTimerTime()
+        {
+            return  _timerDisplay.StopWatch.TimeSinceStarted;
         }
     }
 }

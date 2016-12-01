@@ -1,6 +1,8 @@
-﻿using Assets.Scripts.GUI;
+﻿using Assets.Scripts.Engine.Levels;
+using Assets.Scripts.GUI;
 using Assets.Scripts.InteractingObjects.Player;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Engine
 {
@@ -11,6 +13,8 @@ namespace Assets.Scripts.Engine
         public InputHandler InputHandler { get; private set; }
         public GameEvents GameEvents { get; private set; }
         public bool Paused { get; private set; }
+        public BestLevelTime BestLevelTime { get; private set; }
+        public Level Level { get; private set; }
 
         void Start()
         {
@@ -18,8 +22,14 @@ namespace Assets.Scripts.Engine
             GuiHandler = (GUIHandler)GetComponentInChildren(typeof(GUIHandler));
             Player = (Player)GetComponentInChildren(typeof(Player));
             InputHandler = (InputHandler)GetComponentInChildren(typeof(InputHandler));
+
+            BestLevelTime = new BestLevelTime("bestTimes.dat");
+            Level = new Level(BestLevelTime.LoadBestTimeForLevel(SceneManager.GetActiveScene().name), SceneManager.GetActiveScene());
+            GuiHandler.SetBestTimeDisplay(Level.BestTime);
+
             GameEvents = new GameEvents();
             GameEvents.PlayerOnGoalCollision += Victory;
+
             InputSubscriptions();
             Paused = false;
         }
@@ -38,10 +48,24 @@ namespace Assets.Scripts.Engine
         public void Victory()
         {
             GameEvents.PlayerOnGoalCollision -= Victory;
-            GuiHandler.ToggleOverlayScreen(GuiHandler.VictoryScreen);
             InputHandler.ToggleIgnorePlayerInputs(true, Player);
             GuiHandler.StopTimer();
+            CheckIfBestTime();
+            GuiHandler.ToggleOverlayScreen(GuiHandler.VictoryScreen);
             Player.enabled = false;
+        }
+
+        public void CheckIfBestTime()
+        {
+            if (GuiHandler.GetTimerTime() < Level.BestTime || Level.BestTime == 0)
+            {
+                BestLevelTime.SaveBestTimeForLevel(SceneManager.GetActiveScene().name, GuiHandler.GetTimerTime());
+                GuiHandler.SetVictoryScreenText(GuiHandler.GetTimerTime().ToString());
+            }
+            else
+            {
+                GuiHandler.SetVictoryScreenText("U suck lul");
+            }
         }
 
         public void Defeat()

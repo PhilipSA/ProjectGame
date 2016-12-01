@@ -69,11 +69,14 @@
     <Compile Include="Assets\Scripts\CustomComponents\StopWatch.cs" />
     <Compile Include="Assets\Scripts\Engine\AnimationHandler.cs" />
     <Compile Include="Assets\Scripts\Engine\AudioHandler.cs" />
+    <Compile Include="Assets\Scripts\Engine\FileIO\BinaryFileHandler.cs" />
     <Compile Include="Assets\Scripts\Engine\GameEngine.cs" />
     <Compile Include="Assets\Scripts\Engine\GameEngineHelper.cs" />
     <Compile Include="Assets\Scripts\Engine\GameEvents.cs" />
     <Compile Include="Assets\Scripts\Engine\InputEvents.cs" />
     <Compile Include="Assets\Scripts\Engine\InputHandler.cs" />
+    <Compile Include="Assets\Scripts\Engine\Levels\BestLevelTime.cs" />
+    <Compile Include="Assets\Scripts\Engine\Levels\Level.cs" />
     <Compile Include="Assets\Scripts\Engine\Levels\LevelHandler.cs" />
     <Compile Include="Assets\Scripts\Enums\InputDeviceEnum.cs" />
     <Compile Include="Assets\Scripts\Enums\LevelEnums.cs" />
@@ -81,6 +84,7 @@
     <Compile Include="Assets\Scripts\GUI\Buttons\MainMenuButton.cs" />
     <Compile Include="Assets\Scripts\GUI\Buttons\NextLevelButton.cs" />
     <Compile Include="Assets\Scripts\GUI\Buttons\RestartLevelButton.cs" />
+    <Compile Include="Assets\Scripts\GUI\GUIElements\BestTimeDisplay.cs" />
     <Compile Include="Assets\Scripts\GUI\GUIElements\ChargeBar.cs" />
     <Compile Include="Assets\Scripts\GUI\GUIElements\FPSDisplay.cs" />
     <Compile Include="Assets\Scripts\GUI\GUIElements\HealthBar.cs" />
