@@ -19,7 +19,7 @@ namespace Assets.Scripts.GUI
         public OptionsScreen OptionsScreen { get; private set; }
         public Player PlayerData { get; private set; }
 
-        void Start()
+        void Awake()
         {
             _timerDisplay = (TimerDisplay)GetComponentInChildren(typeof(TimerDisplay), true);
             VictoryScreen = (VictoryScreen)GetComponentInChildren(typeof(VictoryScreen), true);
@@ -49,7 +49,7 @@ namespace Assets.Scripts.GUI
         {
             if (keyCode == KeyCode.Escape)
             {
-                GameEngineHelper.GetCurrentGameEngine().Pause();
+                GameEngineHelper.GetCurrentGameEngine().TogglePause();
             }
         }
 

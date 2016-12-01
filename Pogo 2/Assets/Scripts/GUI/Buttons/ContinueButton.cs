@@ -7,7 +7,7 @@ namespace Assets.Scripts.GUI.Buttons
     {
         public void OnClick()
         {
-            GameEngineHelper.GetCurrentGameEngine().Pause();
+            GameEngineHelper.GetCurrentGameEngine().TogglePause();
         }
     }
 }

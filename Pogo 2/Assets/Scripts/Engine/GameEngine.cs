@@ -57,7 +57,7 @@ namespace Assets.Scripts.Engine
 
         public void CheckIfBestTime()
         {
-            if (GuiHandler.GetTimerTime() < Level.BestTime || Level.BestTime == 0)
+            if (GuiHandler.GetTimerTime() < Level.BestTime || Level.BestTime.Equals(0))
             {
                 BestLevelTime.SaveBestTimeForLevel(SceneManager.GetActiveScene().name, GuiHandler.GetTimerTime());
                 GuiHandler.SetVictoryScreenText(GuiHandler.GetTimerTime().ToString());
@@ -81,7 +81,7 @@ namespace Assets.Scripts.Engine
             GuiHandler.ToggleOverlayScreen(GuiHandler.PauseMenu);
         }
 
-        public void Pause()
+        public void TogglePause()
         {
             Paused = !Paused;
             TogglePauseMenu();
