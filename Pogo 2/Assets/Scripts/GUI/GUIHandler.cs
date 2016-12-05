@@ -42,7 +42,7 @@ namespace Assets.Scripts.GUI
         void Update()
         {
             _chargeBar.BarDisplay = PlayerData.PlayerBounceLogic.BouncePower;
-            _healthBar.BarDisplay = PlayerData._playerHitpoints.Hitpoints;
+            _healthBar.BarDisplay = PlayerData.PlayerHitpoints.Hitpoints;
         }
 
         public void ProcessInputs(KeyCode keyCode)

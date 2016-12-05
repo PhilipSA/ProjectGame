@@ -2,9 +2,9 @@
 {
     public class PlayerBounceLogic {
 
-        public const float MaximumBouncePower = 2.2f;
+        public const float MaximumBouncePower = 2.8f;
         public const float MinimumBouncePower = 1.4f;
-        public const float BouncePowerIncrease = 0.2f;
+        public const float BouncePowerIncrease = 0.4f;
         public const float BouncePowerDecrease = 0.002f;
         public float BouncePower = 1.4f;
         // Use this for initialization

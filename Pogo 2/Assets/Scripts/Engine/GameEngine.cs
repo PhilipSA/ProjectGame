@@ -13,7 +13,7 @@ namespace Assets.Scripts.Engine
         public InputHandler InputHandler { get; private set; }
         public GameEvents GameEvents { get; private set; }
         public bool Paused { get; private set; }
-        public BestLevelTime BestLevelTime { get; private set; }
+        public BestLevelTimeFileHandler BestLevelTime { get; private set; }
         public Level Level { get; private set; }
 
         void Start()
@@ -23,7 +23,7 @@ namespace Assets.Scripts.Engine
             Player = (Player)GetComponentInChildren(typeof(Player));
             InputHandler = (InputHandler)GetComponentInChildren(typeof(InputHandler));
 
-            BestLevelTime = new BestLevelTime("bestTimes.dat");
+            BestLevelTime = new BestLevelTimeFileHandler("bestTimes.dat");
             Level = new Level(BestLevelTime.LoadBestTimeForLevel(SceneManager.GetActiveScene().name), SceneManager.GetActiveScene());
             GuiHandler.SetBestTimeDisplay(Level.BestTime);
 
@@ -60,11 +60,12 @@ namespace Assets.Scripts.Engine
             if (GuiHandler.GetTimerTime() < Level.BestTime || Level.BestTime.Equals(0))
             {
                 BestLevelTime.SaveBestTimeForLevel(SceneManager.GetActiveScene().name, GuiHandler.GetTimerTime());
-                GuiHandler.SetVictoryScreenText(GuiHandler.GetTimerTime().ToString());
+                GuiHandler.SetVictoryScreenText("New record: "+GuiHandler.GetTimerTime().ToString());
+                GuiHandler.SetBestTimeDisplay(GuiHandler.GetTimerTime());
             }
             else
             {
-                GuiHandler.SetVictoryScreenText("U suck lul");
+                GuiHandler.SetVictoryScreenText("No new record u suck lul");
             }
         }
 

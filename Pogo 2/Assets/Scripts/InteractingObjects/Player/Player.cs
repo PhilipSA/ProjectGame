@@ -10,7 +10,7 @@ namespace Assets.Scripts.InteractingObjects.Player
 
         private PlayerControl _playerControl;
         public PlayerBounceLogic PlayerBounceLogic;
-        public PlayerHitpoints _playerHitpoints;
+        public PlayerHitpoints PlayerHitpoints;
 
         public Collider2D BoxCollider2D { get; private set; }
 
@@ -19,7 +19,7 @@ namespace Assets.Scripts.InteractingObjects.Player
         {
             _playerControl = new PlayerControl();
             PlayerBounceLogic = new PlayerBounceLogic();
-            _playerHitpoints = new PlayerHitpoints();
+            PlayerHitpoints = new PlayerHitpoints();
 
             _playerRigidbody2D = GetComponent<Rigidbody2D>();
             _playerRigidbody2D.freezeRotation = true;
@@ -50,7 +50,7 @@ namespace Assets.Scripts.InteractingObjects.Player
 
         public void OnHeadCollision()
         {
-            _playerHitpoints.CalculateDamage(_playerRigidbody2D);
+            PlayerHitpoints.CalculateDamage(_playerRigidbody2D);
             DeadCheck();
         }
 
@@ -62,7 +62,7 @@ namespace Assets.Scripts.InteractingObjects.Player
 
         void DeadCheck()
         {
-            if (_playerHitpoints.Hitpoints <= 0)
+            if (PlayerHitpoints.Hitpoints <= 0)
             {
                 GameEngineHelper.GetCurrentGameEngine().Defeat();
             }
@@ -71,7 +71,7 @@ namespace Assets.Scripts.InteractingObjects.Player
         void MovePlayer()
         {
             var moveDirection = _playerControl.GetMoveDirection(_playerRigidbody2D);
-            moveDirection.y *= PlayerBounceLogic.GetBouncePower();
+            moveDirection.y *= PlayerBounceLogic.GetBouncePower() * 2;
             _playerRigidbody2D.velocity = moveDirection;
         }
 

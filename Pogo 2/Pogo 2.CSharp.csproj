@@ -75,12 +75,13 @@
     <Compile Include="Assets\Scripts\Engine\GameEvents.cs" />
     <Compile Include="Assets\Scripts\Engine\InputEvents.cs" />
     <Compile Include="Assets\Scripts\Engine\InputHandler.cs" />
-    <Compile Include="Assets\Scripts\Engine\Levels\BestLevelTime.cs" />
+    <Compile Include="Assets\Scripts\Engine\Levels\BestLevelTimeFileHandler.cs" />
     <Compile Include="Assets\Scripts\Engine\Levels\Level.cs" />
     <Compile Include="Assets\Scripts\Engine\Levels\LevelHandler.cs" />
     <Compile Include="Assets\Scripts\Enums\InputDeviceEnum.cs" />
     <Compile Include="Assets\Scripts\Enums\LevelEnums.cs" />
     <Compile Include="Assets\Scripts\GUI\Buttons\ContinueButton.cs" />
+    <Compile Include="Assets\Scripts\GUI\Buttons\LevelSelectButton.cs" />
     <Compile Include="Assets\Scripts\GUI\Buttons\MainMenuButton.cs" />
     <Compile Include="Assets\Scripts\GUI\Buttons\NextLevelButton.cs" />
     <Compile Include="Assets\Scripts\GUI\Buttons\RestartLevelButton.cs" />
@@ -93,10 +94,13 @@
     <Compile Include="Assets\Scripts\GUI\OptionsMenu\AudioOptions.cs" />
     <Compile Include="Assets\Scripts\GUI\OptionsMenu\ControlOptions.cs" />
     <Compile Include="Assets\Scripts\GUI\OptionsMenu\GraphicsOptions.cs" />
+    <Compile Include="Assets\Scripts\GUI\OverlayScreens\ChildScreens\LevelSelectLevelList.cs" />
     <Compile Include="Assets\Scripts\GUI\OverlayScreens\DefeatScreen.cs" />
+    <Compile Include="Assets\Scripts\GUI\OverlayScreens\LevelSelectScreen.cs" />
     <Compile Include="Assets\Scripts\GUI\OverlayScreens\OptionsScreen.cs" />
     <Compile Include="Assets\Scripts\GUI\OverlayScreens\OverlayScreen.cs" />
     <Compile Include="Assets\Scripts\GUI\OverlayScreens\PauseScreen.cs" />
+    <Compile Include="Assets\Scripts\GUI\OverlayScreens\StartScreen.cs" />
     <Compile Include="Assets\Scripts\GUI\OverlayScreens\VictoryScreen.cs" />
     <Compile Include="Assets\Scripts\InteractingObjects\Player\Parts\PlayerFoot.cs" />
     <Compile Include="Assets\Scripts\InteractingObjects\Player\Parts\PlayerHead.cs" />
@@ -107,5 +111,6 @@
     <Compile Include="Assets\Scripts\InteractingObjects\GoalArea.cs" />
     <Compile Include="Assets\Scripts\Menus\MainMenu.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
