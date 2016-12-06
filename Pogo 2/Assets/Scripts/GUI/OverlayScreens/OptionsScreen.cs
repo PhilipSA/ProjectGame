@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Assets.Scripts.GUI.OverlayScreens
+﻿namespace Assets.Scripts.GUI.OverlayScreens
 {
     public class OptionsScreen : OverlayScreen
     {

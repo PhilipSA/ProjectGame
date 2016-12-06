@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.GUI.OverlayScreens;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.Menus
 {
@@ -13,10 +12,12 @@ namespace Assets.Scripts.Menus
         void Start()
         {
             startScreen = (StartScreen)GetComponentInChildren(typeof(StartScreen), true);
-            startScreen.SetVisibility(true);
+            startScreen.Init();
+
             currentActiveScreen = startScreen;
 
             levelSelectScreen = (LevelSelectScreen)GetComponentInChildren(typeof(LevelSelectScreen), true);
+            levelSelectScreen.Init();
 
             startScreen.levelSelectButton.onClick.AddListener(OnLevelSelectClick);
         }

@@ -24,7 +24,7 @@ namespace Assets.Scripts.Engine
             InputHandler = (InputHandler)GetComponentInChildren(typeof(InputHandler));
 
             BestLevelTime = new BestLevelTimeFileHandler("bestTimes.dat");
-            Level = new Level(BestLevelTime.LoadBestTimeForLevel(SceneManager.GetActiveScene().name), SceneManager.GetActiveScene());
+            Level = new Level(BestLevelTime.LoadBestTimeForLevel(SceneManager.GetActiveScene().name), SceneManager.GetActiveScene().name);
             GuiHandler.SetBestTimeDisplay(Level.BestTime);
 
             GameEvents = new GameEvents();

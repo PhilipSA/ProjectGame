@@ -1,4 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.IO;
+using Assets.Scripts.Engine.FileIO;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.Engine.Levels
@@ -15,28 +18,25 @@ namespace Assets.Scripts.Engine.Levels
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        public static Level GetLevelFromScene(Scene scene, BestLevelTimeFileHandler bestLevelTimeFileHandler)
+        public static Level GetLevelFromScene(string sceneName)
         {
-            return new Level(bestLevelTimeFileHandler.LoadBestTimeForLevel(scene.name), scene);
+            var bestLevelTimeFileHandler = new BestLevelTimeFileHandler("bestTimes.dat");
+            return new Level(bestLevelTimeFileHandler.LoadBestTimeForLevel(sceneName), sceneName);
         }
 
-        public static List<Scene> GetAllLevelScenes()
+        public static List<string> GetAllLevelScenes()
         {
-            var sceneList = new List<Scene>();
-            for (int i = 1; i < SceneManager.sceneCount; i++)
-            {
-                sceneList.Add(SceneManager.GetSceneAt(i));
-            }
-            return sceneList;
+            var unityFileHandler = new UnityFileHandler("/Scenes");
+            return unityFileHandler.GetAllLevelScenes();
         }
 
-        public static List<Level> GetAllLevels(BestLevelTimeFileHandler bestLevelTimeFileHandler)
+        public static List<Level> GetAllLevels()
         {
             var sceneList = GetAllLevelScenes();
             var allLevels = new List<Level>();
             foreach (var scene in sceneList)
             {
-                var level = GetLevelFromScene(scene, bestLevelTimeFileHandler);
+                var level = GetLevelFromScene(scene);
                 allLevels.Add(level);
             }
             return allLevels;

@@ -1,9 +1,9 @@
 ﻿using Assets.Scripts.Engine.Levels;
-using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.GUI.Buttons
 {
-    public class NextLevelButton : MonoBehaviour
+    public class NextLevelButton : Button
     {
         public void OnClick()
         {

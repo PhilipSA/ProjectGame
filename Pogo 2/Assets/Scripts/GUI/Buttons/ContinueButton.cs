@@ -1,9 +1,9 @@
 ﻿using Assets.Scripts.Engine;
-using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.GUI.Buttons
 {
-    public class ContinueButton : MonoBehaviour
+    public class ContinueButton : Button
     {
         public void OnClick()
         {

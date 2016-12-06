@@ -1,9 +1,9 @@
 ﻿using Assets.Scripts.Engine.Levels;
-using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.GUI.Buttons
 {
-    public class RestartLevelButton : MonoBehaviour
+    public class RestartLevelButton : Button
     {
         public void OnClick()
         {

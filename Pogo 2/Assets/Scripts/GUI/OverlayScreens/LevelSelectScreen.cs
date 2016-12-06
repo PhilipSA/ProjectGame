@@ -1,20 +1,14 @@
 ﻿using Assets.Scripts.GUI.OverlayScreens.ChildScreens;
-using UnityEngine;
 
 namespace Assets.Scripts.GUI.OverlayScreens
 {
     public class LevelSelectScreen : OverlayScreen
     {
-        private LevelSelectLevelList LevelSelectList;
+        private LevelSelectLevelList _levelSelectList;
 
-        void Awake()
+        public void Init()
         {
-            LevelSelectList = GetComponent<LevelSelectLevelList>();
-        }
-
-        void OnGUI()
-        {
-            
+            _levelSelectList = GetComponent<LevelSelectLevelList>();
         }
     }
 }

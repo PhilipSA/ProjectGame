@@ -1,9 +1,8 @@
-﻿using Assets.Scripts.Menus;
-using UnityEngine;
+﻿using UnityEngine.UI;
 
 namespace Assets.Scripts.GUI.Buttons
 {
-    public class LevelSelectButton : MonoBehaviour
+    public class LevelSelectButton : Button
     {
         public void OnClick()
         {
