@@ -23,7 +23,7 @@ namespace Assets.Scripts.GUI.GUIElements
 
             var tempButton = newPrefabLevelInfoBox.GetComponentInChildren<Button>();
             tempButton.onClick.AddListener(() => OnClick(level.SceneName));
-            Debug.Log(newPrefabLevelInfoBox.transform.position);
+
             return newPrefabLevelInfoBox;
         }
 

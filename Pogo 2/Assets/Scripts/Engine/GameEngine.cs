@@ -65,7 +65,7 @@ namespace Assets.Scripts.Engine
             }
             else
             {
-                GuiHandler.SetVictoryScreenText("No new record u suck lul");
+                GuiHandler.SetVictoryScreenText("No new record");
             }
         }
 

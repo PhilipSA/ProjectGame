@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Engine.Levels;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.GUI.Buttons
@@ -8,6 +9,11 @@ namespace Assets.Scripts.GUI.Buttons
         public void OnClick()
         {
             Application.Quit();
+        }
+
+        public void OnClickInGame()
+        {
+            LevelHandler.ChangeLevel("MainMenu");
         }
     }
 }
