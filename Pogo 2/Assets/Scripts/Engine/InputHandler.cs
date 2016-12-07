@@ -20,24 +20,31 @@ namespace Assets.Scripts.Engine
         void Update()
         {
             ChangeInputDevice();
-            inputEvents.CheckAllInputsForEvents();
+            if (_currentInputDevice == InputDeviceEnum.KeyboardAndMouse)
+            {
+                inputEvents.CheckAllInputsForMouseEvents();
+            }
+            if (_currentInputDevice == InputDeviceEnum.TouchDevice)
+            {
+                inputEvents.CheckAllInputsForTouchEvents();
+            }
         }
 
         public void PlayerSubscribe(Player player)
         {
-            inputEvents.LeftMouseButtonClicked += player.ProcessInputs;
-            inputEvents.MouseMovementDetected += player.ProcessInputs;
+            inputEvents.PrimaryActionInputTriggered += player.ProcessInputs;
+            inputEvents.MovementActionInputTriggered += player.ProcessInputs;
         }
 
         public void PlayerUnsubscribe(Player player)
         {
-            inputEvents.LeftMouseButtonClicked -= player.ProcessInputs;
-            inputEvents.MouseMovementDetected -= player.ProcessInputs;
+            inputEvents.PrimaryActionInputTriggered -= player.ProcessInputs;
+            inputEvents.MovementActionInputTriggered -= player.ProcessInputs;
         }
 
         public void GUISubscribe(GUIHandler guiHandler)
         {
-            inputEvents.EscapeButtonClicked += guiHandler.ProcessInputs;
+            inputEvents.PauseActionInputTriggered += guiHandler.ProcessInputs;
         }
 
         public void ToggleIgnorePlayerInputs(bool ignoreInputs, Player player)

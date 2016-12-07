@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Assets.Scripts.Engine.FileIO;
+﻿using System.Collections.Generic;
 using Assets.Scripts.Enums;
 using UnityEngine.SceneManagement;
 
@@ -35,7 +33,7 @@ namespace Assets.Scripts.Engine.Levels
             var sceneList = new List<Level>();
             for (int i = 1; i < SceneManager.sceneCountInBuildSettings; i++)
             {
-                var level = new Level(bestLevelTimeFileHandler.LoadBestTimeForLevel(i), ((LevelEnum)i).ToString(), ((LevelEnum)i));
+                var level = new Level(bestLevelTimeFileHandler.LoadBestTimeForLevel(i), ((LevelEnum)i).ToString(), (LevelEnum)i);
                 sceneList.Add(level);
             }
             return sceneList;

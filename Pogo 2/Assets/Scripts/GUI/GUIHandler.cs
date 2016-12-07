@@ -3,6 +3,7 @@ using Assets.Scripts.GUI.GUIElements;
 using Assets.Scripts.GUI.OverlayScreens;
 using Assets.Scripts.InteractingObjects.Player;
 using UnityEngine;
+using UnityEngine.VR.WSA;
 
 namespace Assets.Scripts.GUI
 {
@@ -70,7 +71,7 @@ namespace Assets.Scripts.GUI
 
         public float GetTimerTime()
         {
-            return  _timerDisplay.StopWatch.TimeSinceStarted;
+            return _timerDisplay.StopWatch.TimeSinceStarted;
         }
     }
 }

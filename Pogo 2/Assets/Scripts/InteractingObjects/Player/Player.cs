@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Engine;
+﻿using System;
+using Assets.Scripts.Engine;
 using UnityEngine;
 
 namespace Assets.Scripts.InteractingObjects.Player
@@ -62,7 +63,7 @@ namespace Assets.Scripts.InteractingObjects.Player
 
         void DeadCheck()
         {
-            if (PlayerHitpoints.Hitpoints <= 0)
+            if (PlayerHitpoints.Hitpoints <= 0 || Math.Abs(_playerRigidbody2D.velocity.y) < 0.2)
             {
                 GameEngineHelper.GetCurrentGameEngine().Defeat();
             }

@@ -14,7 +14,7 @@ namespace Assets.Scripts.Engine.Levels
         {
             BestTime = bestTime;
             SceneName = sceneName;
-            levelEnum = LevelEnum;
+            LevelEnum = levelEnum;
         }
 
         public void SetLevelScene(Scene scene)

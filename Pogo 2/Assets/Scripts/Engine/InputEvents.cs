@@ -6,23 +6,39 @@ namespace Assets.Scripts.Engine
     {
         public delegate void InputProcess(KeyCode keyCode);
 
-        public event InputProcess LeftMouseButtonClicked;
-        public event InputProcess EscapeButtonClicked;
-        public event InputProcess MouseMovementDetected;
+        public event InputProcess PrimaryActionInputTriggered;
+        public event InputProcess PauseActionInputTriggered;
+        public event InputProcess MovementActionInputTriggered;
 
-        public void CheckAllInputsForEvents()
+        public void CheckAllInputsForMouseEvents()
         {
             if (Input.GetMouseButtonDown(0))
             {
-                if (LeftMouseButtonClicked != null) LeftMouseButtonClicked.Invoke(KeyCode.Mouse0);
+                if (PrimaryActionInputTriggered != null) PrimaryActionInputTriggered.Invoke(KeyCode.Mouse0);
             }
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (EscapeButtonClicked != null) EscapeButtonClicked.Invoke(KeyCode.Escape);
+                if (PauseActionInputTriggered != null) PauseActionInputTriggered.Invoke(KeyCode.Escape);
             }
             if (Input.GetAxis("Mouse X") != 0 || (Input.GetAxis("Mouse Y") != 0))
             {
-                if (MouseMovementDetected != null) MouseMovementDetected.Invoke(KeyCode.Mouse6);
+                if (MovementActionInputTriggered != null) MovementActionInputTriggered.Invoke(KeyCode.Mouse6);
+            }
+        }
+
+        public void CheckAllInputsForTouchEvents()
+        {
+            if (Input.GetTouch(0).phase == TouchPhase.Ended)
+            {
+                if (PrimaryActionInputTriggered != null) PrimaryActionInputTriggered.Invoke(KeyCode.Mouse0);
+            }
+            if (Input.GetTouch(0).fingerId == 2)
+            {
+                if (PauseActionInputTriggered != null) PauseActionInputTriggered.Invoke(KeyCode.Escape);
+            }
+            if (Input.GetTouch(0).phase == TouchPhase.Moved)
+            {
+                if (MovementActionInputTriggered != null) MovementActionInputTriggered.Invoke(KeyCode.Mouse6);
             }
         }
     }

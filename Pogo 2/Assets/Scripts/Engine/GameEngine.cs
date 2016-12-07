@@ -1,6 +1,8 @@
-﻿using Assets.Scripts.Engine.Levels;
+﻿using System;
+using Assets.Scripts.Engine.Levels;
 using Assets.Scripts.Enums;
 using Assets.Scripts.GUI;
+using Assets.Scripts.GUI.DisplayFormats;
 using Assets.Scripts.InteractingObjects.Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -62,7 +64,7 @@ namespace Assets.Scripts.Engine
             if (GuiHandler.GetTimerTime() < Level.BestTime || Level.BestTime.Equals(0))
             {
                 BestLevelTime.SaveBestTimeForLevel(SceneManager.GetActiveScene().buildIndex, GuiHandler.GetTimerTime());
-                GuiHandler.SetVictoryScreenText("New record: "+GuiHandler.GetTimerTime().ToString());
+                GuiHandler.SetVictoryScreenText(String.Format("{0} {1}", "New record:" , TimeFormatter.GetTimeInMmssffFormat(GuiHandler.GetTimerTime())));
                 GuiHandler.SetBestTimeDisplay(GuiHandler.GetTimerTime());
             }
             else
