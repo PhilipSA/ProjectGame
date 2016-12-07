@@ -24,15 +24,15 @@ namespace Assets.Scripts.Engine.Levels
             return new Level(bestLevelTimeFileHandler.LoadBestTimeForLevel(sceneName), sceneName);
         }
 
-        public static List<string> GetAllLevelScenes()
+        public static List<string> GetAllLevelScenesFromDirectory()
         {
             var unityFileHandler = new UnityFileHandler("/Scenes");
-            return unityFileHandler.GetAllLevelScenes();
+            return unityFileHandler.GetAllLevelScenesFromDirectory();
         }
 
         public static List<Level> GetAllLevels()
         {
-            var sceneList = GetAllLevelScenes();
+            var sceneList = GetAllLevelScenesFromDirectory();
             var allLevels = new List<Level>();
             foreach (var scene in sceneList)
             {

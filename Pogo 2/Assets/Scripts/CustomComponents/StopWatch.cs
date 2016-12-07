@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Scripts.GUI.DisplayFormats;
 using UnityEngine;
 
 namespace Assets.Scripts.CustomComponents
@@ -21,8 +22,7 @@ namespace Assets.Scripts.CustomComponents
 
         public string GetTimeInMmssffFormat()
         {
-            var timeSpan = TimeSpan.FromSeconds(TimeSinceStarted);
-            return new DateTime(timeSpan.Ticks).ToString("mm:ss:ff");
+            return TimeFormatter.GetTimeInMmssffFormat(TimeSinceStarted);
         }
     }
 }

@@ -21,7 +21,7 @@ namespace Assets.Scripts.GUI.OverlayScreens.ChildScreens
 
             foreach (var level in allLevels)
             {
-                LevelInfoBox.CreateLevelInfoBox(level.Scene.name, rectTransform, prefabLevelInfoBox);              
+                LevelInfoBox.CreateLevelInfoBox(level, rectTransform, prefabLevelInfoBox);              
             }         
         }
     }

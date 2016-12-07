@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -16,9 +17,12 @@ namespace Assets.Scripts.Engine.Levels
 
         public float LoadBestTimeForLevel(string levelName)
         {
-            var bestTimeList = LoadBestTimeFile(OpenFile());
-            var levelData = bestTimeList.FirstOrDefault(x => x.LevelName == levelName);
-            return levelData == null ? 0 : levelData.BestTime;
+            using (var fileStream = OpenFile())
+            {
+                var bestTimeList = LoadBestTimeFile(fileStream);
+                var levelData = bestTimeList.FirstOrDefault(x => x.LevelName == levelName);
+                return levelData == null ? 0 : levelData.BestTime;
+            }
         }
 
         public void SaveBestTimeForLevel(string levelName, float time)
