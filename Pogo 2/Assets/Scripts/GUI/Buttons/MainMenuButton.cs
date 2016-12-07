@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Engine.Levels;
+using Assets.Scripts.Enums;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.GUI.Buttons
@@ -7,7 +8,7 @@ namespace Assets.Scripts.GUI.Buttons
     {
         public void OnClick()
         {
-            LevelHandler.ChangeLevel("MainMenu");
+            LevelHandler.ChangeLevel((int)LevelEnum.MainMenu);
         }
     }
 }

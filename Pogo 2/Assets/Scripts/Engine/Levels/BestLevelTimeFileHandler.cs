@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -15,28 +14,28 @@ namespace Assets.Scripts.Engine.Levels
             
         }
 
-        public float LoadBestTimeForLevel(string levelName)
+        public float LoadBestTimeForLevel(int levelIndex)
         {
             using (var fileStream = OpenFile())
             {
                 var bestTimeList = LoadBestTimeFile(fileStream);
-                var levelData = bestTimeList.FirstOrDefault(x => x.LevelName == levelName);
+                var levelData = bestTimeList.FirstOrDefault(x => x.LevelIndex == levelIndex);
                 return levelData == null ? 0 : levelData.BestTime;
             }
         }
 
-        public void SaveBestTimeForLevel(string levelName, float time)
+        public void SaveBestTimeForLevel(int levelIndex, float time)
         {
             var binaryFormatter = new BinaryFormatter();
             var bestTimeList = new List<BestTimeData>();
             using (var fileStream = OpenFile())
             {
-                var levelData = new BestTimeData(levelName, time);
+                var levelData = new BestTimeData(levelIndex, time);
                 bestTimeList = LoadBestTimeFile(fileStream);
 
-                if (bestTimeList.FirstOrDefault(x => x.LevelName.Equals(levelName)) != null)
+                if (bestTimeList.FirstOrDefault(x => x.LevelIndex.Equals(levelIndex)) != null)
                 {
-                    bestTimeList[bestTimeList.FindIndex(x => x.LevelName.Equals(levelName))] = levelData;                   
+                    bestTimeList[bestTimeList.FindIndex(x => x.LevelIndex.Equals(levelIndex))] = levelData;                   
                 }
                 else
                 {
@@ -68,13 +67,13 @@ namespace Assets.Scripts.Engine.Levels
     [Serializable]
     public class BestTimeData
     {
-        public BestTimeData(string levelName, float bestTime)
+        public BestTimeData(int levelIndex, float bestTime)
         {
-            LevelName = levelName;
+            LevelIndex = levelIndex;
             BestTime = bestTime;
         }
 
-        public string LevelName { get; set; }
+        public int LevelIndex { get; set; }
         public float BestTime { get; set; }
     }
 }

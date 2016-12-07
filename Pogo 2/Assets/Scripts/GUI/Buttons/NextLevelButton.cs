@@ -7,7 +7,7 @@ namespace Assets.Scripts.GUI.Buttons
     {
         public void OnClick()
         {
-            LevelHandler.ChangeLevel("TestLevel2");
+            LevelHandler.StartNextLevel();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Engine.Levels;
+using Assets.Scripts.Enums;
 using Assets.Scripts.GUI;
 using Assets.Scripts.InteractingObjects.Player;
 using UnityEngine;
@@ -24,7 +25,8 @@ namespace Assets.Scripts.Engine
             InputHandler = (InputHandler)GetComponentInChildren(typeof(InputHandler));
 
             BestLevelTime = new BestLevelTimeFileHandler("bestTimes.dat");
-            Level = new Level(BestLevelTime.LoadBestTimeForLevel(SceneManager.GetActiveScene().name), SceneManager.GetActiveScene().name);
+            Level = new Level(BestLevelTime.LoadBestTimeForLevel(SceneManager.GetActiveScene().buildIndex), SceneManager.GetActiveScene().name, 
+                (LevelEnum)SceneManager.GetActiveScene().buildIndex);
             GuiHandler.SetBestTimeDisplay(Level.BestTime);
 
             GameEvents = new GameEvents();
@@ -59,7 +61,7 @@ namespace Assets.Scripts.Engine
         {
             if (GuiHandler.GetTimerTime() < Level.BestTime || Level.BestTime.Equals(0))
             {
-                BestLevelTime.SaveBestTimeForLevel(SceneManager.GetActiveScene().name, GuiHandler.GetTimerTime());
+                BestLevelTime.SaveBestTimeForLevel(SceneManager.GetActiveScene().buildIndex, GuiHandler.GetTimerTime());
                 GuiHandler.SetVictoryScreenText("New record: "+GuiHandler.GetTimerTime().ToString());
                 GuiHandler.SetBestTimeDisplay(GuiHandler.GetTimerTime());
             }

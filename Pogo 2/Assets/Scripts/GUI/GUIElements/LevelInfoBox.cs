@@ -22,14 +22,14 @@ namespace Assets.Scripts.GUI.GUIElements
             bestTimeText.text = "Best time: " + TimeFormatter.GetTimeInMmssffFormat(level.BestTime);
 
             var tempButton = newPrefabLevelInfoBox.GetComponentInChildren<Button>();
-            tempButton.onClick.AddListener(() => OnClick(level.SceneName));
+            tempButton.onClick.AddListener(() => OnClick((int)level.LevelEnum));
 
             return newPrefabLevelInfoBox;
         }
 
-        static void OnClick(string levelName)
+        static void OnClick(int levelIndex)
         {
-            LevelHandler.ChangeLevel(levelName);
+            LevelHandler.ChangeLevel(levelIndex);
         }
     }
 }
