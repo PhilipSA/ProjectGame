@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Engine;
+using UnityEngine;
 
 namespace Assets.Scripts.InteractingObjects.Player.Parts
 {
@@ -7,12 +8,14 @@ namespace Assets.Scripts.InteractingObjects.Player.Parts
         private Player _parent;
         private Rigidbody2D _headRigidbody2D;
         private SpriteRenderer _spriteRenderer;
+        private AudioSource audioSource;
 
         void Start()
         {
             _headRigidbody2D = GetComponent<Rigidbody2D>();
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _headRigidbody2D.freezeRotation = true;
+            audioSource = GetComponent<AudioSource>();
             _parent = transform.parent.GetComponent<Player>();
         }
 
@@ -22,6 +25,7 @@ namespace Assets.Scripts.InteractingObjects.Player.Parts
             {
                 _parent.OnHeadCollision();
                 _spriteRenderer.color = Color.red;
+                AudioHandler.PlayAudio(audioSource);
             }
         }
     }

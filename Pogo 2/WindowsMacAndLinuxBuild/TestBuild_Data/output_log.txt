@@ -17,9 +17,26 @@ Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 
 Loading C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
 Loading C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.081 seconds
+- Completed reload, in  0.027 seconds
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\System.dll (this message is harmless)
 desktop: 1920x1080 144Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 0.811298 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 2.107093 ms
+
+Unloading 29 unused Assets to reduce memory usage. Loaded Objects now: 569.
+Total: 0.340552 ms (FindLiveObjects: 0.032182 ms CreateObjectMapping: 0.021942 ms MarkObjects: 0.272383 ms  DeleteObjects: 0.013458 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.789355 ms
+
+Unloading 3884 unused Assets to reduce memory usage. Loaded Objects now: 437.
+Total: 3.064969 ms (FindLiveObjects: 0.186074 ms CreateObjectMapping: 0.168228 ms MarkObjects: 0.270335 ms  DeleteObjects: 2.440038 ms)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 163f0 -> priority: 1 
+  Thread -> id: 7aa8 -> priority: 1 
