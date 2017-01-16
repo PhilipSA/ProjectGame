@@ -4,6 +4,7 @@ using Assets.Scripts.Enums;
 using Assets.Scripts.GUI;
 using Assets.Scripts.GUI.DisplayFormats;
 using Assets.Scripts.InteractingObjects.Player;
+using SmartLocalization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -36,6 +37,8 @@ namespace Assets.Scripts.Engine
 
             InputSubscriptions();
             Paused = false;
+
+            Debug.Log(LanguageManager.Instance.GetTextValue("NoNewRecord"));
         }
 
         void Update()
@@ -69,7 +72,7 @@ namespace Assets.Scripts.Engine
             }
             else
             {
-                GuiHandler.SetVictoryScreenText("No new record");
+                GuiHandler.SetVictoryScreenText(LanguageManager.Instance.GetTextValue("NoNewRecord"));
             }
         }
 

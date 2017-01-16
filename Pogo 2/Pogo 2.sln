@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2015
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pogo 2", "Pogo 2.csproj", "{290CDE91-BB3D-6651-11F2-268454C0EDC5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pogo 2.Editor", "Pogo 2.Editor.csproj", "{08A46740-63A9-5EEC-18BB-9CC8046B23A2}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pogo 2.CSharpTests", "..\Pogo 2.CSharpTests\Pogo 2.CSharpTests.csproj", "{596C78EC-A2FA-4A31-BEFA-B9FB5C2CCFBF}"
 EndProject
 Global
@@ -15,6 +17,10 @@ Global
 		{290CDE91-BB3D-6651-11F2-268454C0EDC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{290CDE91-BB3D-6651-11F2-268454C0EDC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{290CDE91-BB3D-6651-11F2-268454C0EDC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08A46740-63A9-5EEC-18BB-9CC8046B23A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08A46740-63A9-5EEC-18BB-9CC8046B23A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08A46740-63A9-5EEC-18BB-9CC8046B23A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08A46740-63A9-5EEC-18BB-9CC8046B23A2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{596C78EC-A2FA-4A31-BEFA-B9FB5C2CCFBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{596C78EC-A2FA-4A31-BEFA-B9FB5C2CCFBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{596C78EC-A2FA-4A31-BEFA-B9FB5C2CCFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
