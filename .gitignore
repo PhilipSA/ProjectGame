@@ -183,3 +183,8 @@ sysinfo.txt
 *.pdb
 *.cache
 *.info
+*.log
+*.dll
+*.mdb
+*.suo
+*.buildreport
