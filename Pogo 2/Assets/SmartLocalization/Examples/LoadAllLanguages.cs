@@ -1,4 +1,4 @@
-//
+﻿//
 //  LoadAllLanguages.cs
 //
 //
@@ -13,30 +13,30 @@ namespace Assets.SmartLocalization.Examples
 {
     public class LoadAllLanguages : MonoBehaviour 
     {
-	    private List<string> currentLanguageKeys;
-	    private List<SmartCultureInfo> availableLanguages;
-	    private LanguageManager languageManager;
-	    private Vector2 valuesScrollPosition = Vector2.zero;
-	    private Vector2 languagesScrollPosition = Vector2.zero;
+	    private List<string> _currentLanguageKeys;
+	    private List<SmartCultureInfo> _availableLanguages;
+	    private LanguageManager _languageManager;
+	    private Vector2 _valuesScrollPosition = Vector2.zero;
+	    private Vector2 _languagesScrollPosition = Vector2.zero;
 
 	    void Start () 
 	    {
-		    languageManager = LanguageManager.Instance;
+		    _languageManager = LanguageManager.Instance;
 		
-		    SmartCultureInfo deviceCulture = languageManager.GetDeviceCultureIfSupported();
+		    SmartCultureInfo deviceCulture = _languageManager.GetDeviceCultureIfSupported();
 		    if(deviceCulture != null)
 		    {
-			    languageManager.ChangeLanguage(deviceCulture);	
+			    _languageManager.ChangeLanguage(deviceCulture);	
 		    }
 		    else
 		    {
 			    Debug.Log("The device language is not available in the current application. Loading default."); 
 		    }
 		
-		    if(languageManager.NumberOfSupportedLanguages > 0)
+		    if(_languageManager.NumberOfSupportedLanguages > 0)
 		    {
-			    currentLanguageKeys = languageManager.GetAllKeys();
-			    availableLanguages = languageManager.GetSupportedLanguages();
+			    _currentLanguageKeys = _languageManager.GetAllKeys();
+			    _availableLanguages = _languageManager.GetSupportedLanguages();
 		    }
 		    else
 		    {
@@ -56,16 +56,16 @@ namespace Assets.SmartLocalization.Examples
 
 	    void OnLanguageChanged(LanguageManager languageManager)
 	    {
-		    currentLanguageKeys = languageManager.GetAllKeys();
+		    _currentLanguageKeys = languageManager.GetAllKeys();
 	    }
 	
-	    void OnGUI() 
+	    void OnGui() 
 	    {
-		    if(languageManager.NumberOfSupportedLanguages > 0)
+		    if(_languageManager.NumberOfSupportedLanguages > 0)
 		    {
-			    if(languageManager.CurrentlyLoadedCulture != null)
+			    if(_languageManager.CurrentlyLoadedCulture != null)
 			    {
-				    GUILayout.Label("Current Language:" + languageManager.CurrentlyLoadedCulture.ToString());
+				    GUILayout.Label("Current Language:" + _languageManager.CurrentlyLoadedCulture.ToString());
 			    }
 			
 			    GUILayout.BeginHorizontal();
@@ -73,22 +73,22 @@ namespace Assets.SmartLocalization.Examples
 			    GUILayout.Label("Values:", GUILayout.Width(460));
 			    GUILayout.EndHorizontal();
 			
-			    valuesScrollPosition = GUILayout.BeginScrollView(valuesScrollPosition);
-			    foreach(var languageKey in currentLanguageKeys)
+			    _valuesScrollPosition = GUILayout.BeginScrollView(_valuesScrollPosition);
+			    foreach(var languageKey in _currentLanguageKeys)
 			    {
 				    GUILayout.BeginHorizontal();
 				    GUILayout.Label(languageKey, GUILayout.Width(460));
-				    GUILayout.Label(languageManager.GetTextValue(languageKey), GUILayout.Width(460));
+				    GUILayout.Label(_languageManager.GetTextValue(languageKey), GUILayout.Width(460));
 				    GUILayout.EndHorizontal();
 			    }
 			    GUILayout.EndScrollView();
 			
-			    languagesScrollPosition = GUILayout.BeginScrollView (languagesScrollPosition);
-			    foreach(SmartCultureInfo language in availableLanguages)
+			    _languagesScrollPosition = GUILayout.BeginScrollView (_languagesScrollPosition);
+			    foreach(SmartCultureInfo language in _availableLanguages)
 			    {
 				    if(GUILayout.Button(language.nativeName, GUILayout.Width(960)))
 				    {
-					    languageManager.ChangeLanguage(language);
+					    _languageManager.ChangeLanguage(language);
 				    }
 			    }
 

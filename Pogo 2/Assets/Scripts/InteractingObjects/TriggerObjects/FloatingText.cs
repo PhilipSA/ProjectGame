@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.CustomComponents;
+using SmartLocalization;
 using UnityEngine;
 
 namespace Assets.Scripts.InteractingObjects.TriggerObjects
@@ -14,7 +15,7 @@ namespace Assets.Scripts.InteractingObjects.TriggerObjects
             enabled = false;
         }
 
-        public void OnGUI()
+        public void OnGui()
         {
             StopWatch.Tick();
 
@@ -27,7 +28,7 @@ namespace Assets.Scripts.InteractingObjects.TriggerObjects
                 };
                 var position = Camera.main.WorldToScreenPoint(TriggerCollider2D.transform.position);
                 Rect rect = new Rect(new Vector2(position.x, position.y - StopWatch.TimeSinceStarted/100), TriggerCollider2D.size/5);
-                UnityEngine.GUI.Label(rect, DisplayText, style);
+                UnityEngine.GUI.Label(rect, LanguageManager.Instance.GetTextValue(DisplayText), style);
             }
             else
             {

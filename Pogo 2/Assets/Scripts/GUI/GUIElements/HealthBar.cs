@@ -8,7 +8,7 @@ namespace Assets.Scripts.GUI.GUIElements
         public Vector2 Pos = new Vector2(200, 20);
         public Vector2 Size = new Vector2(20, 25);
 
-        void OnGUI()
+        void OnGui()
         {
             useGUILayout = false;
             Texture2D texture = new Texture2D(1, 1);

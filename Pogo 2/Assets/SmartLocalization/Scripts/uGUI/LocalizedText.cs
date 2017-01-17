@@ -7,12 +7,12 @@ using System.Collections;
 [RequireComponent (typeof (Text))]
 public class LocalizedText : MonoBehaviour 
 {
-	public string localizedKey = "INSERT_KEY_HERE";
-	Text textObject;
+	public string LocalizedKey = "INSERT_KEY_HERE";
+	Text _textObject;
 	
 	void Start () 
 	{
-		textObject = this.GetComponent<Text>();
+		_textObject = this.GetComponent<Text>();
 	
 		//Subscribe to the change language event
 		LanguageManager languageManager = LanguageManager.Instance;
@@ -32,7 +32,7 @@ public class LocalizedText : MonoBehaviour
 	
 	void OnChangeLanguage(LanguageManager languageManager)
 	{
-		textObject.text = LanguageManager.Instance.GetTextValue(localizedKey);
+		_textObject.text = LanguageManager.Instance.GetTextValue(LocalizedKey);
 	}
 }
 }

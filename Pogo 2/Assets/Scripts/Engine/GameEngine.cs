@@ -12,7 +12,7 @@ namespace Assets.Scripts.Engine
 {
     public class GameEngine : MonoBehaviour
     {
-        public GUIHandler GuiHandler { get; private set; }
+        public GuiHandler GuiHandler { get; private set; }
         public Player Player { get; private set; }
         public InputHandler InputHandler { get; private set; }
         public GameEvents GameEvents { get; private set; }
@@ -23,7 +23,7 @@ namespace Assets.Scripts.Engine
         void Start()
         {
             Time.timeScale = 1;
-            GuiHandler = (GUIHandler)GetComponentInChildren(typeof(GUIHandler));
+            GuiHandler = (GuiHandler)GetComponentInChildren(typeof(GuiHandler));
             Player = (Player)GetComponentInChildren(typeof(Player));
             InputHandler = (InputHandler)GetComponentInChildren(typeof(InputHandler));
 
@@ -49,7 +49,7 @@ namespace Assets.Scripts.Engine
         void InputSubscriptions()
         {
             InputHandler.PlayerSubscribe(Player);
-            InputHandler.GUISubscribe(GuiHandler);
+            InputHandler.GuiSubscribe(GuiHandler);
         }
 
         public void Victory()

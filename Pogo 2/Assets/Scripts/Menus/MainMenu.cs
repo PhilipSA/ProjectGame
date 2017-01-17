@@ -5,33 +5,29 @@ namespace Assets.Scripts.Menus
 {
     public class MainMenu : MonoBehaviour
     {
-        private OverlayScreen currentActiveScreen;
-        private StartScreen startScreen;
-        private LevelSelectScreen levelSelectScreen;
+        private static OverlayScreen _currentActiveScreen;
+        public static StartScreen StartScreen;
+        public static LevelSelectScreen LevelSelectScreen;
+        public static OptionsScreen OptionsScreen;
         // Use this for initialization
         void Start()
         {
-            startScreen = (StartScreen)GetComponentInChildren(typeof(StartScreen), true);
-            startScreen.Init();
+            StartScreen = (StartScreen)GetComponentInChildren(typeof(StartScreen), true);
+            StartScreen.Init();
 
-            currentActiveScreen = startScreen;
+            _currentActiveScreen = StartScreen;
 
-            levelSelectScreen = (LevelSelectScreen)GetComponentInChildren(typeof(LevelSelectScreen), true);
-            levelSelectScreen.Init();
+            LevelSelectScreen = (LevelSelectScreen)GetComponentInChildren(typeof(LevelSelectScreen), true);
+            LevelSelectScreen.Init();
 
-            startScreen.levelSelectButton.onClick.AddListener(OnLevelSelectClick);
+            OptionsScreen = (OptionsScreen)GetComponentInChildren(typeof(OptionsScreen), true);
         }
 
-        void OnLevelSelectClick()
+        public static void ChangeCurrentActiveScreen(OverlayScreen screen)
         {
-            ChangeCurrentActiveScreen(levelSelectScreen);
-        }
-
-        void ChangeCurrentActiveScreen(OverlayScreen screen)
-        {
-            currentActiveScreen.SetVisibility(false);
+            _currentActiveScreen.SetVisibility(false);
             screen.SetVisibility(true);
-            currentActiveScreen = screen;
+            _currentActiveScreen = screen;
         }
     }
 }

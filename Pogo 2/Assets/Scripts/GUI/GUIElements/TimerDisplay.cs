@@ -28,7 +28,7 @@ namespace Assets.Scripts.GUI.GUIElements
             StopWatch.Enabled = false;
         }
 
-        void OnGUI()
+        void OnGui()
         {
 
         }

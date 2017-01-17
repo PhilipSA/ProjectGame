@@ -15,7 +15,7 @@ public class LocalizedTextInspector : Editor
 		LocalizedText textObject = ((LocalizedText)target);
 		if(textObject != null)
 		{
-			selectedKey = textObject.localizedKey;
+			selectedKey = textObject.LocalizedKey;
 		}
 	}
 	
@@ -28,7 +28,7 @@ public class LocalizedTextInspector : Editor
 		if(!Application.isPlaying && GUILayout.Button("Use Key", GUILayout.Width(70)))
 		{
 			LocalizedText textObject = ((LocalizedText)target);
-			textObject.localizedKey = selectedKey;
+			textObject.LocalizedKey = selectedKey;
 		}
 	}
 	

@@ -8,13 +8,13 @@ namespace Assets.Scripts.Engine
     public class InputHandler : MonoBehaviour
     {
         private InputDeviceEnum _currentInputDevice;
-        private InputEvents inputEvents;
+        private InputEvents _inputEvents;
         private bool _ignorePlayerInputs;
 
         InputHandler()
         {
             _ignorePlayerInputs = false;
-            inputEvents = new InputEvents();
+            _inputEvents = new InputEvents();
         }
 
         void Update()
@@ -22,29 +22,29 @@ namespace Assets.Scripts.Engine
             ChangeInputDevice();
             if (_currentInputDevice == InputDeviceEnum.KeyboardAndMouse)
             {
-                inputEvents.CheckAllInputsForMouseEvents();
+                _inputEvents.CheckAllInputsForMouseEvents();
             }
             if (_currentInputDevice == InputDeviceEnum.TouchDevice)
             {
-                inputEvents.CheckAllInputsForTouchEvents();
+                _inputEvents.CheckAllInputsForTouchEvents();
             }
         }
 
         public void PlayerSubscribe(Player player)
         {
-            inputEvents.PrimaryActionInputTriggered += player.ProcessInputs;
-            inputEvents.MovementActionInputTriggered += player.ProcessInputs;
+            _inputEvents.PrimaryActionInputTriggered += player.ProcessInputs;
+            _inputEvents.MovementActionInputTriggered += player.ProcessInputs;
         }
 
         public void PlayerUnsubscribe(Player player)
         {
-            inputEvents.PrimaryActionInputTriggered -= player.ProcessInputs;
-            inputEvents.MovementActionInputTriggered -= player.ProcessInputs;
+            _inputEvents.PrimaryActionInputTriggered -= player.ProcessInputs;
+            _inputEvents.MovementActionInputTriggered -= player.ProcessInputs;
         }
 
-        public void GUISubscribe(GUIHandler guiHandler)
+        public void GuiSubscribe(GuiHandler guiHandler)
         {
-            inputEvents.PauseActionInputTriggered += guiHandler.ProcessInputs;
+            _inputEvents.PauseActionInputTriggered += guiHandler.ProcessInputs;
         }
 
         public void ToggleIgnorePlayerInputs(bool ignoreInputs, Player player)

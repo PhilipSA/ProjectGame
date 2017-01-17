@@ -1,27 +1,25 @@
 ﻿using System.Collections.Generic;
-using System.IO;
 using Assets.Scripts.Engine.Levels;
 using Assets.Scripts.GUI.GUIElements;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.GUI.OverlayScreens.ChildScreens
 {
     public class LevelSelectLevelList : MonoBehaviour
     {
-        private List<Level> allLevels;
-        private BestLevelTimeFileHandler bestLevelTimeFileHandler;
-        public GameObject prefabLevelInfoBox;
+        private List<Level> _allLevels;
+        private BestLevelTimeFileHandler _bestLevelTimeFileHandler;
+        public GameObject PrefabLevelInfoBox;
 
         void Start()
         {
-            allLevels = LevelHandler.GetAllLevels();
+            _allLevels = LevelHandler.GetAllLevels();
 
             RectTransform rectTransform = GetComponent<RectTransform>();
 
-            foreach (var level in allLevels)
+            foreach (var level in _allLevels)
             {
-                LevelInfoBox.CreateLevelInfoBox(level, rectTransform, prefabLevelInfoBox);              
+                LevelInfoBox.CreateLevelInfoBox(level, rectTransform, PrefabLevelInfoBox);              
             }         
         }
     }

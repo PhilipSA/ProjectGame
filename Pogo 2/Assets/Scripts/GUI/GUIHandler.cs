@@ -3,16 +3,15 @@ using Assets.Scripts.GUI.GUIElements;
 using Assets.Scripts.GUI.OverlayScreens;
 using Assets.Scripts.InteractingObjects.Player;
 using UnityEngine;
-using UnityEngine.VR.WSA;
 
 namespace Assets.Scripts.GUI
 {
-    public class GUIHandler : MonoBehaviour
+    public class GuiHandler : MonoBehaviour
     {
         private TimerDisplay _timerDisplay;
         private ChargeBar _chargeBar;
         private HealthBar _healthBar;
-        private FPSDisplay _fpsDisplay;
+        private FpsDisplay _fpsDisplay;
         private BestTimeDisplay _bestTimeDisplay;
         public VictoryScreen VictoryScreen { get; private set; }
         public DefeatScreen DefeatScreen { get; private set; }
@@ -31,7 +30,7 @@ namespace Assets.Scripts.GUI
 
             _chargeBar = gameObject.AddComponent<ChargeBar>();
             _healthBar = gameObject.AddComponent<HealthBar>();
-            _fpsDisplay = gameObject.AddComponent<FPSDisplay>();
+            _fpsDisplay = gameObject.AddComponent<FpsDisplay>();
             _bestTimeDisplay = gameObject.AddComponent<BestTimeDisplay>();
         }
 

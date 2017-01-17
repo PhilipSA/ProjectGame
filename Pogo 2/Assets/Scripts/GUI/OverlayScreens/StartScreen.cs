@@ -5,7 +5,7 @@ namespace Assets.Scripts.GUI.OverlayScreens
 {
     public class StartScreen : OverlayScreen
     {
-        public Button levelSelectButton { get; private set; }
+        public Button LevelSelectButton { get; private set; }
 
         protected override void Start()
         {
@@ -14,7 +14,7 @@ namespace Assets.Scripts.GUI.OverlayScreens
 
         public void Init()
         {
-            levelSelectButton = (LevelSelectButton)GetComponentInChildren(typeof(LevelSelectButton), true);
+            LevelSelectButton = (LevelSelectButton)GetComponentInChildren(typeof(LevelSelectButton), true);
         }
     }
 }
