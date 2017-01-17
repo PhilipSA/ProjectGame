@@ -179,3 +179,6 @@ sysinfo.txt
 /Pogo 2/Assets/Scripts/GUI/Buttons/Abstraction/*.meta
 /Pogo 2/Assets/Scripts/GUI/OverlayScreens/*.meta
 *.meta
+*.dll
+*.pdb
+*.cache
