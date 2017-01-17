@@ -1,10 +1,10 @@
-﻿namespace SmartLocalization.Editor
-{
+﻿using SmartLocalization;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
-[RequireComponent (typeof (Text))]
+namespace Assets.SmartLocalization.Scripts.uGUI
+{
+    [RequireComponent (typeof (Text))]
 public class LocalizedText : MonoBehaviour 
 {
 	public string LocalizedKey = "INSERT_KEY_HERE";

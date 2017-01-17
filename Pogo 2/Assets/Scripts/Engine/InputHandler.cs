@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.Enums;
-using Assets.Scripts.GUI;
 using Assets.Scripts.InteractingObjects.Player;
+using Assets.Scripts.Interface;
 using UnityEngine;
 
 namespace Assets.Scripts.Engine

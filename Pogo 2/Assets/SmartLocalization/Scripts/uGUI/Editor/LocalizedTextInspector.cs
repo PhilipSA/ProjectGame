@@ -1,4 +1,6 @@
 ﻿
+using Assets.SmartLocalization.Scripts.uGUI;
+
 namespace SmartLocalization.Editor{
 using UnityEngine.UI;
 using UnityEngine;

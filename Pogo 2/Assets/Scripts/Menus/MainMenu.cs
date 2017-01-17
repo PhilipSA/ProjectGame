@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.GUI.OverlayScreens;
+﻿using Assets.Scripts.Interface.OverlayScreens;
 using UnityEngine;
 
 namespace Assets.Scripts.Menus
@@ -8,7 +8,7 @@ namespace Assets.Scripts.Menus
         private static OverlayScreen _currentActiveScreen;
         public static StartScreen StartScreen;
         public static LevelSelectScreen LevelSelectScreen;
-        public static OptionsScreen OptionsScreen;
+        public static OptionsScreenPrefab OptionsScreenPrefab;
         // Use this for initialization
         void Start()
         {
@@ -20,7 +20,7 @@ namespace Assets.Scripts.Menus
             LevelSelectScreen = (LevelSelectScreen)GetComponentInChildren(typeof(LevelSelectScreen), true);
             LevelSelectScreen.Init();
 
-            OptionsScreen = (OptionsScreen)GetComponentInChildren(typeof(OptionsScreen), true);
+            OptionsScreenPrefab = (OptionsScreenPrefab)GetComponentInChildren(typeof(OptionsScreenPrefab), true);
         }
 
         public static void ChangeCurrentActiveScreen(OverlayScreen screen)

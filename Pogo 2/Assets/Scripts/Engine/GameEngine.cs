@@ -1,9 +1,9 @@
 ﻿using System;
 using Assets.Scripts.Engine.Levels;
 using Assets.Scripts.Enums;
-using Assets.Scripts.GUI;
-using Assets.Scripts.GUI.DisplayFormats;
 using Assets.Scripts.InteractingObjects.Player;
+using Assets.Scripts.Interface;
+using Assets.Scripts.Interface.DisplayFormats;
 using SmartLocalization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
