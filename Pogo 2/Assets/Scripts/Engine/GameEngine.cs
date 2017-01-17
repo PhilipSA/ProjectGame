@@ -12,7 +12,7 @@ namespace Assets.Scripts.Engine
 {
     public class GameEngine : MonoBehaviour
     {
-        public GuiHandler GuiHandler { get; private set; }
+        public InterfaceHandler InterfaceHandler { get; private set; }
         public Player Player { get; private set; }
         public InputHandler InputHandler { get; private set; }
         public GameEvents GameEvents { get; private set; }
@@ -23,14 +23,14 @@ namespace Assets.Scripts.Engine
         void Start()
         {
             Time.timeScale = 1;
-            GuiHandler = (GuiHandler)GetComponentInChildren(typeof(GuiHandler));
+            InterfaceHandler = (InterfaceHandler)GetComponentInChildren(typeof(InterfaceHandler));
             Player = (Player)GetComponentInChildren(typeof(Player));
             InputHandler = (InputHandler)GetComponentInChildren(typeof(InputHandler));
 
             BestLevelTime = new BestLevelTimeFileHandler("bestTimes.dat");
             Level = new Level(BestLevelTime.LoadBestTimeForLevel(SceneManager.GetActiveScene().buildIndex), SceneManager.GetActiveScene().name, 
                 (LevelEnum)SceneManager.GetActiveScene().buildIndex);
-            GuiHandler.SetBestTimeDisplay(Level.BestTime);
+            InterfaceHandler.SetBestTimeDisplay(Level.BestTime);
 
             GameEvents = new GameEvents();
             GameEvents.PlayerOnGoalCollision += Victory;
@@ -49,44 +49,44 @@ namespace Assets.Scripts.Engine
         void InputSubscriptions()
         {
             InputHandler.PlayerSubscribe(Player);
-            InputHandler.GuiSubscribe(GuiHandler);
+            InputHandler.GuiSubscribe(InterfaceHandler);
         }
 
         public void Victory()
         {
             GameEvents.PlayerOnGoalCollision -= Victory;
             InputHandler.ToggleIgnorePlayerInputs(true, Player);
-            GuiHandler.StopTimer();
+            InterfaceHandler.StopTimer();
             CheckIfBestTime();
-            GuiHandler.ToggleOverlayScreen(GuiHandler.VictoryScreen);
+            InterfaceHandler.ToggleOverlayScreen(InterfaceHandler.VictoryScreen);
             Player.enabled = false;
         }
 
         public void CheckIfBestTime()
         {
-            if (GuiHandler.GetTimerTime() < Level.BestTime || Level.BestTime.Equals(0))
+            if (InterfaceHandler.GetTimerTime() < Level.BestTime || Level.BestTime.Equals(0))
             {
-                BestLevelTime.SaveBestTimeForLevel(SceneManager.GetActiveScene().buildIndex, GuiHandler.GetTimerTime());
-                GuiHandler.SetVictoryScreenText(String.Format("{0} {1}", "New record:" , TimeFormatter.GetTimeInMmssffFormat(GuiHandler.GetTimerTime())));
-                GuiHandler.SetBestTimeDisplay(GuiHandler.GetTimerTime());
+                BestLevelTime.SaveBestTimeForLevel(SceneManager.GetActiveScene().buildIndex, InterfaceHandler.GetTimerTime());
+                InterfaceHandler.SetVictoryScreenText(String.Format("{0} {1}", "New record:" , TimeFormatter.GetTimeInMmssffFormat(InterfaceHandler.GetTimerTime())));
+                InterfaceHandler.SetBestTimeDisplay(InterfaceHandler.GetTimerTime());
             }
             else
             {
-                GuiHandler.SetVictoryScreenText(LanguageManager.Instance.GetTextValue("NoNewRecord"));
+                InterfaceHandler.SetVictoryScreenText(LanguageManager.Instance.GetTextValue("NoNewRecord"));
             }
         }
 
         public void Defeat()
         {
-            GuiHandler.ToggleOverlayScreen(GuiHandler.DefeatScreen);
+            InterfaceHandler.ToggleOverlayScreen(InterfaceHandler.DefeatScreen);
             InputHandler.ToggleIgnorePlayerInputs(true, Player);
-            GuiHandler.StopTimer();
+            InterfaceHandler.StopTimer();
             Player.enabled = false;
         }
 
         public void TogglePauseMenu()
         {
-            GuiHandler.ToggleOverlayScreen(GuiHandler.PauseMenu);
+            InterfaceHandler.ToggleOverlayScreen(InterfaceHandler.PauseMenu);
         }
 
         public void TogglePause()

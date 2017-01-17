@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Interface
 {
-    public class GuiHandler : MonoBehaviour
+    public class InterfaceHandler : MonoBehaviour
     {
         private TimerDisplay _timerDisplay;
         private ChargeBar _chargeBar;

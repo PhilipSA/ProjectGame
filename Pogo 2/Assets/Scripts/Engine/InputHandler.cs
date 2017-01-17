@@ -42,9 +42,9 @@ namespace Assets.Scripts.Engine
             _inputEvents.MovementActionInputTriggered -= player.ProcessInputs;
         }
 
-        public void GuiSubscribe(GuiHandler guiHandler)
+        public void GuiSubscribe(InterfaceHandler interfaceHandler)
         {
-            _inputEvents.PauseActionInputTriggered += guiHandler.ProcessInputs;
+            _inputEvents.PauseActionInputTriggered += interfaceHandler.ProcessInputs;
         }
 
         public void ToggleIgnorePlayerInputs(bool ignoreInputs, Player player)
