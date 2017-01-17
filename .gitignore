@@ -182,3 +182,4 @@ sysinfo.txt
 *.dll
 *.pdb
 *.cache
+*.info
