@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Interface.Buttons;
+﻿using Assets.Scripts.Interface.Controls.Buttons;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Interface.OverlayScreens

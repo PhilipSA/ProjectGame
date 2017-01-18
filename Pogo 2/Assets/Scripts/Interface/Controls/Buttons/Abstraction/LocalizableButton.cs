@@ -1,6 +1,6 @@
 ﻿using UnityEngine.UI;
 
-namespace Assets.Scripts.Interface.Buttons.Abstraction
+namespace Assets.Scripts.Interface.Controls.Buttons.Abstraction
 {
     public class LocalizableButton : Button
     {

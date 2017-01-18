@@ -116,19 +116,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+	<data name="AudioOptionsButton" xml:space="preserve">
+		<value>Ljud</value>
+	</data>
+	<data name="GraphicOptionsButton" xml:space="preserve">
+		<value>Grafik</value>
+	</data>
+	<data name="LevelSelectButton" xml:space="preserve">
+		<value>Välj nivå</value>
+	</data>
+	<data name="MainMenuButton" xml:space="preserve">
+		<value>Huvudmeny</value>
+	</data>
 	<data name="NoNewRecord" xml:space="preserve">
 		<value>Inget nytt rekord!</value>
 	</data>
-	<data name="WatchTheHead" xml:space="preserve">
-		<value />
-	</data>
 	<data name="OptionsButton" xml:space="preserve">
-		<value />
+		<value>Alternativ</value>
 	</data>
-	<data name="MainMenuButton" xml:space="preserve">
-		<value />
-	</data>
-	<data name="LevelSelectButton" xml:space="preserve">
-		<value />
+	<data name="WatchTheHead" xml:space="preserve">
+		<value>Akta huvudet!</value>
 	</data>
 </root>

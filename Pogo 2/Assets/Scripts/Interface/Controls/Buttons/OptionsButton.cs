@@ -1,14 +1,14 @@
-﻿using Assets.Scripts.Interface.Buttons.Abstraction;
+﻿using Assets.Scripts.Interface.Controls.Buttons.Abstraction;
 using Assets.Scripts.Menus;
 using SmartLocalization;
 
-namespace Assets.Scripts.Interface.Buttons
+namespace Assets.Scripts.Interface.Controls.Buttons
 {
     public class OptionsButton : LocalizableButton
     {       
         public void OnClick()
         {
-            MainMenu.ChangeCurrentActiveScreen(MainMenu.OptionsScreenPrefab);
+            Menu.ChangeCurrentActiveScreen(Menu.OptionsScreenPrefab);
         }
 
         protected override void Awake()

@@ -116,19 +116,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-	<data name="NoNewRecord" xml:space="preserve">
-		<value />
-	</data>
-	<data name="WatchTheHead" xml:space="preserve">
+	<data name="AudioOptionsButton" xml:space="preserve">
 		<value>New Value</value>
 	</data>
-	<data name="OptionsButton" xml:space="preserve">
-		<value>						</value>
+	<data name="GraphicOptionsButton" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="LevelSelectButton" xml:space="preserve">
+		<value>New Value</value>
 	</data>
 	<data name="MainMenuButton" xml:space="preserve">
 		<value>New Value</value>
 	</data>
-	<data name="LevelSelectButton" xml:space="preserve">
+	<data name="NoNewRecord" xml:space="preserve">
+		<value />
+	</data>
+	<data name="OptionsButton" xml:space="preserve">
+		<value>						</value>
+	</data>
+	<data name="WatchTheHead" xml:space="preserve">
 		<value>New Value</value>
 	</data>
 </root>

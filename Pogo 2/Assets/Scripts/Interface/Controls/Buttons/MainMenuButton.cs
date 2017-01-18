@@ -1,9 +1,9 @@
 ﻿using Assets.Scripts.Engine.Levels;
 using Assets.Scripts.Enums;
-using Assets.Scripts.Interface.Buttons.Abstraction;
+using Assets.Scripts.Interface.Controls.Buttons.Abstraction;
 using SmartLocalization;
 
-namespace Assets.Scripts.Interface.Buttons
+namespace Assets.Scripts.Interface.Controls.Buttons
 {
     public class MainMenuButton : LocalizableButton
     {
