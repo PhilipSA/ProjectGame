@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Interface.Controls.Buttons.Abstraction
 {
-    public class LocalizableButton : Button
+    public abstract class LocalizableButton : Button
     {
         public string DisplayText;
 

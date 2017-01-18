@@ -119,6 +119,12 @@
 	<data name="AudioOptionsButton" xml:space="preserve">
 		<value>New Value</value>
 	</data>
+	<data name="ContinueButton" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="ExitButton" xml:space="preserve">
+		<value>New Value</value>
+	</data>
 	<data name="GraphicOptionsButton" xml:space="preserve">
 		<value>New Value</value>
 	</data>
@@ -134,7 +140,13 @@
 	<data name="OptionsButton" xml:space="preserve">
 		<value>						</value>
 	</data>
+	<data name="StartButton" xml:space="preserve">
+		<value>New Value</value>
+	</data>
 	<data name="WatchTheHead" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="BackButton" xml:space="preserve">
 		<value>New Value</value>
 	</data>
 </root>

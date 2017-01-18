@@ -11,9 +11,10 @@ namespace Assets.Scripts.Interface.Controls.Buttons
             Menu.ChangeCurrentActiveScreen(Menu.GraphicOptionsScreen);
         }
 
-        protected override void Awake()
+        protected override void Start()
         {
             DisplayText = LanguageManager.Instance.GetTextValue("GraphicOptionsButton");
+            base.Start();
         }
     }
 }

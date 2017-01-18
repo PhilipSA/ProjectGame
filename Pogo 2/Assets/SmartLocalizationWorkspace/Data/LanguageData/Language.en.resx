@@ -117,10 +117,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 	<data name="AudioOptionsButton" xml:space="preserve">
-		<value>Audio</value>
+		<value>AUDIO</value>
+	</data>
+	<data name="BackButton" xml:space="preserve">
+		<value>BACK</value>
+	</data>
+	<data name="ContinueButton" xml:space="preserve">
+		<value>CONTINUE</value>
+	</data>
+	<data name="ExitButton" xml:space="preserve">
+		<value>EXIT</value>
 	</data>
 	<data name="GraphicOptionsButton" xml:space="preserve">
-		<value>Graphics</value>
+		<value>GRAPHICS</value>
 	</data>
 	<data name="LevelSelectButton" xml:space="preserve">
 		<value>LEVEL SELECT</value>
@@ -133,6 +142,9 @@
 	</data>
 	<data name="OptionsButton" xml:space="preserve">
 		<value>OPTIONS</value>
+	</data>
+	<data name="StartButton" xml:space="preserve">
+		<value>START</value>
 	</data>
 	<data name="WatchTheHead" xml:space="preserve">
 		<value>Watch the head!</value>

@@ -1,4 +1,5 @@
-﻿using UnityEngine.Events;
+﻿using Assets.Scripts.Interface.Controls.Buttons;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction
@@ -7,9 +8,11 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction
     {
         protected Button BackButton { get; set; }
 
-        protected virtual void SetBackButtonListener(UnityAction function)
+        protected override void Start()
         {
-            BackButton.onClick.AddListener(function);
+            BackButton = GetComponentInChildren<BackButton>();
+            BackButton.onClick.AddListener(OnBackButtonClick);
+            base.Start();
         }
 
         protected abstract void OnBackButtonClick();

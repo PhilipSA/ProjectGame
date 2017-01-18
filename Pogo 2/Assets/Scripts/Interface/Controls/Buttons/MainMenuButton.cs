@@ -12,9 +12,10 @@ namespace Assets.Scripts.Interface.Controls.Buttons
             LevelHandler.ChangeLevel((int)LevelEnum.MainMenu);
         }
 
-        protected override void Awake()
+        protected override void Start()
         {
             DisplayText = LanguageManager.Instance.GetTextValue("MainMenuButton");
+            base.Start();
         }
     }
 }

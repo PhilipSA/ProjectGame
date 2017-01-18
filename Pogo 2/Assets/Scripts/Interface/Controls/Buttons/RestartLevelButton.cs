@@ -1,13 +1,20 @@
 ﻿using Assets.Scripts.Engine.Levels;
-using UnityEngine.UI;
+using Assets.Scripts.Interface.Controls.Buttons.Abstraction;
+using SmartLocalization;
 
 namespace Assets.Scripts.Interface.Controls.Buttons
 {
-    public class RestartLevelButton : Button
+    public class RestartLevelButton : LocalizableButton
     {
         public void OnClick()
         {
             LevelHandler.ReloadCurrentLevel();
+        }
+
+        protected override void Start()
+        {
+            DisplayText = LanguageManager.Instance.GetTextValue("GraphicOptionsButton");
+            base.Start();
         }
     }
 }
