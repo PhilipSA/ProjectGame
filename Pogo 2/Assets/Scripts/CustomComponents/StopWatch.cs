@@ -1,5 +1,4 @@
-﻿using System;
-using Assets.Scripts.Interface.DisplayFormats;
+﻿using Assets.Scripts.Interface.DisplayFormats;
 using UnityEngine;
 
 namespace Assets.Scripts.CustomComponents

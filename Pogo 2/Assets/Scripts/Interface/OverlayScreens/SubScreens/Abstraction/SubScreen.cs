@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Interface.Controls.Buttons;
-using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction

@@ -5,10 +5,10 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
 {
     public class GraphicOptionsSubScreen : OptionsSubScreen
     {
-        //protected override void Start()
-        //{
-
-        //}
+        protected override void Start()
+        {
+            base.Start();
+        }
 
         protected override void OnBackButtonClick()
         {

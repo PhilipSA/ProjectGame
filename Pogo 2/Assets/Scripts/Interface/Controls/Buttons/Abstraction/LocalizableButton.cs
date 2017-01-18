@@ -1,10 +1,11 @@
-﻿using UnityEngine.UI;
+﻿using Assets.Scripts.Interface.Controls.Abstraction;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Interface.Controls.Buttons.Abstraction
 {
-    public abstract class LocalizableButton : Button
+    public abstract class LocalizableButton : Button, ILocalizableControl
     {
-        public string DisplayText;
+        public string DisplayText { get; set; }
 
         protected override void Start()
         {
