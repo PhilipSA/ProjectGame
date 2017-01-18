@@ -2,6 +2,7 @@
 using Assets.Scripts.InteractingObjects.Player;
 using Assets.Scripts.Interface.InterfaceElements;
 using Assets.Scripts.Interface.OverlayScreens;
+using Assets.Scripts.Menus;
 using UnityEngine;
 
 namespace Assets.Scripts.Interface
@@ -15,8 +16,8 @@ namespace Assets.Scripts.Interface
         private BestTimeDisplay _bestTimeDisplay;
         public VictoryScreen VictoryScreen { get; private set; }
         public DefeatScreen DefeatScreen { get; private set; }
-        public PauseScreen PauseMenu { get; private set; }
-        //public OptionsScreenPrefab OptionsScreenPrefab { get; private set; }
+        public PauseMenu PauseMenu { get; private set; }
+        //public OptionsScreen OptionsScreen { get; private set; }
         public Player PlayerData { get; private set; }
 
         void Awake()
@@ -24,8 +25,8 @@ namespace Assets.Scripts.Interface
             _timerDisplay = (TimerDisplay)GetComponentInChildren(typeof(TimerDisplay), true);
             VictoryScreen = (VictoryScreen)GetComponentInChildren(typeof(VictoryScreen), true);
             DefeatScreen = (DefeatScreen)GetComponentInChildren(typeof(DefeatScreen), true);
-            PauseMenu = (PauseScreen)GetComponentInChildren(typeof(PauseScreen), true); 
-            //OptionsScreenPrefab = (OptionsScreenPrefab)GetComponentInChildren(typeof(OptionsScreenPrefab), true);
+            PauseMenu = (PauseMenu)GetComponentInChildren(typeof(PauseMenu), true); 
+            //OptionsScreen = (OptionsScreen)GetComponentInChildren(typeof(OptionsScreen), true);
             PlayerData = FindObjectOfType<Player>();
 
             _chargeBar = gameObject.AddComponent<ChargeBar>();

@@ -13,7 +13,7 @@ namespace Assets.Scripts.Interface.Controls.Buttons
 
         protected override void Start()
         {
-            DisplayText = LanguageManager.Instance.GetTextValue("GraphicOptionsButton");
+            DisplayText = LanguageManager.Instance.GetTextValue("RestartLevelButton");
             base.Start();
         }
     }

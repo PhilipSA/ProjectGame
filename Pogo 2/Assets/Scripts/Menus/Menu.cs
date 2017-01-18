@@ -7,37 +7,36 @@ namespace Assets.Scripts.Menus
     public class Menu : MonoBehaviour
     {
         private static OverlayScreen _currentActiveScreen;
-        public static StartScreen StartScreen;
+        private static OverlayScreen _parentScreen;
+
         public static LevelSelectScreen LevelSelectScreen;
-        public static OptionsScreen OptionsScreenPrefab;
+        public static OptionsScreen OptionsScreen;
         public static GraphicOptionsSubScreen GraphicOptionsScreen;
         public static AudioOptionsSubScreen AudioOptionsScreen;
         public static ControlsOptionsSubScreen ControlsOptionsScreen;
         public static GameOptionsSubScreen GameOptionsScreen;
         // Use this for initialization
         void Start()
-        {
-            StartScreen = (StartScreen)GetComponentInChildren(typeof(StartScreen), true);
-            StartScreen.Init();
-
-            _currentActiveScreen = StartScreen;            
-
+        {           
             LevelSelectScreen = (LevelSelectScreen)GetComponentInChildren(typeof(LevelSelectScreen), true);
-            LevelSelectScreen.Init();
-
-            OptionsScreenPrefab = (OptionsScreen)GetComponentInChildren(typeof(OptionsScreen), true);
+            OptionsScreen = (OptionsScreen)GetComponentInChildren(typeof(OptionsScreen), true);
             GraphicOptionsScreen = (GraphicOptionsSubScreen)GetComponentInChildren(typeof(GraphicOptionsSubScreen), true);
             AudioOptionsScreen = (AudioOptionsSubScreen)GetComponentInChildren(typeof(AudioOptionsSubScreen), true);
             ControlsOptionsScreen = (ControlsOptionsSubScreen)GetComponentInChildren(typeof(ControlsOptionsSubScreen), true);
             GameOptionsScreen = (GameOptionsSubScreen)GetComponentInChildren(typeof(GameOptionsSubScreen), true);
         }
 
-        public static void ChangeCurrentActiveScreen(OverlayScreen screen)
+        public static void ChangeCurrentActiveScreen(OverlayScreen screen = null)
         {
-            _currentActiveScreen.SetVisibility(false);
-            Debug.Log(screen.name);
-            screen.SetVisibility(true);
+            if (_currentActiveScreen != null) _currentActiveScreen.SetVisibility(false);
+            Debug.Log(screen);
+            if(screen != null) screen.SetVisibility(true);
             _currentActiveScreen = screen;
+        }
+
+        public void SetParentScreen(OverlayScreen parentScreen)
+        {
+            _parentScreen = parentScreen;
         }
     }
 }

@@ -2,7 +2,6 @@
 using Assets.Scripts.Enums;
 using Assets.Scripts.Interface.Controls.Buttons.Abstraction;
 using SmartLocalization;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.Interface.Controls.Buttons
 {

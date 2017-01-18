@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Interface.Controls.OptionBox;
 using Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction;
+using Assets.Scripts.Menus;
 
 namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
 {
@@ -15,7 +16,7 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
 
         protected override void OnBackButtonClick()
         {
-            throw new System.NotImplementedException();
+            Menu.ChangeCurrentActiveScreen(Menu.OptionsScreen);
         }
     }
 }

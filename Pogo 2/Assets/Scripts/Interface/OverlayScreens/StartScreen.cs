@@ -9,11 +9,6 @@ namespace Assets.Scripts.Interface.OverlayScreens
 
         protected override void Start()
         {
-
-        }
-
-        public void Init()
-        {
             LevelSelectButton = (LevelSelectButton)GetComponentInChildren(typeof(LevelSelectButton), true);
         }
     }

@@ -37,8 +37,6 @@ namespace Assets.Scripts.Engine
 
             InputSubscriptions();
             Paused = false;
-
-            Debug.Log(LanguageManager.Instance.GetTextValue("NoNewRecord"));
         }
 
         void Update()
@@ -84,15 +82,15 @@ namespace Assets.Scripts.Engine
             Player.enabled = false;
         }
 
-        public void TogglePauseMenu()
+        public void TogglePauseMenu(bool toggle)
         {
-            InterfaceHandler.ToggleOverlayScreen(InterfaceHandler.PauseMenu);
+            InterfaceHandler.PauseMenu.ToggleDisplay(toggle);
         }
 
         public void TogglePause()
         {
             Paused = !Paused;
-            TogglePauseMenu();
+            TogglePauseMenu(Paused);
             Time.timeScale = Paused ? 0 : 1;
             Player.enabled = !Paused;
             InputHandler.ToggleIgnorePlayerInputs(Paused, Player);

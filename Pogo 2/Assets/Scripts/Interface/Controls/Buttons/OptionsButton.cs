@@ -8,7 +8,7 @@ namespace Assets.Scripts.Interface.Controls.Buttons
     {       
         public void OnClick()
         {
-            Menu.ChangeCurrentActiveScreen(Menu.OptionsScreenPrefab);
+            Menu.ChangeCurrentActiveScreen(Menu.OptionsScreen);
         }
 
         protected override void Start()

@@ -12,7 +12,7 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
 
         protected override void OnBackButtonClick()
         {
-            Menu.ChangeCurrentActiveScreen(Menu.OptionsScreenPrefab);
+            Menu.ChangeCurrentActiveScreen(Menu.OptionsScreen);
         }
     }
 }

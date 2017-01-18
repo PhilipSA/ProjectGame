@@ -6,9 +6,10 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
     {
         private LevelSelectLevelList _levelSelectList;
 
-        public void Init()
+        protected override void Start()
         {
             _levelSelectList = GetComponent<LevelSelectLevelList>();
+            base.Start();
         }
 
         protected override void OnBackButtonClick()
