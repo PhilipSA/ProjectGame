@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Interface.Controls.Buttons.Abstraction;
+﻿using Assets.Scripts.Engine.Audio;
+using Assets.Scripts.Interface.Controls.Buttons.Abstraction;
 using Assets.Scripts.Menus;
 using SmartLocalization;
 
@@ -9,6 +10,7 @@ namespace Assets.Scripts.Interface.Controls.Buttons
         public void OnClick()
         {
             Menu.ChangeCurrentActiveScreen(Menu.OptionsScreen);
+            AudioHandler.PlayAudio(AudioSource);
         }
 
         protected override void Start()

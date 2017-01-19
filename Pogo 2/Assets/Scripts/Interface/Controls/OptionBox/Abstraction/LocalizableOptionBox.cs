@@ -1,9 +1,9 @@
 ﻿using Assets.Scripts.Interface.Controls.Abstraction;
 using UnityEngine.EventSystems;
 
-namespace Assets.Scripts.Interface.Controls.OptionBox
+namespace Assets.Scripts.Interface.Controls.OptionBox.Abstraction
 {
-    public abstract class OptionBox : UIBehaviour, ILocalizableControl
+    public abstract class LocalizeableOptionBox : UIBehaviour, ILocalizableControl
     {
         public string DisplayText { get; set; }
         protected bool ValueChanged;

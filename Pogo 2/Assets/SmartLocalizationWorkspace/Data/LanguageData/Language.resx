@@ -119,6 +119,9 @@
 	<data name="AudioOptionsButton" xml:space="preserve">
 		<value>New Value</value>
 	</data>
+	<data name="BackButton" xml:space="preserve">
+		<value>New Value</value>
+	</data>
 	<data name="ContinueButton" xml:space="preserve">
 		<value>New Value</value>
 	</data>
@@ -146,7 +149,10 @@
 	<data name="WatchTheHead" xml:space="preserve">
 		<value>New Value</value>
 	</data>
-	<data name="BackButton" xml:space="preserve">
+	<data name="RestartLevelButton" xml:space="preserve">
+		<value>New Value</value>
+	</data>
+	<data name="NextLevelButton" xml:space="preserve">
 		<value>New Value</value>
 	</data>
 </root>

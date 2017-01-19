@@ -6,11 +6,13 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
 {
     public class AudioOptionsSubScreen : OptionsSubScreen
     {
-        private MusicVolumeOptionBox _musicVolumeOptionBox;
+        private MusicVolumeOptionBox _musicVolumeLocalizeableOptionBox;
+        private SoundEffectVolumeOptionBox _soundEffectVolumeLocalizeableOptionBox;
 
         protected override void Start()
         {
-            _musicVolumeOptionBox = (MusicVolumeOptionBox)GetComponentInChildren(typeof(MusicVolumeOptionBox));
+            _musicVolumeLocalizeableOptionBox = (MusicVolumeOptionBox)GetComponentInChildren(typeof(MusicVolumeOptionBox));
+            _soundEffectVolumeLocalizeableOptionBox = (SoundEffectVolumeOptionBox)GetComponentInChildren(typeof(SoundEffectVolumeOptionBox));
             base.Start();
         }
 

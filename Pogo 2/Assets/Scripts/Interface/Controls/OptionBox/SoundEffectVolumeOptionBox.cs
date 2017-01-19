@@ -1,8 +1,9 @@
-﻿using Assets.Scripts.Interface.Controls.Sliders;
+﻿using Assets.Scripts.Interface.Controls.OptionBox.Abstraction;
+using Assets.Scripts.Interface.Controls.Sliders;
 
 namespace Assets.Scripts.Interface.Controls.OptionBox
 {
-    public class SoundEffectVolumeOptionBox : OptionBox
+    public class SoundEffectVolumeOptionBox : LocalizeableOptionBox
     {
         private SoundEffectSlider _soundEffectSlider;
 

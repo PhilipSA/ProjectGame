@@ -137,11 +137,17 @@
 	<data name="MainMenuButton" xml:space="preserve">
 		<value>MAIN MENU</value>
 	</data>
+	<data name="NextLevelButton" xml:space="preserve">
+		<value>NEXT LEVEL</value>
+	</data>
 	<data name="NoNewRecord" xml:space="preserve">
 		<value>No new record!</value>
 	</data>
 	<data name="OptionsButton" xml:space="preserve">
 		<value>OPTIONS</value>
+	</data>
+	<data name="RestartLevelButton" xml:space="preserve">
+		<value>RESTART LEVEL</value>
 	</data>
 	<data name="StartButton" xml:space="preserve">
 		<value>START</value>

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Engine
+namespace Assets.Scripts.Engine.Animation
 {
     //Attach to a sprite that has animations
     public class AnimationHandler : MonoBehaviour

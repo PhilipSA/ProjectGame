@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Engine
+namespace Assets.Scripts.Engine.Audio
 {
     [RequireComponent(typeof(AudioSource))]
     public static class AudioHandler

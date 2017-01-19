@@ -3,7 +3,7 @@ using Assets.Scripts.InteractingObjects.Player;
 using Assets.Scripts.Interface;
 using UnityEngine;
 
-namespace Assets.Scripts.Engine
+namespace Assets.Scripts.Engine.Input
 {
     public class InputHandler : MonoBehaviour
     {
@@ -55,11 +55,11 @@ namespace Assets.Scripts.Engine
 
         void ChangeInputDevice()
         {
-            if (Input.touchPressureSupported)
+            if (UnityEngine.Input.touchPressureSupported)
             {
                 _currentInputDevice = InputDeviceEnum.TouchDevice;
             }
-            if (Input.mousePresent)
+            if (UnityEngine.Input.mousePresent)
             {
                 _currentInputDevice = InputDeviceEnum.KeyboardAndMouse;
             }

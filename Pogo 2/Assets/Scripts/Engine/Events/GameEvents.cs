@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Engine
+﻿namespace Assets.Scripts.Engine.Events
 {
     public class GameEvents
     {

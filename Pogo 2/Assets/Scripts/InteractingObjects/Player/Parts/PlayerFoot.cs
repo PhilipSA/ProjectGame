@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Engine;
+using Assets.Scripts.Engine.Audio;
 using UnityEngine;
 
 namespace Assets.Scripts.InteractingObjects.Player.Parts
