@@ -7,9 +7,10 @@ namespace Assets.Scripts.Interface.Controls.Buttons
 {
     public class StartButton : LocalizableButton
     {
-        public void OnClick()
+        public override void OnClick()
         {
             LevelHandler.ChangeLevel((int)LevelEnum.FlatLand);
+            base.OnClick();
         }
 
         protected override void Start()

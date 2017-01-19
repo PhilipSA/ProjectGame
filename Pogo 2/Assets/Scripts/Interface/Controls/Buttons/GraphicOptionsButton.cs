@@ -6,9 +6,10 @@ namespace Assets.Scripts.Interface.Controls.Buttons
 {
     public class GraphicOptionsButton : LocalizableButton
     {
-        public void OnClick()
+        public override void OnClick()
         {
             Menu.ChangeCurrentActiveScreen(Menu.GraphicOptionsScreen);
+            base.OnClick();
         }
 
         protected override void Start()

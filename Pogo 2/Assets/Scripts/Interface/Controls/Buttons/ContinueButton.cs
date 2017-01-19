@@ -6,9 +6,10 @@ namespace Assets.Scripts.Interface.Controls.Buttons
 {
     public class ContinueButton : LocalizableButton
     {
-        public void OnClick()
+        public override void OnClick()
         {
             GameEngineHelper.GetCurrentGameEngine().TogglePause();
+            base.OnClick();
         }
 
         protected override void Start()

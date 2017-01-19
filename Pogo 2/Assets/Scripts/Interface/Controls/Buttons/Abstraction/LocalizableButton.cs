@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Interface.Controls.Abstraction;
+﻿using Assets.Scripts.Engine.Audio;
+using Assets.Scripts.Interface.Controls.Abstraction;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,14 @@ namespace Assets.Scripts.Interface.Controls.Buttons.Abstraction
     {
         public string DisplayText { get; set; }
         public AudioSource AudioSource { get; set; }
+
+        public virtual void OnClick()
+        {
+            if (AudioSource != null)
+            {
+                AudioHandler.PlayAudio(AudioSource);
+            }
+        }
 
         protected override void Start()
         {

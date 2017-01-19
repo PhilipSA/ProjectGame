@@ -12,7 +12,7 @@ namespace Assets.Scripts.Interface.InterfaceElements
         // Use this for initialization
         void Start()
         {
-            _text = (Text)GameObject.Find("TimerText").GetComponent(typeof(Text));
+            _text = GetComponentInChildren<Text>();
             StopWatch = new StopWatch(true);
         }
 

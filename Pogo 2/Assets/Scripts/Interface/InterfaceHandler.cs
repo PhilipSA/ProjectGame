@@ -12,12 +12,10 @@ namespace Assets.Scripts.Interface
         private TimerDisplay _timerDisplay;
         private ChargeBar _chargeBar;
         private HealthBar _healthBar;
-        private FpsDisplay _fpsDisplay;
         private BestTimeDisplay _bestTimeDisplay;
         public VictoryScreen VictoryScreen { get; private set; }
         public DefeatScreen DefeatScreen { get; private set; }
         public PauseMenu PauseMenu { get; private set; }
-        //public OptionsScreen OptionsScreen { get; private set; }
         public Player PlayerData { get; private set; }
 
         void Awake()
@@ -26,13 +24,11 @@ namespace Assets.Scripts.Interface
             VictoryScreen = (VictoryScreen)GetComponentInChildren(typeof(VictoryScreen), true);
             DefeatScreen = (DefeatScreen)GetComponentInChildren(typeof(DefeatScreen), true);
             PauseMenu = (PauseMenu)GetComponentInChildren(typeof(PauseMenu), true); 
-            //OptionsScreen = (OptionsScreen)GetComponentInChildren(typeof(OptionsScreen), true);
             PlayerData = FindObjectOfType<Player>();
 
-            _chargeBar = gameObject.AddComponent<ChargeBar>();
-            _healthBar = gameObject.AddComponent<HealthBar>();
-            _fpsDisplay = gameObject.AddComponent<FpsDisplay>();
-            _bestTimeDisplay = gameObject.AddComponent<BestTimeDisplay>();
+            _chargeBar = GetComponentInChildren<ChargeBar>();
+            _healthBar = GetComponentInChildren<HealthBar>();
+            _bestTimeDisplay = GetComponentInChildren<BestTimeDisplay>();
         }
 
         public void SetBestTimeDisplay(float time)

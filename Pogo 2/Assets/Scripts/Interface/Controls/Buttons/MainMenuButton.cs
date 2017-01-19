@@ -7,9 +7,10 @@ namespace Assets.Scripts.Interface.Controls.Buttons
 {
     public class MainMenuButton : LocalizableButton
     {
-        public void OnClick()
+        public override void OnClick()
         {
             LevelHandler.ChangeLevel((int)LevelEnum.MainMenu);
+            base.OnClick();
         }
 
         protected override void Start()

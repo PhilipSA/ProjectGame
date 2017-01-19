@@ -8,9 +8,10 @@ namespace Assets.Scripts.Interface.Controls.Buttons
 {
     public class ExitButton : LocalizableButton
     {
-        public void OnClick()
+        public override void OnClick()
         {
             Application.Quit();
+            base.OnClick();
         }
 
         public void OnClickInGame()

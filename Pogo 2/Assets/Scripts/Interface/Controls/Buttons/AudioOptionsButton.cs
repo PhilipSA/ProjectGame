@@ -6,9 +6,10 @@ namespace Assets.Scripts.Interface.Controls.Buttons
 {
     public class AudioOptionsButton : LocalizableButton
     {
-        public void OnClick()
+        public override void OnClick()
         {
             Menu.ChangeCurrentActiveScreen(Menu.AudioOptionsScreen);
+            base.OnClick();
         }
 
         protected override void Start()

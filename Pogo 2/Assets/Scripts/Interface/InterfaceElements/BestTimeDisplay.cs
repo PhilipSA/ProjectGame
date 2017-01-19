@@ -15,7 +15,7 @@ namespace Assets.Scripts.Interface.InterfaceElements
             BestTimeDisplayValue = new DateTime(timeSpan.Ticks).ToString("mm:ss:ff");
         }
 
-        void OnGui()
+        void OnGUI()
         {
             int width = Screen.width, height = Screen.height;
 

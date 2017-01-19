@@ -6,9 +6,10 @@ namespace Assets.Scripts.Interface.Controls.Buttons
 {
     public class LevelSelectButton : LocalizableButton
     {
-        public void OnClick()
+        public override void OnClick()
         {
             Menu.ChangeCurrentActiveScreen(Menu.LevelSelectScreen);
+            base.OnClick();
         }
 
         protected override void Start()

@@ -10,7 +10,7 @@ namespace Assets.Scripts.Interface.InterfaceElements
         public Vector2 Pos = new Vector2(20, 500);
         public Vector2 Size = new Vector2(10, 20);
 
-        void OnGui()
+        void OnGUI()
         {
             useGUILayout = false;
             Texture2D texture = new Texture2D(1, 1);

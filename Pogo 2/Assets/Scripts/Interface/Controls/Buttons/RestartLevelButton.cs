@@ -6,9 +6,10 @@ namespace Assets.Scripts.Interface.Controls.Buttons
 {
     public class RestartLevelButton : LocalizableButton
     {
-        public void OnClick()
+        public override void OnClick()
         {
             LevelHandler.ReloadCurrentLevel();
+            base.OnClick();
         }
 
         protected override void Start()

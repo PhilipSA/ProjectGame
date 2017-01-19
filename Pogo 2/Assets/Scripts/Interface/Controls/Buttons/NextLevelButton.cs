@@ -6,9 +6,10 @@ namespace Assets.Scripts.Interface.Controls.Buttons
 {
     public class NextLevelButton : LocalizableButton
     {
-        public void OnClick()
+        public override void OnClick()
         {
             LevelHandler.StartNextLevel();
+            base.OnClick();
         }
 
         protected override void Start()
