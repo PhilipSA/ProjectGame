@@ -1,0 +1,36 @@
+﻿using System;
+using System.Linq;
+using Assets.Scripts.Interface.Controls.Dropdowns;
+using Assets.Scripts.Interface.Controls.OptionBox.Abstraction;
+using Assets.Scripts.MainEngineComponents;
+using SmartLocalization;
+using UnityEngine;
+
+namespace Assets.Scripts.Interface.Controls.OptionBox.Graphics
+{
+    public class ResolutionOptionBox : LocalizeableOptionBox
+    {
+        public ResolutionDropdown ResolutionDropdown { get; private set; }
+
+        protected override void Start()
+        {
+            ResolutionDropdown = GetComponentInChildren<ResolutionDropdown>();
+            DisplayText = LanguageManager.Instance.GetTextValue("Resolution");
+            AddAllSupportedResolutionToDropdown();
+            base.Start();
+        }
+
+        public void AddAllSupportedResolutionToDropdown()
+        {
+            foreach (var resolution in MainEngine.GetMainEngine.GraphicsComponent.GetAllSupportedResolutions())
+                ResolutionDropdown.AddOption(MainEngine.GetMainEngine.GraphicsComponent.ConvertResolutionToOptionData(resolution), resolution);
+        }
+
+        public Resolution GetSelectedResolution()
+        {
+            Resolution resoltuion;
+            ResolutionDropdown.MappedValues.TryGetValue(ResolutionDropdown.value, out resoltuion);
+            return resoltuion;
+        }
+    }
+}

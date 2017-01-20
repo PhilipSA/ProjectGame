@@ -5,11 +5,21 @@ namespace Assets.Scripts.MainEngineComponents
 {
     public class MainEngine : MonoBehaviour
     {
-        public static AudioMixerLevels AudioMixerLevels;
+        public AudioMixerLevels AudioMixerLevels;
+        public GraphicsComponent GraphicsComponent;
 
-        void Start()
+        void Awake()
         {
             AudioMixerLevels = GetComponentInChildren<AudioMixerLevels>();
+            GraphicsComponent = new GraphicsComponent();
+        }
+
+        public static MainEngine GetMainEngine
+        {
+            get
+            {
+                return (MainEngine)FindObjectOfType(typeof(MainEngine));
+            }
         }
     }
 }

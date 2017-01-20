@@ -16,6 +16,11 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
             base.Start();
         }
 
+        protected override void OnApplyButtonClick()
+        {
+            throw new System.NotImplementedException();
+        }
+
         protected override void OnBackButtonClick()
         {
             Menu.ChangeCurrentActiveScreen(Menu.OptionsScreen);

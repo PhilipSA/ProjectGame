@@ -5,21 +5,21 @@ using SmartLocalization;
 
 namespace Assets.Scripts.Interface.Controls.OptionBox
 {
-    public class SoundEffectVolumeOptionBox : LocalizeableOptionBox
+    public class MusicVolumeOptionBox : LocalizeableOptionBox
     {
-        private SoundEffectSlider _soundEffectSlider;
+        private MusicVolumeSlider _musicVolumeSlider;
 
         protected override void Start()
         {
-            _soundEffectSlider = GetComponentInChildren<SoundEffectSlider>();
-            _soundEffectSlider.onValueChanged.AddListener(OnValueChanged);
-            DisplayText = LanguageManager.Instance.GetTextValue("SoundEffects");
+            _musicVolumeSlider = GetComponentInChildren<MusicVolumeSlider>();
+            _musicVolumeSlider.onValueChanged.AddListener(OnValueChanged);
+            DisplayText = LanguageManager.Instance.GetTextValue("BackgroundMusic");
             base.Start();
         }
 
         protected override void OnValueChanged(float newValue)
         {
-            MainEngine.AudioMixerLevels.SetSfxLevel(newValue);
+            MainEngine.GetMainEngine.AudioMixerLevels.SetMusicLevel(newValue);
             base.OnValueChanged(newValue);
         }
     }

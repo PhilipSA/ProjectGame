@@ -8,5 +8,10 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
         {
             throw new System.NotImplementedException();
         }
+
+        protected override void OnApplyButtonClick()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
