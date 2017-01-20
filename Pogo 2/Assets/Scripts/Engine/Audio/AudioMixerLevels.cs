@@ -9,7 +9,7 @@ namespace Assets.Scripts.Engine.Audio
 
         public void SetSfxLevel(float sfxLvl)
         {
-            masterMixer.SetFloat("SoundEffectsVolume", sfxLvl);
+            masterMixer.SetFloat("SoundEffectsVolume", sfxLvl*10);
         }
 
         public void SetMusicLevel(float musicLvl)

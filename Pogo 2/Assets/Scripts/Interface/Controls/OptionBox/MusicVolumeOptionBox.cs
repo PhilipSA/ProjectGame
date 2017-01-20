@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Interface.Controls.OptionBox.Abstraction;
 using Assets.Scripts.Interface.Controls.Sliders;
-using UnityEngine;
+using Assets.Scripts.MainEngineComponents;
+using SmartLocalization;
 
 namespace Assets.Scripts.Interface.Controls.OptionBox
 {
@@ -12,12 +13,13 @@ namespace Assets.Scripts.Interface.Controls.OptionBox
         {
             _musicVolumeSlider = GetComponentInChildren<MusicVolumeSlider>();
             _musicVolumeSlider.onValueChanged.AddListener(OnValueChanged);
+            DisplayText = LanguageManager.Instance.GetTextValue("BackgroundMusic");
             base.Start();
         }
 
         protected override void OnValueChanged(float newValue)
         {
-            //AudioListener.volume = (float)(newValue / 10.0);
+            MainEngine.AudioMixerLevels.SetMusicLevel(newValue);
             base.OnValueChanged(newValue);
         }
     }

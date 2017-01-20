@@ -122,6 +122,9 @@
 	<data name="BackButton" xml:space="preserve">
 		<value>BACK</value>
 	</data>
+	<data name="BackgroundMusic" xml:space="preserve">
+		<value>Background music</value>
+	</data>
 	<data name="ContinueButton" xml:space="preserve">
 		<value>CONTINUE</value>
 	</data>
@@ -148,6 +151,9 @@
 	</data>
 	<data name="RestartLevelButton" xml:space="preserve">
 		<value>RESTART LEVEL</value>
+	</data>
+	<data name="SoundEffects" xml:space="preserve">
+		<value>Sound effects</value>
 	</data>
 	<data name="StartButton" xml:space="preserve">
 		<value>START</value>

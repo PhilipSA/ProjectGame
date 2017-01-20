@@ -137,11 +137,17 @@
 	<data name="MainMenuButton" xml:space="preserve">
 		<value>Huvudmeny</value>
 	</data>
+	<data name="NextLevelButton" xml:space="preserve">
+		<value />
+	</data>
 	<data name="NoNewRecord" xml:space="preserve">
 		<value>Inget nytt rekord!</value>
 	</data>
 	<data name="OptionsButton" xml:space="preserve">
 		<value>Alternativ</value>
+	</data>
+	<data name="RestartLevelButton" xml:space="preserve">
+		<value />
 	</data>
 	<data name="StartButton" xml:space="preserve">
 		<value />
@@ -149,10 +155,10 @@
 	<data name="WatchTheHead" xml:space="preserve">
 		<value>Akta huvudet!</value>
 	</data>
-	<data name="RestartLevelButton" xml:space="preserve">
+	<data name="BackgroundMusic" xml:space="preserve">
 		<value />
 	</data>
-	<data name="NextLevelButton" xml:space="preserve">
+	<data name="SoundEffects" xml:space="preserve">
 		<value />
 	</data>
 </root>

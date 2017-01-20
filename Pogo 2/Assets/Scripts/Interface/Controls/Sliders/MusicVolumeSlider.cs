@@ -4,5 +4,6 @@ namespace Assets.Scripts.Interface.Controls.Sliders
 {
     public class MusicVolumeSlider : Slider
     {
+
     }
 }

@@ -7,8 +7,7 @@ namespace Assets.Scripts.Menus
     public class Menu : MonoBehaviour
     {
         private static OverlayScreen _currentActiveScreen;
-        private static OverlayScreen _parentScreen;
-
+        public static OverlayScreen _parentScreen;
         public static LevelSelectScreen LevelSelectScreen;
         public static OptionsScreen OptionsScreen;
         public static GraphicOptionsSubScreen GraphicOptionsScreen;

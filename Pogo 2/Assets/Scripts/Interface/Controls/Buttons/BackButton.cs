@@ -8,7 +8,13 @@ namespace Assets.Scripts.Interface.Controls.Buttons
         protected override void Start()
         {
             DisplayText = LanguageManager.Instance.GetTextValue("BackButton");
+            onClick.AddListener(OnClick);
             base.Start();
+        }
+
+        public override void OnClick()
+        {
+            base.OnClick();
         }
     }
 }
