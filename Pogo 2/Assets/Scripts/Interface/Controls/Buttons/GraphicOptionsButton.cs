@@ -8,7 +8,7 @@ namespace Assets.Scripts.Interface.Controls.Buttons
     {
         public override void OnClick()
         {
-            Menu.ChangeCurrentActiveScreen(Menu.GraphicOptionsScreen);
+            Menu.ChangeCurrentActiveScreen(Menu.GraphicOptionsSubScreen);
             base.OnClick();
         }
 

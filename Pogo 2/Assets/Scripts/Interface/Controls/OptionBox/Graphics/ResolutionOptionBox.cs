@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using Assets.Scripts.GameObjects;
 using Assets.Scripts.Interface.Controls.Dropdowns;
 using Assets.Scripts.Interface.Controls.OptionBox.Abstraction;
 using Assets.Scripts.MainEngineComponents;
@@ -14,7 +13,7 @@ namespace Assets.Scripts.Interface.Controls.OptionBox.Graphics
 
         protected override void Start()
         {
-            ResolutionDropdown = GetComponentInChildren<ResolutionDropdown>();
+            ResolutionDropdown = CreateGameObject.CreateChildGameObject<ResolutionDropdown>(transform).GetComponent<ResolutionDropdown>();
             DisplayText = LanguageManager.Instance.GetTextValue("Resolution");
             AddAllSupportedResolutionToDropdown();
             base.Start();

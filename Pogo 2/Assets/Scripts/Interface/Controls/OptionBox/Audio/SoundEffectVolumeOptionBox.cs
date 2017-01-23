@@ -1,9 +1,10 @@
-﻿using Assets.Scripts.Interface.Controls.OptionBox.Abstraction;
+﻿using Assets.Scripts.GameObjects;
+using Assets.Scripts.Interface.Controls.OptionBox.Abstraction;
 using Assets.Scripts.Interface.Controls.Sliders;
 using Assets.Scripts.MainEngineComponents;
 using SmartLocalization;
 
-namespace Assets.Scripts.Interface.Controls.OptionBox
+namespace Assets.Scripts.Interface.Controls.OptionBox.Audio
 {
     public class SoundEffectVolumeOptionBox : LocalizeableOptionBox
     {
@@ -11,7 +12,7 @@ namespace Assets.Scripts.Interface.Controls.OptionBox
 
         protected override void Start()
         {
-            _soundEffectSlider = GetComponentInChildren<SoundEffectSlider>();
+            _soundEffectSlider = CreateGameObject.CreateChildGameObject<SoundEffectSlider>(transform).GetComponent<SoundEffectSlider>();
             _soundEffectSlider.onValueChanged.AddListener(OnValueChanged);
             DisplayText = LanguageManager.Instance.GetTextValue("SoundEffects");
             base.Start();

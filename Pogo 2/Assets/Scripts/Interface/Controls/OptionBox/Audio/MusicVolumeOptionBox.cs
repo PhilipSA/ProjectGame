@@ -1,9 +1,10 @@
-﻿using Assets.Scripts.Interface.Controls.OptionBox.Abstraction;
+﻿using Assets.Scripts.GameObjects;
+using Assets.Scripts.Interface.Controls.OptionBox.Abstraction;
 using Assets.Scripts.Interface.Controls.Sliders;
 using Assets.Scripts.MainEngineComponents;
 using SmartLocalization;
 
-namespace Assets.Scripts.Interface.Controls.OptionBox
+namespace Assets.Scripts.Interface.Controls.OptionBox.Audio
 {
     public class MusicVolumeOptionBox : LocalizeableOptionBox
     {
@@ -11,7 +12,7 @@ namespace Assets.Scripts.Interface.Controls.OptionBox
 
         protected override void Start()
         {
-            _musicVolumeSlider = GetComponentInChildren<MusicVolumeSlider>();
+            _musicVolumeSlider = CreateGameObject.CreateChildGameObject<MusicVolumeSlider>(transform).GetComponent<MusicVolumeSlider>();
             _musicVolumeSlider.onValueChanged.AddListener(OnValueChanged);
             DisplayText = LanguageManager.Instance.GetTextValue("BackgroundMusic");
             base.Start();

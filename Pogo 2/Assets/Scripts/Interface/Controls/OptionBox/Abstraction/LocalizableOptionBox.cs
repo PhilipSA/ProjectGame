@@ -1,6 +1,7 @@
-﻿using Assets.Scripts.Interface.Controls.Abstraction;
+﻿using Assets.Scripts.GameObjects;
+using Assets.Scripts.Interface.Controls.Abstraction;
+using Assets.Scripts.Interface.Controls.Text;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.Interface.Controls.OptionBox.Abstraction
 {
@@ -8,11 +9,11 @@ namespace Assets.Scripts.Interface.Controls.OptionBox.Abstraction
     {
         public string DisplayText { get; set; }
         protected bool ValueChanged;
-        protected Text TextComponent;
+        protected ControlText TextComponent;
 
         protected override void Start()
         {
-            TextComponent = GetComponentInChildren<Text>();
+            TextComponent = CreateGameObject.CreateChildGameObject<ControlText>(transform).GetComponent<ControlText>();
             TextComponent.text = DisplayText;
         }
 

@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Interface.Controls.OptionBox.Graphics;
+﻿using Assets.Scripts.GameObjects;
+using Assets.Scripts.Interface.Controls.OptionBox.Graphics;
 using Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction;
 using Assets.Scripts.MainEngineComponents;
 using Assets.Scripts.Menus;
@@ -12,8 +13,8 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
 
         protected override void Start()
         {
-            _resolutionOptionBox = GetComponentInChildren<ResolutionOptionBox>();
-            _screenTypeOptionBox = GetComponentInChildren<ScreenTypeOptionBox>();
+            _resolutionOptionBox = CreateGameObject.CreateChildGameObject<ResolutionOptionBox>(transform).GetComponent<ResolutionOptionBox>();
+            _screenTypeOptionBox = CreateGameObject.CreateChildGameObject<ScreenTypeOptionBox>(transform).GetComponent<ScreenTypeOptionBox>();
             base.Start();
         }
 

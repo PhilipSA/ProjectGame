@@ -8,7 +8,7 @@ namespace Assets.Scripts.Interface.InterfaceElements
 {
     public class LevelInfoBox : MonoBehaviour
     {
-        public static GameObject CreateLevelInfoBox(Level level, RectTransform parent, GameObject prefab)
+        public LevelInfoBox CreateLevelInfoBox(Level level, RectTransform parent, LevelInfoBox prefab)
         {
             var newPrefabLevelInfoBox = Instantiate(prefab);
             newPrefabLevelInfoBox.transform.SetParent(parent, false);
@@ -27,7 +27,7 @@ namespace Assets.Scripts.Interface.InterfaceElements
             return newPrefabLevelInfoBox;
         }
 
-        static void OnClick(int levelIndex)
+        void OnClick(int levelIndex)
         {
             LevelHandler.ChangeLevel(levelIndex);
         }

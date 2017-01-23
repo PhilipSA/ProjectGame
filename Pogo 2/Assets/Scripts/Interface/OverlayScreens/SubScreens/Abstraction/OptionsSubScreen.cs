@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Interface.Controls.Buttons;
+﻿using Assets.Scripts.GameObjects;
+using Assets.Scripts.Interface.Controls.Buttons;
 
 namespace Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction
 {
@@ -8,7 +9,7 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction
 
         protected override void Start()
         {
-            ApplyButton = GetComponentInChildren<ApplyButton>();
+            ApplyButton = CreateGameObject.CreateChildGameObject<ApplyButton>(transform).GetComponent<ApplyButton>();
             ApplyButton.onClick.AddListener(OnApplyButtonClick);
             base.Start();
         }

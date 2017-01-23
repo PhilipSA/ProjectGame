@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Interface.Controls.OptionBox;
+﻿using Assets.Scripts.GameObjects;
+using Assets.Scripts.Interface.Controls.OptionBox.Audio;
 using Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction;
 using Assets.Scripts.Menus;
 
@@ -11,8 +12,8 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
 
         protected override void Start()
         {
-            _musicVolumeLocalizeableOptionBox = (MusicVolumeOptionBox)GetComponentInChildren(typeof(MusicVolumeOptionBox));
-            _soundEffectVolumeLocalizeableOptionBox = (SoundEffectVolumeOptionBox)GetComponentInChildren(typeof(SoundEffectVolumeOptionBox));
+            _musicVolumeLocalizeableOptionBox = CreateGameObject.CreateChildGameObject<MusicVolumeOptionBox>(transform).GetComponent<MusicVolumeOptionBox>();
+            _soundEffectVolumeLocalizeableOptionBox = CreateGameObject.CreateChildGameObject<SoundEffectVolumeOptionBox>(transform).GetComponent<SoundEffectVolumeOptionBox>();
             base.Start();
         }
 

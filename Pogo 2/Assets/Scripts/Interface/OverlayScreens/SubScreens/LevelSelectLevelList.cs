@@ -9,17 +9,18 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
     {
         private List<Level> _allLevels;
         private BestLevelTimeFileHandler _bestLevelTimeFileHandler;
-        public GameObject PrefabLevelInfoBox;
+        public LevelInfoBox LevelInfoBox { get; private set; }
 
         void Start()
         {
             _allLevels = LevelHandler.GetAllLevels();
 
             RectTransform rectTransform = GetComponent<RectTransform>();
+            LevelInfoBox = GetComponentInChildren<LevelInfoBox>(true);
 
             foreach (var level in _allLevels)
             {
-                LevelInfoBox.CreateLevelInfoBox(level, rectTransform, PrefabLevelInfoBox);              
+                LevelInfoBox.CreateLevelInfoBox(level, rectTransform, LevelInfoBox);              
             }         
         }
     }

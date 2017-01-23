@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Interface.OverlayScreens
 {
@@ -6,11 +7,16 @@ namespace Assets.Scripts.Interface.OverlayScreens
     {
         public bool IsVisible { get; private set; }
         public Canvas Canvas { get; private set; }
+        public GraphicRaycaster GraphicRaycaster { get; private set; }
+        public LayoutGroup LayoutGroup;
 
         protected virtual void Start()
         {
-            Canvas = gameObject.GetComponent<Canvas>();
+            Canvas = gameObject.AddComponent<Canvas>();
+            Canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             Canvas.enabled = false;
+
+            GraphicRaycaster = gameObject.AddComponent<GraphicRaycaster>();
         }
 
         public virtual void SetVisibility(bool visible)
