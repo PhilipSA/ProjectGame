@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Engine;
+using Assets.Scripts.GameObjects;
 using Assets.Scripts.InteractingObjects.Player;
 using Assets.Scripts.Interface.InterfaceElements;
 using Assets.Scripts.Interface.OverlayScreens;
@@ -20,15 +21,15 @@ namespace Assets.Scripts.Interface
 
         void Awake()
         {
-            _timerDisplay = (TimerDisplay)GetComponentInChildren(typeof(TimerDisplay), true);
-            VictoryScreen = (VictoryScreen)GetComponentInChildren(typeof(VictoryScreen), true);
-            DefeatScreen = (DefeatScreen)GetComponentInChildren(typeof(DefeatScreen), true);
-            PauseMenu = (PauseMenu)GetComponentInChildren(typeof(PauseMenu), true); 
+            _timerDisplay = CreateGameObject.CreateChildGameObject<TimerDisplay>(transform).GetComponent<TimerDisplay>();
+            VictoryScreen = CreateGameObject.CreateChildGameObject<VictoryScreen>(transform).GetComponent<VictoryScreen>();
+            DefeatScreen = CreateGameObject.CreateChildGameObject<DefeatScreen>(transform).GetComponent<DefeatScreen>();
+            PauseMenu = CreateGameObject.CreateChildGameObject<PauseMenu>(transform).GetComponent<PauseMenu>();
             PlayerData = FindObjectOfType<Player>();
 
-            _chargeBar = GetComponentInChildren<ChargeBar>();
-            _healthBar = GetComponentInChildren<HealthBar>();
-            _bestTimeDisplay = GetComponentInChildren<BestTimeDisplay>();
+            _chargeBar = CreateGameObject.CreateChildGameObject<ChargeBar>(transform).GetComponent<ChargeBar>();
+            _healthBar = CreateGameObject.CreateChildGameObject<HealthBar>(transform).GetComponent<HealthBar>();
+            _bestTimeDisplay = CreateGameObject.CreateChildGameObject<BestTimeDisplay>(transform).GetComponent<BestTimeDisplay>();
         }
 
         public void SetBestTimeDisplay(float time)

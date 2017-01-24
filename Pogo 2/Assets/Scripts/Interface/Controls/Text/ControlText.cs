@@ -1,15 +1,14 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Interface.Controls.Text
 {
     public class ControlText : UnityEngine.UI.Text
     {
-        protected override void Start()
+        protected override void OnEnable()
         {
-            color = Color.gray;
+            color = Color.black;
             font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-            base.Start();
+            fontSize = 14;
         }
     }
 }

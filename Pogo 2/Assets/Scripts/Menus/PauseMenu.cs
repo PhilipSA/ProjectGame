@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Interface.OverlayScreens;
+﻿using Assets.Scripts.GameObjects;
+using Assets.Scripts.Interface.OverlayScreens;
 using UnityEngine;
 
 namespace Assets.Scripts.Menus
@@ -10,8 +11,8 @@ namespace Assets.Scripts.Menus
 
         void Start()
         {
-            _pauseScreen = GetComponentInChildren<PauseScreen>();
-            _menu = GetComponentInChildren<Menu>();
+            _pauseScreen = CreateGameObject.CreateChildGameObject<PauseScreen>(transform).GetComponent<PauseScreen>();
+            _menu = CreateGameObject.CreateChildGameObject<Menu>(transform).GetComponent<Menu>();
             _menu.SetParentScreen(_pauseScreen);
         }
 

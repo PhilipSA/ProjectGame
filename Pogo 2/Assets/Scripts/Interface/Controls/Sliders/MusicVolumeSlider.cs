@@ -1,9 +1,12 @@
-﻿using UnityEngine.UI;
+﻿using Assets.Scripts.Interface.Controls.Sliders.Abstractions;
 
 namespace Assets.Scripts.Interface.Controls.Sliders
 {
-    public class MusicVolumeSlider : Slider
+    public class MusicVolumeSlider : BaseSlider
     {
-
+        protected override void Start()
+        {
+            base.Start();
+        }
     }
 }

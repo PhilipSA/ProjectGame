@@ -1,16 +1,19 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Engine;
+using Assets.Scripts.InteractingObjects.Player;
+using UnityEngine;
 
 namespace Assets.Scripts.Cameras
 {
     public class MainCamera : MonoBehaviour {
 
-        public GameObject Player;       //Public variable to store a reference to the player game object
+        public Player Player;       //Public variable to store a reference to the player game object
         private Vector3 _offset;         //Private variable to store the offset distance between the player and camera
 
         // Use this for initialization
         void Start()
         {
             //Calculate and store the offset value by getting the distance between the player's position and camera's position.
+            Player = GameEngineHelper.GetCurrentGameEngine().Player;
             _offset = transform.position - Player.transform.position;
         }
 

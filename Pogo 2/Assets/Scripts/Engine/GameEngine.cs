@@ -3,6 +3,7 @@ using Assets.Scripts.Engine.Events;
 using Assets.Scripts.Engine.Input;
 using Assets.Scripts.Engine.Levels;
 using Assets.Scripts.Enums;
+using Assets.Scripts.GameObjects;
 using Assets.Scripts.InteractingObjects.Player;
 using Assets.Scripts.Interface;
 using Assets.Scripts.Interface.DisplayFormats;
@@ -22,12 +23,12 @@ namespace Assets.Scripts.Engine
         public BestLevelTimeFileHandler BestLevelTime { get; private set; }
         public Level Level { get; private set; }
 
-        void Start()
+        void Awake()
         {
             Time.timeScale = 1;
-            InterfaceHandler = (InterfaceHandler)GetComponentInChildren(typeof(InterfaceHandler));
+            InterfaceHandler = CreateGameObject.CreateChildGameObject<InterfaceHandler>(transform).GetComponent<InterfaceHandler>();
             Player = (Player)GetComponentInChildren(typeof(Player));
-            InputHandler = (InputHandler)GetComponentInChildren(typeof(InputHandler));
+            InputHandler = CreateGameObject.CreateChildGameObject<InputHandler>(transform).GetComponent<InputHandler>();
 
             BestLevelTime = new BestLevelTimeFileHandler("bestTimes.dat");
             Level = new Level(BestLevelTime.LoadBestTimeForLevel(SceneManager.GetActiveScene().buildIndex), SceneManager.GetActiveScene().name, 

@@ -14,6 +14,7 @@ namespace Assets.Scripts.Interface.Controls.OptionBox.Audio
         {
             _musicVolumeSlider = CreateGameObject.CreateChildGameObject<MusicVolumeSlider>(transform).GetComponent<MusicVolumeSlider>();
             _musicVolumeSlider.onValueChanged.AddListener(OnValueChanged);
+
             DisplayText = LanguageManager.Instance.GetTextValue("BackgroundMusic");
             base.Start();
         }

@@ -12,7 +12,6 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction
         {
             BackButton = CreateGameObject.CreateChildGameObject<BackButton>(transform).GetComponent<BackButton>();
             BackButton.onClick.AddListener(OnBackButtonClick);
-            Debug.Log(BackButton.onClick.GetPersistentEventCount());
             base.Start();
         }
 
