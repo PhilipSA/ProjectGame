@@ -13,12 +13,17 @@ namespace Assets.Scripts.Interface.OverlayScreens
 
         protected override void Start()
         {
-            LayoutGroup = gameObject.AddComponent<VerticalLayoutGroup>();
+            CreateLayoutGroup();
 
             StartButton = CreateGameObject.CreateChildGameObject<StartButton>(transform).GetComponent<StartButton>();
             OptionsButton = CreateGameObject.CreateChildGameObject<OptionsButton>(transform).GetComponent<OptionsButton>();
             LevelSelectButton = CreateGameObject.CreateChildGameObject<LevelSelectButton>(transform).GetComponent<LevelSelectButton>();
             ExitButton = CreateGameObject.CreateChildGameObject<ExitButton>(transform).GetComponent<ExitButton>();
+        }
+
+        protected override void CreateLayoutGroup()
+        {
+            CreateVerticalLayoutGroup();
         }
     }
 }

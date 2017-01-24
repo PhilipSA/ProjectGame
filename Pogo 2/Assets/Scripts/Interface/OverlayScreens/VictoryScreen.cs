@@ -22,6 +22,11 @@ namespace Assets.Scripts.Interface.OverlayScreens
             base.Start();      
         }
 
+        protected override void CreateLayoutGroup()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public void SetClearingTimeText(string text)
         {
             ClearingTimeText.text = text;

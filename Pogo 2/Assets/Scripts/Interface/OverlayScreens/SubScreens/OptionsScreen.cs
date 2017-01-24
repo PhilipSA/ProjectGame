@@ -2,7 +2,6 @@
 using Assets.Scripts.Interface.Controls.Buttons;
 using Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction;
 using Assets.Scripts.Menus;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
 {
@@ -14,11 +13,16 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
         // Use this for initialization
         protected override void Start()
         {
-            LayoutGroup = gameObject.AddComponent<VerticalLayoutGroup>();
+            CreateVerticalLayoutGroup();
             GraphicOptionsButton = CreateGameObject.CreateChildGameObject<GraphicOptionsButton>(transform).GetComponent<GraphicOptionsButton>();
             AudioOptionsButton = CreateGameObject.CreateChildGameObject<AudioOptionsButton>(transform).GetComponent<AudioOptionsButton>();
 
             base.Start();
+        }
+
+        protected override void CreateLayoutGroup()
+        {
+            throw new System.NotImplementedException();
         }
 
         protected override void OnBackButtonClick()

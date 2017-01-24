@@ -13,5 +13,10 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
         {
             throw new System.NotImplementedException();
         }
+
+        protected override void CreateLayoutGroup()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -17,5 +17,10 @@ namespace Assets.Scripts.Interface.OverlayScreens
             RestartLevelButton = CreateGameObject.CreateChildGameObject<RestartLevelButton>(transform).GetComponent<RestartLevelButton>();
             base.Start();
         }
+
+        protected override void CreateLayoutGroup()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -24,5 +24,14 @@ namespace Assets.Scripts.Interface.OverlayScreens
             IsVisible = visible;
             gameObject.GetComponent<Canvas>().enabled = visible;
         }
+
+        protected void CreateVerticalLayoutGroup()
+        {
+            LayoutGroup = gameObject.AddComponent<VerticalLayoutGroup>();
+            LayoutGroup.padding = new RectOffset(100, 100, 50, 50);
+            LayoutGroup.childAlignment = TextAnchor.MiddleCenter;
+        }
+
+        protected abstract void CreateLayoutGroup();
     }
 }
