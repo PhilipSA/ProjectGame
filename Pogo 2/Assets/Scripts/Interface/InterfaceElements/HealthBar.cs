@@ -1,30 +1,33 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.GameObjects;
+using Assets.Scripts.Interface.Controls.Sliders;
+using Assets.Scripts.Interface.InterfaceElements.Abstraction;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Interface.InterfaceElements
 {
-    public class HealthBar : MonoBehaviour {
+    public class HealthBar : InterfaceElement {
 
         public float BarDisplay; //current progress
-        public Vector2 Pos = new Vector2(200, 20);
-        public Vector2 Size = new Vector2(20, 25);
+        private HealthBarSlider _healthBarSlider;
+        private Image graphic;
 
-        void OnGUI()
+        protected override void Awake()
         {
-            useGUILayout = false;
-            Texture2D texture = new Texture2D(1, 1);
-            texture.SetPixel(0, 0, Color.red);
-            texture.Apply();
-            UnityEngine.GUI.skin.box.normal.background = texture;
-            for (float i = 0; i < BarDisplay; i++)
-            {
-                var displayPos = new Vector2(Pos.x + i, Pos.y);
-                UnityEngine.GUI.Box(new Rect(displayPos, Size), GUIContent.none);
-            }
+            graphic = CreateGameObject.CreateChildGameObject<Image>(transform).GetComponent<Image>();
+            graphic.rectTransform.anchorMin = new Vector2(0.5f, 1);
+            graphic.rectTransform.anchorMax = new Vector2(0.5f, 1);
+            graphic.rectTransform.pivot = new Vector2(0.5f, 0.5f);
+
+            _healthBarSlider = CreateGameObject.CreateChildGameObject<HealthBarSlider>(graphic.transform).GetComponent<HealthBarSlider>();
+            _healthBarSlider.maxValue = 100;
+
+            base.Awake();
         }
 
         void Update()
         {
-
+            _healthBarSlider.value = BarDisplay;
         }
     }
 }

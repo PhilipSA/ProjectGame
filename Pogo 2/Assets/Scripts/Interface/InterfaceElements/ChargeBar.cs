@@ -1,33 +1,33 @@
-﻿using System;
-using Assets.Scripts.InteractingObjects.Player;
+﻿using System.Collections.Generic;
+using Assets.Scripts.GameObjects;
+using Assets.Scripts.Interface.InterfaceElements.Abstraction;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Interface.InterfaceElements
 {
-    public class ChargeBar : MonoBehaviour {
+    public class ChargeBar : InterfaceElement {
 
         public float BarDisplay; //current progress
-        public Vector2 Pos = new Vector2(20, 500);
-        public Vector2 Size = new Vector2(10, 20);
+        private Image _bar;
+        private List<Image> _barsList;
 
-        void OnGUI()
+        protected override void Awake()
         {
-            useGUILayout = false;
-            Texture2D texture = new Texture2D(1, 1);
-            texture.SetPixel(0, 0, Color.green);
-            texture.Apply();
-            UnityEngine.GUI.skin.box.normal.background = texture;
-            for (float i = PlayerBounceLogic.MinimumBouncePower; i <= Math.Round(BarDisplay, 2); i += PlayerBounceLogic.BouncePowerIncrease)
-            {
-                float posY = Pos.y * i / 10;
-                var displayPos = new Vector2(Pos.x, Pos.y - posY);
-                UnityEngine.GUI.Box(new Rect(displayPos, Size), GUIContent.none);
-            }
+            _barsList = new List<Image>();
+
+            _bar = CreateGameObject.CreateChildGameObject<Image>(transform).GetComponent<Image>();
+            _bar.rectTransform.anchorMin = new Vector2(0, 0);
+            _bar.rectTransform.anchorMax = new Vector2(0, 0);
+            _bar.rectTransform.pivot = new Vector2(0, 0);
+
+            _barsList.Add(_bar);
+
+            base.Awake();
         }
 
         void Update()
         {
-
         }
     }
 }

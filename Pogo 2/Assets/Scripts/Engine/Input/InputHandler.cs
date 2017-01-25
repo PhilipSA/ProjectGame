@@ -11,7 +11,7 @@ namespace Assets.Scripts.Engine.Input
         private InputEvents _inputEvents;
         private bool _ignorePlayerInputs;
 
-        InputHandler()
+        void Awake()
         {
             _ignorePlayerInputs = false;
             _inputEvents = new InputEvents();

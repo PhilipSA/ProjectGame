@@ -7,6 +7,7 @@ namespace Assets.Scripts.Interface.OverlayScreens.Abstraction
     {
         public bool IsVisible { get; private set; }
         public Canvas Canvas { get; private set; }
+        protected CanvasScaler CanvasScaler;
         public GraphicRaycaster GraphicRaycaster { get; private set; }
         public LayoutGroup LayoutGroup;
 
@@ -16,6 +17,10 @@ namespace Assets.Scripts.Interface.OverlayScreens.Abstraction
             Canvas = gameObject.AddComponent<Canvas>();
             Canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             Canvas.enabled = false;
+
+            CanvasScaler = gameObject.AddComponent<CanvasScaler>();
+            CanvasScaler.screenMatchMode = CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
+            CanvasScaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
 
             GraphicRaycaster = gameObject.AddComponent<GraphicRaycaster>();
         }

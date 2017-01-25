@@ -15,8 +15,8 @@ namespace Assets.Scripts.Menus
         public static AudioOptionsSubScreen AudioOptionsSubScreen;
         public static ControlsOptionsSubScreen ControlsOptionsSubScreen;
         public static GameOptionsSubScreen GameOptionsSubScreen;
-        // Use this for initialization
-        void Start()
+
+        void Awake()
         {
             LevelSelectScreen = CreateGameObject.CreateChildGameObject<LevelSelectScreen>(transform).GetComponent<LevelSelectScreen>();
             OptionsScreen = CreateGameObject.CreateChildGameObject<OptionsScreen>(transform).GetComponent<OptionsScreen>();

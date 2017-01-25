@@ -1,49 +1,42 @@
 ﻿using Assets.Scripts.CustomComponents;
+using Assets.Scripts.GameObjects;
+using Assets.Scripts.Interface.Controls.Text;
+using Assets.Scripts.Interface.InterfaceElements.Abstraction;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Interface.InterfaceElements
 {
-    public class TimerDisplay : MonoBehaviour
+    public class TimerDisplay : InterfaceElement
     {
         public StopWatch StopWatch;
-        private string _text;
+        private ControlText _text;
+        private Image _texture2D;
 
         // Use this for initialization
-        void Start()
+        protected override void Awake()
         {
+            _texture2D = CreateGameObject.CreateChildGameObject<Image>(transform).GetComponent<Image>();
+            _texture2D.rectTransform.anchorMin = new Vector2(0, 1);
+            _texture2D.rectTransform.anchorMax = new Vector2(0, 1);
+            _texture2D.rectTransform.pivot = new Vector2(0, 1);
+
+            _text = CreateGameObject.CreateChildGameObject<ControlText>(_texture2D.transform).GetComponent<ControlText>();
+
             StopWatch = new StopWatch(true);
+            base.Awake();
         }
 
         // Update is called once per frame
         void Update()
         {
             StopWatch.Tick();
-            _text = StopWatch.GetTimeInMmssffFormat();
+            _text.text = StopWatch.GetTimeInMmssffFormat();
         }
 
         public void StopTimer()
         {
             StopWatch.Enabled = false;
-        }
-
-        void OnGUI()
-        {
-            int width = Screen.width, height = Screen.height;
-            Rect rect = new Rect(0, 0, width/9, height * 2 / 40);
-
-            var texture2D = new Texture2D((int) rect.width, (int) rect.height);
-            texture2D.SetPixel(0, 0, Color.black);
-            texture2D.wrapMode = TextureWrapMode.Repeat;
-            texture2D.Apply();
-
-            GUIStyle textStyle = new GUIStyle
-            {
-                alignment = TextAnchor.UpperLeft,
-                fontSize = height*2/50,
-                normal = {textColor = new Color(1.0f, 1.0f, 1.0f, 1.0f), background = texture2D}
-            };
-
-            UnityEngine.GUI.Box(rect, _text, textStyle);
         }
     }
 }
