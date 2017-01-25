@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.GameObjects;
 using Assets.Scripts.Interface.Controls.Abstraction;
 using Assets.Scripts.Interface.Controls.Text;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace Assets.Scripts.Interface.Controls.OptionBox.Abstraction
@@ -13,6 +14,7 @@ namespace Assets.Scripts.Interface.Controls.OptionBox.Abstraction
 
         protected override void Start()
         {
+            gameObject.AddComponent<RectTransform>();
             TextComponent = CreateGameObject.CreateChildGameObject<ControlText>(transform).GetComponent<ControlText>();
             TextComponent.text = DisplayText;
         }

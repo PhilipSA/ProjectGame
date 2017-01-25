@@ -11,18 +11,17 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
         public AudioOptionsButton AudioOptionsButton;
 
         // Use this for initialization
-        protected override void Start()
+        protected override void Awake()
         {
-            CreateVerticalLayoutGroup();
             GraphicOptionsButton = CreateGameObject.CreateChildGameObject<GraphicOptionsButton>(transform).GetComponent<GraphicOptionsButton>();
             AudioOptionsButton = CreateGameObject.CreateChildGameObject<AudioOptionsButton>(transform).GetComponent<AudioOptionsButton>();
 
-            base.Start();
+            base.Awake();
         }
 
         protected override void CreateLayoutGroup()
         {
-            throw new System.NotImplementedException();
+            CreateVerticalLayoutGroup();
         }
 
         protected override void OnBackButtonClick()

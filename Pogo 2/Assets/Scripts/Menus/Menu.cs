@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts.GameObjects;
-using Assets.Scripts.Interface.OverlayScreens;
+using Assets.Scripts.Interface.OverlayScreens.Abstraction;
 using Assets.Scripts.Interface.OverlayScreens.SubScreens;
 using UnityEngine;
 

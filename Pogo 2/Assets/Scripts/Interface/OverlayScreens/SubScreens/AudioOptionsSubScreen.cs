@@ -10,12 +10,11 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
         private MusicVolumeOptionBox _musicVolumeLocalizeableOptionBox;
         private SoundEffectVolumeOptionBox _soundEffectVolumeLocalizeableOptionBox;
 
-        protected override void Start()
+        protected override void Awake()
         {
-            CreateLayoutGroup();
             _musicVolumeLocalizeableOptionBox = CreateGameObject.CreateChildGameObject<MusicVolumeOptionBox>(transform).GetComponent<MusicVolumeOptionBox>();
             _soundEffectVolumeLocalizeableOptionBox = CreateGameObject.CreateChildGameObject<SoundEffectVolumeOptionBox>(transform).GetComponent<SoundEffectVolumeOptionBox>();
-            base.Start();
+            base.Awake();
         }
 
         protected override void CreateLayoutGroup()

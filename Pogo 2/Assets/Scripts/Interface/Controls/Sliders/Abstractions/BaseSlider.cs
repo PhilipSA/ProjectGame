@@ -16,7 +16,7 @@ namespace Assets.Scripts.Interface.Controls.Sliders.Abstractions
         {
             Background = CreateGameObject.CreateChildGameObject<Image>(transform).GetComponent<Image>().GetComponent<Image>();
             Background.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Background.psd");
-            Background.type = Image.Type.Sliced;          
+            Background.type = Image.Type.Sliced;
 
             HandleSlideArea = CreateGameObject.CreateChildGameObject<HandleSlideArea>(transform).GetComponent<HandleSlideArea>().GetComponent<HandleSlideArea>();
             FillArea = CreateGameObject.CreateChildGameObject<FillArea>(transform).GetComponent<FillArea>().GetComponent<FillArea>();

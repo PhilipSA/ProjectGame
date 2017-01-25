@@ -7,11 +7,11 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction
     {
         protected ApplyButton ApplyButton;
 
-        protected override void Start()
+        protected override void Awake()
         {
             ApplyButton = CreateGameObject.CreateChildGameObject<ApplyButton>(transform).GetComponent<ApplyButton>();
             ApplyButton.onClick.AddListener(OnApplyButtonClick);
-            base.Start();
+            base.Awake();
         }
 
         protected abstract void OnApplyButtonClick();

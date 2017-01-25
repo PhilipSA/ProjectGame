@@ -122,6 +122,9 @@
 	<data name="BackButton" xml:space="preserve">
 		<value>New Value</value>
 	</data>
+	<data name="BackgroundMusic" xml:space="preserve">
+		<value>New Value</value>
+	</data>
 	<data name="ContinueButton" xml:space="preserve">
 		<value>New Value</value>
 	</data>
@@ -149,16 +152,16 @@
 	<data name="RestartLevelButton" xml:space="preserve">
 		<value>New Value</value>
 	</data>
+	<data name="SoundEffects" xml:space="preserve">
+		<value>New Value</value>
+	</data>
 	<data name="StartButton" xml:space="preserve">
 		<value>New Value</value>
 	</data>
 	<data name="WatchTheHead" xml:space="preserve">
 		<value>New Value</value>
 	</data>
-	<data name="BackgroundMusic" xml:space="preserve">
-		<value>New Value</value>
-	</data>
-	<data name="SoundEffects" xml:space="preserve">
+	<data name="ApplyButton" xml:space="preserve">
 		<value>New Value</value>
 	</data>
 </root>

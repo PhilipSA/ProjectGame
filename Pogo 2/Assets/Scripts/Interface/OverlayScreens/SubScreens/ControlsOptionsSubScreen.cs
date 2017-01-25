@@ -16,7 +16,7 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
 
         protected override void CreateLayoutGroup()
         {
-            throw new System.NotImplementedException();
+            CreateVerticalLayoutGroup();
         }
     }
 }

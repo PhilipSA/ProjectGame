@@ -11,16 +11,16 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
         private ResolutionOptionBox _resolutionOptionBox;
         private ScreenTypeOptionBox _screenTypeOptionBox;
 
-        protected override void Start()
+        protected override void Awake()
         {
             _resolutionOptionBox = CreateGameObject.CreateChildGameObject<ResolutionOptionBox>(transform).GetComponent<ResolutionOptionBox>();
             _screenTypeOptionBox = CreateGameObject.CreateChildGameObject<ScreenTypeOptionBox>(transform).GetComponent<ScreenTypeOptionBox>();
-            base.Start();
+            base.Awake();
         }
 
         protected override void CreateLayoutGroup()
         {
-            throw new System.NotImplementedException();
+            CreateVerticalLayoutGroup();
         }
 
         protected override void OnBackButtonClick()

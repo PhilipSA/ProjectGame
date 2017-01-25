@@ -1,7 +1,6 @@
 ﻿using Assets.Scripts.GameObjects;
 using Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction;
 using Assets.Scripts.Menus;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
 {
@@ -9,16 +8,16 @@ namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
     {
         private LevelSelectLevelList _levelSelectList;
 
-        protected override void Start()
+        protected override void Awake()
         {
             _levelSelectList = CreateGameObject.CreateChildGameObject<LevelSelectLevelList>(transform).GetComponent<LevelSelectLevelList>();
             _levelSelectList.enabled = false;
-            base.Start();
+            base.Awake();
         }
 
         protected override void CreateLayoutGroup()
         {
-            LayoutGroup = gameObject.AddComponent<GridLayoutGroup>();
+            CreateGridLayoutGroup();
         }
 
         protected override void OnBackButtonClick()

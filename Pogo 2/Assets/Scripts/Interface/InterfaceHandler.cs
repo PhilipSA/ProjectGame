@@ -3,6 +3,7 @@ using Assets.Scripts.GameObjects;
 using Assets.Scripts.InteractingObjects.Player;
 using Assets.Scripts.Interface.InterfaceElements;
 using Assets.Scripts.Interface.OverlayScreens;
+using Assets.Scripts.Interface.OverlayScreens.Abstraction;
 using Assets.Scripts.Menus;
 using UnityEngine;
 

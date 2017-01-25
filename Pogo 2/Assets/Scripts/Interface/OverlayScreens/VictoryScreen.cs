@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.GameObjects;
 using Assets.Scripts.Interface.Controls.Buttons;
 using Assets.Scripts.Interface.Controls.Text;
+using Assets.Scripts.Interface.OverlayScreens.Abstraction;
 
 namespace Assets.Scripts.Interface.OverlayScreens
 {
@@ -12,19 +13,19 @@ namespace Assets.Scripts.Interface.OverlayScreens
         public RestartLevelButton RestartLevelButton;
         public MainMenuButton MainMenuButton;
 
-        protected override void Start()
+        protected override void Awake()
         {
             ClearingTimeText = CreateGameObject.CreateChildGameObject<ControlText>(transform).GetComponent<ControlText>();
             VictoryText = CreateGameObject.CreateChildGameObject<ControlText>(transform).GetComponent<ControlText>();
             NextLevelButton = CreateGameObject.CreateChildGameObject<NextLevelButton>(transform).GetComponent<NextLevelButton>();
             RestartLevelButton = CreateGameObject.CreateChildGameObject<RestartLevelButton>(transform).GetComponent<RestartLevelButton>();
             MainMenuButton = CreateGameObject.CreateChildGameObject<MainMenuButton>(transform).GetComponent<MainMenuButton>();    
-            base.Start();      
+            base.Awake();      
         }
 
         protected override void CreateLayoutGroup()
         {
-            throw new System.NotImplementedException();
+            CreateGridLayoutGroup();
         }
 
         public void SetClearingTimeText(string text)
