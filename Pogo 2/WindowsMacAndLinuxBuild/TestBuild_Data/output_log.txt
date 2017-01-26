@@ -1,11 +1,11 @@
-Initialize engine version: 5.6.0b3 (358ff4ed3952)
+Initialize engine version: 5.5.0f3 (38b4efef76f0)
 GfxDevice: creating device client; threaded=1
 Direct3D:
-    Version:  Direct3D 11.0 [level 11.1]
+    Version:  Direct3D 11.0 [level 11.0]
     Renderer: NVIDIA GeForce GTX 980 Ti (ID=0x17c8)
     Vendor:   NVIDIA
     VRAM:     3072 MB
-    Driver:   21.21.13.7633
+    Driver:   21.21.13.7849
 Begin MonoManager ReloadAssembly
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\UnityEngine.dll (this message is harmless)
 Loading C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\UnityEngine.dll into Unity Child Domain
@@ -15,21 +15,41 @@ Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 
 Loading C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
 Loading C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\UnityEngine.TestRunner.dll (this message is harmless)
-Loading C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\UnityEngine.TestRunner.dll into Unity Child Domain
-Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\nunit.framework.dll (this message is harmless)
-Loading C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\nunit.framework.dll into Unity Child Domain
+Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\SmartLocalization_Runtime.dll (this message is harmless)
 Loading C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\SmartLocalization_Runtime.dll into Unity Child Domain
-- Completed reload, in  0.073 seconds
+- Completed reload, in  0.087 seconds
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\System.dll (this message is harmless)
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 1920x1080 144Hz; virtual: 1920x1080 at 0,0
 <RI> Initialized touch support.
-UnloadTime: 1.008489 ms
+UnloadTime: 0.840846 ms
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\System.Xml.dll (this message is harmless)
+StartScreen (Assets.Scripts.Interface.OverlayScreens.StartScreen)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 3.882112 ms
+
+Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 537.
+Total: 0.428030 ms (FindLiveObjects: 0.035400 ms CreateObjectMapping: 0.013165 ms MarkObjects: 0.359861 ms  DeleteObjects: 0.019309 ms)
+
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.934176 ms
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 537.
+Total: 0.399358 ms (FindLiveObjects: 0.019894 ms CreateObjectMapping: 0.012580 ms MarkObjects: 0.349036 ms  DeleteObjects: 0.017261 ms)
+
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.872444 ms
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 460.
+Total: 0.370686 ms (FindLiveObjects: 0.020187 ms CreateObjectMapping: 0.011995 ms MarkObjects: 0.250147 ms  DeleteObjects: 0.088063 ms)
+
 StartScreen (Assets.Scripts.Interface.OverlayScreens.StartScreen)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
@@ -38,22 +58,18 @@ OptionsScreen (Assets.Scripts.Interface.OverlayScreens.SubScreens.OptionsScreen)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-GraphicsOptionsScreen (Assets.Scripts.Interface.OverlayScreens.SubScreens.GraphicOptionsSubScreen)
+AudioOptionsSubScreen (Assets.Scripts.Interface.OverlayScreens.SubScreens.AudioOptionsSubScreen)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-True
+OptionsScreen (Assets.Scripts.Interface.OverlayScreens.SubScreens.OptionsScreen)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-True
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-False
+StartScreen (Assets.Scripts.Interface.OverlayScreens.StartScreen)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 136e0 -> priority: 1 
-  Thread -> id: 12b74 -> priority: 1 
+  Thread -> id: 57e0 -> priority: 1 
+  Thread -> id: 5388 -> priority: 1 

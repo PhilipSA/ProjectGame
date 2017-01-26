@@ -2,7 +2,6 @@
 using Assets.Scripts.GameObjects;
 using Assets.Scripts.Interface.Controls.Abstraction;
 using Assets.Scripts.Interface.Controls.Text;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,7 +37,7 @@ namespace Assets.Scripts.Interface.Controls.Buttons.Abstraction
             gameObject.AddComponent<CanvasRenderer>();
 
             ButtonImage = gameObject.AddComponent<Image>();
-            ButtonImage.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/UISprite.psd");
+            ButtonImage.sprite = Resources.Load<Sprite>("UI/Skin/background");
             ButtonImage.type = Image.Type.Sliced;
             targetGraphic = ButtonImage;
         }

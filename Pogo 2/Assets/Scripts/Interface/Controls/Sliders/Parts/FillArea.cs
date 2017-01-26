@@ -1,20 +1,26 @@
 ﻿using Assets.Scripts.GameObjects;
-using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Interface.Controls.Sliders.Parts
 {
-    public class FillArea : MonoBehaviour
+    public class FillArea : UIBehaviour
     {
         public Image ImageRenderer;
+        public RectTransform RectTransform;
 
-        void OnEnable()
+        protected override void Awake()
         {
-            gameObject.AddComponent<RectTransform>();
-            ImageRenderer = CreateGameObject.CreateChildGameObject<Image>(transform).GetComponent<Image>();
-            ImageRenderer.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/UISprite.psd");
+            RectTransform = gameObject.AddComponent<RectTransform>();
+            RectTransform.anchorMin = new Vector2(0, 0.25f);
+            RectTransform.anchorMax = new Vector2(1, 0.75f);
+            RectTransform.sizeDelta = new Vector2(0, 0);
+
+            ImageRenderer = CreateGameObject.CreateChildGameObject<Image>(RectTransform, "Fill").GetComponent<Image>();
+            ImageRenderer.sprite = Resources.Load<Sprite>("UI/Skin/background");
             ImageRenderer.type = Image.Type.Sliced;
+            ImageRenderer.rectTransform.sizeDelta = new Vector2(0, 0);
         }
     }
 }
