@@ -23,11 +23,13 @@ namespace Assets.Scripts.Interface.InterfaceElements
         protected override void Awake()
         {
             _text = CreateGameObject.CreateChildGameObject<ControlText>(transform).GetComponent<ControlText>();
-            _text.rectTransform.anchorMin = new Vector2(1, 1);
-            _text.rectTransform.anchorMax = new Vector2(1, 1);
-            _text.rectTransform.pivot = new Vector2(1, 1);
-            _text.color = Color.white;
             base.Awake();
+        }
+
+        protected void Start()
+        {
+            _text.SetAnchorsAndPivot(_text.rectTransform.anchorMin = new Vector2(1, 1), new Vector2(1, 1), new Vector2(1, 1));
+            _text.color = Color.white;
         }
     }
 }

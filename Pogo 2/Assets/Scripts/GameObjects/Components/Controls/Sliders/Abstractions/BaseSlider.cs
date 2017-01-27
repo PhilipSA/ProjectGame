@@ -22,6 +22,8 @@ namespace Assets.Scripts.GameObjects.Components.Controls.Sliders.Abstractions
             Background.Initialize(Resources.Load<Sprite>("UI/Skin/background"), UnityEngine.UI.Image.Type.Sliced, new Vector2(0, 0.25f), new Vector2(1, 0.75f));
 
             HandleSlideArea = CreateGameObject.CreateChildGameObject<HandleSlideArea>(transform).GetComponent<HandleSlideArea>();
+            HandleSlideArea.SetAnchors(new Vector2(0, 0), new Vector2(1, 1));
+
             FillArea = CreateGameObject.CreateChildGameObject<FillArea>(transform).GetComponent<FillArea>();
         }
 

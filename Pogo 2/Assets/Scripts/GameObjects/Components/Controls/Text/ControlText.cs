@@ -7,7 +7,7 @@ namespace Assets.Scripts.GameObjects.Components.Controls.Text
     {
         public string DisplayText { get; set; }
 
-        protected override void Start()
+        protected override void Awake()
         {
             color = Color.black;
             font = Resources.GetBuiltinResource<Font>("Arial.ttf");

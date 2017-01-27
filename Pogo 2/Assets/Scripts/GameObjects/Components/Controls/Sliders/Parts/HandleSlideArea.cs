@@ -1,20 +1,25 @@
-﻿using Assets.Scripts.GameObjects.Components.Image;
+﻿using Assets.Scripts.GameObjects.Components.Abstraction;
+using Assets.Scripts.GameObjects.Components.Image;
 using UnityEngine;
 
 namespace Assets.Scripts.GameObjects.Components.Controls.Sliders.Parts
 {
-    public class HandleSlideArea : MonoBehaviour
+    public class HandleSlideArea : UIComponent
     {
-        public RectTransform RectTransform;
         public CustomImage ImageRenderer;
 
-        void OnEnable()
+        protected override void Awake()
         {
-            RectTransform = gameObject.AddComponent<RectTransform>();
-            RectTransform.sizeDelta = new Vector2(0, 0);
+            base.Awake();
 
             ImageRenderer = CreateGameObject.CreateChildGameObject<CustomImage>(transform).GetComponent<CustomImage>();
-            ImageRenderer.Initialize(Resources.Load<Sprite>("UI/Skin/Knob"), UnityEngine.UI.Image.Type.Simple);
+            ImageRenderer.Initialize(Resources.Load<Sprite>("UI/Skin/knob"), UnityEngine.UI.Image.Type.Simple);
+        }
+
+        protected override void Start()
+        {
+            ImageRenderer.rectTransform.sizeDelta = new Vector2(20, 0);
+            RectTransform.sizeDelta = new Vector2(0, 0);
         }
     }
 }
