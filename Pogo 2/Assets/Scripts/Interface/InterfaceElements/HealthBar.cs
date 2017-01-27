@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts.GameObjects;
-using Assets.Scripts.Interface.Controls.Sliders;
+using Assets.Scripts.GameObjects.Components.Controls.Sliders;
 using Assets.Scripts.Interface.InterfaceElements.Abstraction;
 using UnityEngine;
 
@@ -8,26 +8,26 @@ namespace Assets.Scripts.Interface.InterfaceElements
     public class HealthBar : InterfaceElement {
 
         public float BarDisplay; //current progress
-        private HealthBarSlider _healthBarSlider;
+        public HealthBarSlider HealthBarSlider { get; private set; }
 
         protected override void Awake()
         {
-            _healthBarSlider = CreateGameObject.CreateChildGameObject<HealthBarSlider>(transform).GetComponent<HealthBarSlider>();
-            _healthBarSlider.maxValue = 100;
-            _healthBarSlider.RectTransform.sizeDelta = new Vector2(300, 20);
+            HealthBarSlider = CreateGameObject.CreateChildGameObject<HealthBarSlider>(transform).GetComponent<HealthBarSlider>();
+            HealthBarSlider.maxValue = 100;
+            HealthBarSlider.RectTransform.sizeDelta = new Vector2(300, 20);
 
             base.Awake();
         }
 
         void Start()
         {
-            _healthBarSlider.RectTransform.anchorMin = new Vector2(0.5f, 0.95f);
-            _healthBarSlider.RectTransform.anchorMax = new Vector2(0.5f, 0.95f);
+            HealthBarSlider.RectTransform.anchorMin = new Vector2(0.5f, 0.95f);
+            HealthBarSlider.RectTransform.anchorMax = new Vector2(0.5f, 0.95f);
         }
 
         void Update()
         {
-            _healthBarSlider.value = BarDisplay;
+            HealthBarSlider.value = BarDisplay;
         }
     }
 }

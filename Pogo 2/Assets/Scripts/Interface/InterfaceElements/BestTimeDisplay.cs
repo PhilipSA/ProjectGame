@@ -1,6 +1,6 @@
 ﻿using System;
 using Assets.Scripts.GameObjects;
-using Assets.Scripts.Interface.Controls.Text;
+using Assets.Scripts.GameObjects.Components.Controls.Text;
 using Assets.Scripts.Interface.InterfaceElements.Abstraction;
 using UnityEngine;
 

@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts.GameObjects;
-using Assets.Scripts.Interface.Controls.Buttons;
+using Assets.Scripts.GameObjects.Components.Controls.Buttons;
 using Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction;
 using Assets.Scripts.Menus;
 

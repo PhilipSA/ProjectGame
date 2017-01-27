@@ -1,5 +1,5 @@
 ﻿using Assets.Scripts.GameObjects;
-using Assets.Scripts.Interface.Controls.OptionBox.Audio;
+using Assets.Scripts.GameObjects.Components.Controls.OptionBox.Audio;
 using Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction;
 using Assets.Scripts.Menus;
 

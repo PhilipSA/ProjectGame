@@ -1,6 +1,6 @@
 ﻿using Assets.Scripts.GameObjects;
-using Assets.Scripts.Interface.Controls.Buttons;
-using Assets.Scripts.Interface.Controls.Text;
+using Assets.Scripts.GameObjects.Components.Controls.Buttons;
+using Assets.Scripts.GameObjects.Components.Controls.Text;
 using Assets.Scripts.Interface.OverlayScreens.Abstraction;
 
 namespace Assets.Scripts.Interface.OverlayScreens

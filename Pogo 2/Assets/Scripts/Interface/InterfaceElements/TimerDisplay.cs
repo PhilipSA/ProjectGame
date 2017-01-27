@@ -1,41 +1,39 @@
 ﻿using Assets.Scripts.CustomComponents;
 using Assets.Scripts.GameObjects;
-using Assets.Scripts.Interface.Controls.Text;
+using Assets.Scripts.GameObjects.Components.Controls.Text;
+using Assets.Scripts.GameObjects.Components.Image;
 using Assets.Scripts.Interface.InterfaceElements.Abstraction;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.Interface.InterfaceElements
 {
     public class TimerDisplay : InterfaceElement
     {
         public StopWatch StopWatch;
-        private ControlText _text;
-        private Image _texture2D;
+        public ControlText Text { get; private set; }
+        public CustomImage Texture2D { get; private set; }
 
         // Use this for initialization
         protected override void Awake()
         {
-            _texture2D = CreateGameObject.CreateChildGameObject<Image>(transform).GetComponent<Image>();      
-            _text = CreateGameObject.CreateChildGameObject<ControlText>(_texture2D.transform).GetComponent<ControlText>();
+            Texture2D = CreateGameObject.CreateChildGameObject<CustomImage>(transform).GetComponent<CustomImage>();      
+            Text = CreateGameObject.CreateChildGameObject<ControlText>(transform).GetComponent<ControlText>();
             StopWatch = new StopWatch(true);
             base.Awake();
         }
 
         void Start()
         {
-            _texture2D.rectTransform.sizeDelta = new Vector2(80, 20);
-            _texture2D.rectTransform.anchorMin = new Vector2(0, 1);
-            _texture2D.rectTransform.anchorMax = new Vector2(0, 1);
-            _texture2D.rectTransform.pivot = new Vector2(0, 1);
-            _text.rectTransform.anchoredPosition = new Vector2(10, -40);
+            Text.rectTransform.sizeDelta = Texture2D.rectTransform.sizeDelta = new Vector2(80, 20);
+            Text.SetAnchorsAndPivot(new Vector2(0, 0.95f), new Vector2(0, 0.95f), new Vector2(0, 1));
+            Texture2D.SetAnchorsAndPivot(new Vector2(0, 0.95f), new Vector2(0, 0.95f), new Vector2(0, 1));
         }
 
         // Update is called once per frame
         void Update()
         {
             StopWatch.Tick();
-            _text.text = StopWatch.GetTimeInMmssffFormat();
+            Text.text = StopWatch.GetTimeInMmssffFormat();
         }
 
         public void StopTimer()
