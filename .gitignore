@@ -46,3 +46,4 @@ sysinfo.txt
 *.bin
 /Pogo 2/Library/UnityAssemblies/UnityEditor.TestRunner.xml
 /Pogo 2/Library/UnityAssemblies/UnityEngine.TestRunner.xml
+/Pogo 2/Library/UnityAssemblies/*.xml

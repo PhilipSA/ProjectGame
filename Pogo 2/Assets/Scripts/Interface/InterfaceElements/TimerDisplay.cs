@@ -17,16 +17,16 @@ namespace Assets.Scripts.Interface.InterfaceElements
         protected override void Awake()
         {
             Texture2D = CreateGameObject.CreateChildGameObject<CustomImage>(transform).GetComponent<CustomImage>();      
-            Text = CreateGameObject.CreateChildGameObject<ControlText>(transform).GetComponent<ControlText>();
+            Text = CreateGameObject.CreateChildGameObject<ControlText>(Texture2D.rectTransform).GetComponent<ControlText>();
             StopWatch = new StopWatch(true);
             base.Awake();
         }
 
         void Start()
         {
-            Text.rectTransform.sizeDelta = Texture2D.rectTransform.sizeDelta = new Vector2(80, 20);
-            Text.SetAnchorsAndPivot(new Vector2(0, 0.95f), new Vector2(0, 0.95f), new Vector2(0, 1));
-            Texture2D.SetAnchorsAndPivot(new Vector2(0, 0.95f), new Vector2(0, 0.95f), new Vector2(0, 1));
+            Text.alignment = TextAnchor.MiddleCenter;
+            Texture2D.SetAnchorsAndPivot(new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, 1));
+            Texture2D.rectTransform.sizeDelta = new Vector2(100, 20);
         }
 
         // Update is called once per frame

@@ -40,7 +40,7 @@ namespace Assets.Scripts.Interface
 
         void Update()
         {
-            _chargeBar.BarDisplay = PlayerData.PlayerBounceLogic.BouncePower;
+            _chargeBar.BarDisplay = Mathf.FloorToInt(PlayerData.PlayerBounceLogic.BouncePower);
             _healthBar.BarDisplay = PlayerData.PlayerHitpoints.Hitpoints;
         }
 

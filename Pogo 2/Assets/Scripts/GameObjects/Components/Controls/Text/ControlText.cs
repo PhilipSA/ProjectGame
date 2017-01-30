@@ -11,7 +11,7 @@ namespace Assets.Scripts.GameObjects.Components.Controls.Text
         {
             color = Color.black;
             font = Resources.GetBuiltinResource<Font>("Arial.ttf");
-            fontSize = 14;
+            fontSize = 20;
         }
 
         public void SetAnchors(Vector2 anchorMin, Vector2 anchorMax)

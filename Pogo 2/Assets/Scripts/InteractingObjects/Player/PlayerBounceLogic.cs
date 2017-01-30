@@ -5,7 +5,7 @@
         public const float MaximumBouncePower = 5.8f;
         public const float MinimumBouncePower = 1.0f;
         public const float BouncePowerIncrease = 0.4f;
-        public const float BouncePowerDecrease = 0.002f;
+        public const float BouncePowerDecrease = 0.008f;
         public float BouncePower = 1.0f;
         // Use this for initialization
 
