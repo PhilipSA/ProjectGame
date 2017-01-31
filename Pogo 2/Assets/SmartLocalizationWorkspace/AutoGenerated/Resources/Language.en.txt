@@ -161,6 +161,9 @@
 	<data name="StartButton" xml:space="preserve">
 		<value>START</value>
 	</data>
+	<data name="TapToIncreaseBouncePower" xml:space="preserve">
+		<value>Tap to increase bounce power</value>
+	</data>
 	<data name="WatchTheHead" xml:space="preserve">
 		<value>Watch the head!</value>
 	</data>

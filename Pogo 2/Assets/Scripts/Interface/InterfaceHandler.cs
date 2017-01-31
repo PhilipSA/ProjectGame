@@ -15,6 +15,7 @@ namespace Assets.Scripts.Interface
         private ChargeBar _chargeBar;
         private HealthBar _healthBar;
         private BestTimeDisplay _bestTimeDisplay;
+        private FloatingTextDisplay _floatingTextDisplay;
         public VictoryScreen VictoryScreen { get; private set; }
         public DefeatScreen DefeatScreen { get; private set; }
         public PauseMenu PauseMenu { get; private set; }
@@ -28,6 +29,7 @@ namespace Assets.Scripts.Interface
             PauseMenu = CreateGameObject.CreateChildGameObject<PauseMenu>(transform).GetComponent<PauseMenu>();
             PlayerData = FindObjectOfType<Player>();
 
+            _floatingTextDisplay = CreateGameObject.CreateChildGameObject<FloatingTextDisplay>(transform).GetComponent<FloatingTextDisplay>();
             _chargeBar = CreateGameObject.CreateChildGameObject<ChargeBar>(transform).GetComponent<ChargeBar>();
             _healthBar = CreateGameObject.CreateChildGameObject<HealthBar>(transform).GetComponent<HealthBar>();
             _bestTimeDisplay = CreateGameObject.CreateChildGameObject<BestTimeDisplay>(transform).GetComponent<BestTimeDisplay>();
@@ -36,6 +38,11 @@ namespace Assets.Scripts.Interface
         public void SetBestTimeDisplay(float time)
         {
             _bestTimeDisplay.SetTime(time);
+        }
+
+        public void DisplayFloatingText(string text)
+        {
+            _floatingTextDisplay.SetAndEnable(text);
         }
 
         void Update()
