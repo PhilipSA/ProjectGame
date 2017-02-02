@@ -72,7 +72,9 @@ namespace Assets.Scripts.InteractingObjects.Player
         void MovePlayer()
         {
             var moveDirection = _playerControl.GetMoveDirection(_playerRigidbody2D);
+            Debug.Log(moveDirection);
             moveDirection.y *= PlayerBounceLogic.GetBouncePower() * 2;
+            moveDirection.x *= PlayerBounceLogic.GetBouncePower() * 2;
             _playerRigidbody2D.velocity = moveDirection;
         }
 

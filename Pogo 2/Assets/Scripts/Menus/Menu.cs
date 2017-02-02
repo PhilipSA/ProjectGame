@@ -28,7 +28,6 @@ namespace Assets.Scripts.Menus
 
         public static void ChangeCurrentActiveScreen(OverlayScreen screen = null)
         {
-            Debug.Log(screen);
             if (_currentActiveScreen != null) _currentActiveScreen.SetVisibility(false);
             if(screen != null) screen.SetVisibility(true);
             _currentActiveScreen = screen;

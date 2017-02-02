@@ -17,13 +17,11 @@ namespace Assets.Scripts.InteractingObjects.TriggerObjects
 
         public void Start()
         {
-            Debug.Log(LanguageManager.Instance.GetTextValue(DisplayText));
             DisplayText = LanguageManager.Instance.GetTextValue(DisplayText);
         }
 
         protected override void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log("TEST");
             GameEngineHelper.GetCurrentGameEngine().InterfaceHandler.DisplayFloatingText(DisplayText);
             enabled = false;
         }

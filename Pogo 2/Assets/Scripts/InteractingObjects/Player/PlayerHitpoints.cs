@@ -13,7 +13,7 @@ namespace Assets.Scripts.InteractingObjects.Player
 
         public void CalculateDamage(Rigidbody2D rigidbody2D)
         {
-            _hitpoints -= Mathf.Abs(rigidbody2D.velocity.x + rigidbody2D.velocity.y) * 1.4f;
+            _hitpoints -= Mathf.Abs(rigidbody2D.velocity.x + rigidbody2D.velocity.y) * 2f;
         }
 
 
