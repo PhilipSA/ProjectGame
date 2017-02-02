@@ -19,57 +19,69 @@ Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 
 Loading C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\SmartLocalization_Runtime.dll (this message is harmless)
 Loading C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\SmartLocalization_Runtime.dll into Unity Child Domain
-- Completed reload, in  0.087 seconds
+- Completed reload, in  0.048 seconds
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\System.dll (this message is harmless)
 <RI> Initializing input.
 <RI> Input initialized.
 desktop: 1920x1080 144Hz; virtual: 1920x1080 at 0,0
 <RI> Initialized touch support.
-UnloadTime: 0.840846 ms
+UnloadTime: 1.085435 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
 Platform assembly: C:\Users\Public\Documents\Unity Projects\Pogo 2 project\Pogo 2\WindowsMacAndLinuxBuild\TestBuild_Data\Managed\System.Xml.dll (this message is harmless)
+
+Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 643.
+Total: 6.270362 ms (FindLiveObjects: 0.033938 ms CreateObjectMapping: 0.023990 ms MarkObjects: 6.203656 ms  DeleteObjects: 0.008191 ms)
+
 StartScreen (Assets.Scripts.Interface.OverlayScreens.StartScreen)
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Unloading 6 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.882112 ms
-
-Unloading 6 unused Assets to reduce memory usage. Loaded Objects now: 537.
-Total: 0.428030 ms (FindLiveObjects: 0.035400 ms CreateObjectMapping: 0.013165 ms MarkObjects: 0.359861 ms  DeleteObjects: 0.019309 ms)
 
 Unloading 5 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.934176 ms
+UnloadTime: 4.231734 ms
 
-Unloading 4 unused Assets to reduce memory usage. Loaded Objects now: 537.
-Total: 0.399358 ms (FindLiveObjects: 0.019894 ms CreateObjectMapping: 0.012580 ms MarkObjects: 0.349036 ms  DeleteObjects: 0.017261 ms)
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 622.
+Total: 0.509657 ms (FindLiveObjects: 0.045348 ms CreateObjectMapping: 0.019017 ms MarkObjects: 0.413986 ms  DeleteObjects: 0.030719 ms)
+
+Unloading 1 Unused Serialized files (Serialized files now loaded: 0)
+
+Unloading 0 unused Assets to reduce memory usage. Loaded Objects now: 622.
+Total: 0.458749 ms (FindLiveObjects: 0.033645 ms CreateObjectMapping: 0.018139 ms MarkObjects: 0.404917 ms  DeleteObjects: 0.001755 ms)
+
+Null
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Watch the head!
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Tap to increase bounce power
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+TEST
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+TEST
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+TEST
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+PauseScreen (Assets.Scripts.Interface.OverlayScreens.PauseScreen)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.872444 ms
+UnloadTime: 0.926277 ms
 
-Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 460.
-Total: 0.370686 ms (FindLiveObjects: 0.020187 ms CreateObjectMapping: 0.011995 ms MarkObjects: 0.250147 ms  DeleteObjects: 0.088063 ms)
-
-StartScreen (Assets.Scripts.Interface.OverlayScreens.StartScreen)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OptionsScreen (Assets.Scripts.Interface.OverlayScreens.SubScreens.OptionsScreen)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-AudioOptionsSubScreen (Assets.Scripts.Interface.OverlayScreens.SubScreens.AudioOptionsSubScreen)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-OptionsScreen (Assets.Scripts.Interface.OverlayScreens.SubScreens.OptionsScreen)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-StartScreen (Assets.Scripts.Interface.OverlayScreens.StartScreen)
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 646.
+Total: 0.553250 ms (FindLiveObjects: 0.036571 ms CreateObjectMapping: 0.021942 ms MarkObjects: 0.392336 ms  DeleteObjects: 0.102106 ms)
 
 Setting up 2 worker threads for Enlighten.
-  Thread -> id: 57e0 -> priority: 1 
-  Thread -> id: 5388 -> priority: 1 
+  Thread -> id: 5150 -> priority: 1 
+  Thread -> id: 45a0 -> priority: 1 

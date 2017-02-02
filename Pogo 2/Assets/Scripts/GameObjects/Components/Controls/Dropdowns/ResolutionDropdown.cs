@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
+using Assets.Scripts.GameObjects.Components.Controls.Dropdowns.Abstractions;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.GameObjects.Components.Controls.Dropdowns
 {
-    public class ResolutionDropdown : Dropdown
+    public class ResolutionDropdown : BaseDropDown
     {
         public Dictionary<int, Resolution> MappedValues { get; private set; }
 

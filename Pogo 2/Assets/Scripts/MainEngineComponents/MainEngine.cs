@@ -12,6 +12,7 @@ namespace Assets.Scripts.MainEngineComponents
         {
             AudioMixerLevels = GetComponentInChildren<AudioMixerLevels>();
             GraphicsComponent = new GraphicsComponent();
+            Resources.UnloadUnusedAssets();
         }
 
         public static MainEngine GetMainEngine

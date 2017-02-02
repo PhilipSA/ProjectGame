@@ -55,7 +55,7 @@ namespace Assets.Scripts.Engine.Input
 
         void ChangeInputDevice()
         {
-            if (UnityEngine.Input.touchPressureSupported)
+            if (UnityEngine.Input.touchSupported)
             {
                 _currentInputDevice = InputDeviceEnum.TouchDevice;
             }
