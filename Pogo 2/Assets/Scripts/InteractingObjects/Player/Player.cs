@@ -63,7 +63,7 @@ namespace Assets.Scripts.InteractingObjects.Player
 
         void DeadCheck()
         {
-            if (PlayerHitpoints.Hitpoints <= 0 || Math.Abs(_playerRigidbody2D.velocity.y) < 0.2)
+            if (PlayerHitpoints.Hitpoints <= 0 || Math.Abs(_playerRigidbody2D.velocity.y) < 0.5)
             {
                 GameEngineHelper.GetCurrentGameEngine().Defeat();
             }

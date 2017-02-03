@@ -15,7 +15,5 @@ namespace Assets.Scripts.InteractingObjects.Player
         {
             _hitpoints -= Mathf.Abs(rigidbody2D.velocity.x + rigidbody2D.velocity.y) * 2f;
         }
-
-
     }
 }
