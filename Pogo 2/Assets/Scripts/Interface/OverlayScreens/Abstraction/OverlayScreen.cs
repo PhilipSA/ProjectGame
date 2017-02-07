@@ -33,9 +33,11 @@ namespace Assets.Scripts.Interface.OverlayScreens.Abstraction
 
         protected void CreateVerticalLayoutGroup()
         {
-            LayoutGroup = gameObject.AddComponent<VerticalLayoutGroup>();
-            LayoutGroup.padding = new RectOffset(100, 100, 50, 50);
-            LayoutGroup.childAlignment = TextAnchor.MiddleCenter;
+            var layoutGroup = gameObject.AddComponent<VerticalLayoutGroup>();
+            layoutGroup.padding = new RectOffset(100, 100, 50, 50);
+            layoutGroup.childAlignment = TextAnchor.MiddleCenter;
+            layoutGroup.spacing = 20;
+            LayoutGroup = layoutGroup;
         }
 
         protected void CreateHorizontalLayoutGroup()

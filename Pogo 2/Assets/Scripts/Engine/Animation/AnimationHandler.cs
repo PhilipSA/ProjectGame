@@ -1,47 +1,94 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Assets.Scripts.Enums;
+using UnityEngine;
 
 namespace Assets.Scripts.Engine.Animation
 {
     //Attach to a sprite that has animations
     public class AnimationHandler : MonoBehaviour
     {
-        public bool Loop;
+        public AnimationTypeEnum AnimationType;
         public float FrameSeconds = 1;
         //The file location of the sprites within the resources folder
         public string Location;
-        private SpriteRenderer _spriteRenderer;
-        private Sprite[] _sprites;
-        private int _frame = 0;
-        private float _deltaTime = 0;
+        public Sprite[] BlinkSprites;
+        protected SpriteRenderer SpriteRenderer;
+        protected Sprite[] Sprites;
+        protected int Frame = 0;
+        protected float DeltaTime = 0;
 
         // Use this for initialization
-        void Start()
+        protected virtual void Start()
         {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-            _sprites = Resources.LoadAll<Sprite>(Location);
+            AnimationType = AnimationTypeEnum.None;
+            SpriteRenderer = GetComponent<SpriteRenderer>();
+            Sprites = Resources.LoadAll<Sprite>(Location);
         }
 
-        // Update is called once per frame
-        void Update()
+        protected virtual void Update()
+        {
+            if (AnimationType == AnimationTypeEnum.Loop) Loop();
+            if (AnimationType == AnimationTypeEnum.Iterate) Iterate();
+            if (AnimationType == AnimationTypeEnum.Blink) Blink();
+        }
+
+        private void Blink()
         {
             //Keep track of the time that has passed
-            _deltaTime += Time.deltaTime;
+            DeltaTime += Time.deltaTime;
 
             /*Loop to allow for multiple sprite frame 
              jumps in a single update call if needed
              Useful if frameSeconds is very small*/
-            while (_deltaTime >= FrameSeconds)
+            if (DeltaTime >= FrameSeconds)
             {
-                _deltaTime -= FrameSeconds;
-                _frame++;
-                if (Loop)
-                    _frame %= _sprites.Length;
-                //Max limit
-                else if (_frame >= _sprites.Length)
-                    _frame = _sprites.Length - 1;
+                DeltaTime -= FrameSeconds;
+                SpriteRenderer.sprite = BlinkSprites.First();
+                AnimationType = AnimationTypeEnum.None;
+                return;
             }
             //Animate sprite with selected frame
-            _spriteRenderer.sprite = _sprites[_frame];
+            SpriteRenderer.sprite = BlinkSprites.Last();
+        }
+
+        // Update is called once per frame
+        void Loop()
+        {
+            //Keep track of the time that has passed
+            DeltaTime += Time.deltaTime;
+
+            /*Loop to allow for multiple sprite frame 
+             jumps in a single update call if needed
+             Useful if frameSeconds is very small*/
+            while (DeltaTime >= FrameSeconds)
+            {
+                DeltaTime -= FrameSeconds;
+                Frame++;
+                Frame %= Sprites.Length;
+            }
+            //Animate sprite with selected frame
+            SpriteRenderer.sprite = Sprites[Frame];
+        }
+
+        void Iterate()
+        {
+            //Keep track of the time that has passed
+            DeltaTime += Time.deltaTime;
+
+            /*Loop to allow for multiple sprite frame 
+             jumps in a single update call if needed
+             Useful if frameSeconds is very small*/
+            while (DeltaTime >= FrameSeconds)
+            {
+                DeltaTime -= FrameSeconds;
+                Frame++;
+                //Max limit
+                if (Frame >= Sprites.Length)
+                    Frame = Sprites.Length - 1;
+            }
+            //Animate sprite with selected frame
+            SpriteRenderer.sprite = Sprites[Frame];
         }
     }
 }

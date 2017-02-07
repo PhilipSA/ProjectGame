@@ -63,7 +63,7 @@ namespace Assets.Scripts.InteractingObjects.Player
 
         void DeadCheck()
         {
-            if (PlayerHitpoints.Hitpoints <= 0 || Math.Abs(_playerRigidbody2D.velocity.y) < 0.5)
+            if (PlayerHitpoints.Hitpoints <= 0)
             {
                 GameEngineHelper.GetCurrentGameEngine().Defeat();
             }
@@ -72,7 +72,6 @@ namespace Assets.Scripts.InteractingObjects.Player
         void MovePlayer()
         {
             var moveDirection = _playerControl.GetMoveDirection(_playerRigidbody2D);
-            Debug.Log(moveDirection);
             moveDirection.y *= PlayerBounceLogic.GetBouncePower() * 2;
             moveDirection.x *= PlayerBounceLogic.GetBouncePower() * 2;
             _playerRigidbody2D.velocity = moveDirection;
