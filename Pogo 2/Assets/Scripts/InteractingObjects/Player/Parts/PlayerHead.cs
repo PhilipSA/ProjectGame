@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Engine.Audio;
-using Assets.Scripts.Enums;
 using Assets.Scripts.GameObjects.Components.Animation;
 using UnityEngine;
 
@@ -34,8 +33,7 @@ namespace Assets.Scripts.InteractingObjects.Player.Parts
             if (_headRigidbody2D.velocity.magnitude > 200)
             {
                 Debug.Log(_headRigidbody2D.velocity.magnitude);
-                _animationHandler.SetBlinkSprites("headHighRes", "headHighResExcited");
-                _animationHandler.AnimationType = AnimationTypeEnum.Blink;
+                _animationHandler.AnimateBlink("headHighRes", "headHighResExcited");
             }
         }
 
@@ -43,9 +41,8 @@ namespace Assets.Scripts.InteractingObjects.Player.Parts
         {
             if (_parent.enabled)
             {
-                _animationHandler.SetBlinkSprites("headHighRes", "headHighResDamage");
+                _animationHandler.AnimateBlink("headHighRes", "headHighResDamage");
                 _parent.OnHeadCollision();
-                _animationHandler.AnimationType = AnimationTypeEnum.Blink;
                 AudioHandler.PlayAudio(_audioSource);
             }
         }
