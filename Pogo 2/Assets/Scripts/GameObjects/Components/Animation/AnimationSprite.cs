@@ -12,15 +12,15 @@ namespace Assets.Scripts.GameObjects.Components.Animation
             base.Start();
         }
 
-        public void SetBlinkSprites(string indexOne, string indexTwo)
+        public void SetBlinkSprites(string spriteNameOne, string spriteNameTwo)
         {
-            BlinkSprites = Sprites.Where(x => x.name == indexOne || x.name == indexTwo).ToArray();
+            BlinkSprites = Sprites.Where(x => x.name == spriteNameOne || x.name == spriteNameTwo).ToArray();
             Debug.Log(BlinkSprites.Length);
         }
 
-        public void AnimateBlink(string indexOne, string indexTwo)
+        public void AnimateBlink(string spriteNameOne, string spriteNameTwo)
         {
-            SetBlinkSprites(indexOne, indexTwo);
+            SetBlinkSprites(spriteNameOne, spriteNameTwo);
             AnimationType = AnimationTypeEnum.Blink;
         }
     }

@@ -1,5 +1,4 @@
-﻿using System;
-using Assets.Scripts.Engine;
+﻿using Assets.Scripts.Engine;
 using UnityEngine;
 
 namespace Assets.Scripts.InteractingObjects.Player

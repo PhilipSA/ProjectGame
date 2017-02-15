@@ -37,9 +37,6 @@ namespace Assets.Scripts.Engine.Animation
             //Keep track of the time that has passed
             DeltaTime += Time.deltaTime;
 
-            /*Loop to allow for multiple sprite frame 
-             jumps in a single update call if needed
-             Useful if frameSeconds is very small*/
             if (DeltaTime >= FrameSeconds)
             {
                 DeltaTime -= FrameSeconds;
