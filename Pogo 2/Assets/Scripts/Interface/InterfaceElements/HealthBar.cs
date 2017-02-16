@@ -13,7 +13,7 @@ namespace Assets.Scripts.Interface.InterfaceElements
         protected override void Awake()
         {
             HealthBarSlider = CreateGameObject.CreateChildGameObject<HealthBarSlider>(transform).GetComponent<HealthBarSlider>();
-            HealthBarSlider.maxValue = 100;
+            HealthBarSlider.Slider.maxValue = 100;
             HealthBarSlider.RectTransform.sizeDelta = new Vector2(300, 20);
 
             base.Awake();
@@ -27,7 +27,7 @@ namespace Assets.Scripts.Interface.InterfaceElements
 
         void Update()
         {
-            HealthBarSlider.value = BarDisplay;
+            HealthBarSlider.Slider.value = BarDisplay;
         }
     }
 }

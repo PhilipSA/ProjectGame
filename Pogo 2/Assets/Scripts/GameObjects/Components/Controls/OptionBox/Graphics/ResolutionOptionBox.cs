@@ -27,7 +27,7 @@ namespace Assets.Scripts.GameObjects.Components.Controls.OptionBox.Graphics
         public Resolution GetSelectedResolution()
         {
             Resolution resoltuion;
-            ResolutionDropdown.MappedValues.TryGetValue(ResolutionDropdown.value, out resoltuion);
+            ResolutionDropdown.MappedValues.TryGetValue(ResolutionDropdown.Dropdown.value, out resoltuion);
             return resoltuion;
         }
     }

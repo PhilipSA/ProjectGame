@@ -12,7 +12,6 @@ namespace Assets.Scripts.GameObjects.Components.Controls.Sliders
 
         protected override void Start()
         {
-            FillArea.ImageRenderer.color = Color.red;
             base.Start();
         }
     }

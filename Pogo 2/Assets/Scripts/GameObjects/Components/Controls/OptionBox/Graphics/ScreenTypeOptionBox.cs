@@ -24,12 +24,12 @@ namespace Assets.Scripts.GameObjects.Components.Controls.OptionBox.Graphics
         {
             var optionItems = from screenType in Enum.GetValues(typeof(ScreenTypeEnum)).Cast<ScreenTypeEnum>()
                 select new Dropdown.OptionData {text = screenType.ToString()};
-            ScreenTypeDropdown.options.AddRange(optionItems);
+            ScreenTypeDropdown.Dropdown.options.AddRange(optionItems);
         }
 
         public bool IsFullscreen()
         {
-            return ScreenTypeDropdown.value == (int)ScreenTypeEnum.FullScreen;
+            return ScreenTypeDropdown.Dropdown.value == (int)ScreenTypeEnum.FullScreen;
         }
     }
 }

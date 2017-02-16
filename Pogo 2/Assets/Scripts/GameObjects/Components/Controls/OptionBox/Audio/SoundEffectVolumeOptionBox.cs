@@ -12,7 +12,7 @@ namespace Assets.Scripts.GameObjects.Components.Controls.OptionBox.Audio
         protected override void Start()
         {
             _soundEffectSlider = CreateGameObject.CreateChildGameObject<SoundEffectSlider>(transform).GetComponent<SoundEffectSlider>();
-            _soundEffectSlider.onValueChanged.AddListener(OnValueChanged);
+            _soundEffectSlider.Slider.onValueChanged.AddListener(OnValueChanged);
             DisplayText = LanguageManager.Instance.GetTextValue("SoundEffects");
             base.Start();
         }

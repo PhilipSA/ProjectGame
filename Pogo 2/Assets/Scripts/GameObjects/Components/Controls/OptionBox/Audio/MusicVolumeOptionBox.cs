@@ -12,7 +12,7 @@ namespace Assets.Scripts.GameObjects.Components.Controls.OptionBox.Audio
         protected override void Start()
         {
             _musicVolumeSlider = CreateGameObject.CreateChildGameObject<MusicVolumeSlider>(transform).GetComponent<MusicVolumeSlider>();
-            _musicVolumeSlider.onValueChanged.AddListener(OnValueChanged);
+            _musicVolumeSlider.Slider.onValueChanged.AddListener(OnValueChanged);
 
             DisplayText = LanguageManager.Instance.GetTextValue("BackgroundMusic");
             base.Start();

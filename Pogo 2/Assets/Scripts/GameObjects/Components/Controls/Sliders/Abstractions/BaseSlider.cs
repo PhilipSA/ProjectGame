@@ -1,37 +1,28 @@
 ﻿using Assets.Scripts.GameObjects.Components.Abstraction;
-using Assets.Scripts.GameObjects.Components.Controls.Sliders.Parts;
-using Assets.Scripts.GameObjects.Components.Image;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.GameObjects.Components.Controls.Sliders.Abstractions
 {
-    public abstract class BaseSlider : Slider, IRectTransformAble
+    public abstract class BaseSlider : MonoBehaviour, IRectTransformAble
     {
         public RectTransform RectTransform { get; private set; }
-        public CustomImage Background { get; private set; }
-        public HandleSlideArea HandleSlideArea { get; private set; }
-        public FillArea FillArea { get; private set; }
+        public Slider Slider;
 
-        protected override void Awake()
+        protected virtual void Awake()
         {
-            RectTransform = GetComponent<RectTransform>();
+            var prefab = Resources.Load<GameObject>("Prefabs/Controls/Sliders/Slider");
+            var clone = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+            clone.transform.parent = this.transform;
+            Slider = clone.GetComponent<Slider>();
+
+            RectTransform = gameObject.AddComponent<RectTransform>();
             RectTransform.sizeDelta = new Vector2(200, 50);
-
-            Background = CreateGameObject.CreateChildGameObject<CustomImage>(transform).GetComponent<CustomImage>();
-            Background.Initialize(Resources.Load<Sprite>("UI/Skin/background"), UnityEngine.UI.Image.Type.Sliced, new Vector2(0, 0.25f), new Vector2(1, 0.75f));
-
-            HandleSlideArea = CreateGameObject.CreateChildGameObject<HandleSlideArea>(transform).GetComponent<HandleSlideArea>();
-            HandleSlideArea.SetAnchors(new Vector2(0, 0), new Vector2(1, 1));
-
-            FillArea = CreateGameObject.CreateChildGameObject<FillArea>(transform).GetComponent<FillArea>();
         }
 
-        protected override void Start()
+        protected virtual void Start()
         {
-            targetGraphic = HandleSlideArea.ImageRenderer;
-            fillRect = FillArea.ImageRenderer.rectTransform;
-            handleRect = HandleSlideArea.ImageRenderer.rectTransform;           
+        
         }
 
         public void SetAnchors(Vector2 anchorMin, Vector2 anchorMax)

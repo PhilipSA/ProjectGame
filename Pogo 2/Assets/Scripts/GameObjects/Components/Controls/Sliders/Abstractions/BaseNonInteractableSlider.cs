@@ -1,31 +1,27 @@
 ﻿using Assets.Scripts.GameObjects.Components.Abstraction;
-using Assets.Scripts.GameObjects.Components.Controls.Sliders.Parts;
-using Assets.Scripts.GameObjects.Components.Image;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.GameObjects.Components.Controls.Sliders.Abstractions
 {
-    public class BaseNonInteractableSlider : Slider, IRectTransformAble
+    public class BaseNonInteractableSlider : MonoBehaviour, IRectTransformAble
     {
         public RectTransform RectTransform { get; private set; }
-        public CustomImage Background { get; private set; }
-        public FillArea FillArea { get; private set; }
+        public Slider Slider;
 
-        protected override void Awake()
+        protected virtual void Awake()
         {
-            RectTransform = GetComponent<RectTransform>();
-            Background = CreateGameObject.CreateChildGameObject<CustomImage>(RectTransform, "Background").GetComponent<CustomImage>();
-            Background.Initialize(Resources.Load<Sprite>("UI/Skin/background"), UnityEngine.UI.Image.Type.Sliced, new Vector2(0, 0), new Vector2(1, 1));
+            var prefab = Resources.Load<GameObject>("Prefabs/Controls/Sliders/Slider");
+            var clone = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+            clone.transform.parent = this.transform;
+            Slider = clone.GetComponent<Slider>();
 
-            FillArea = CreateGameObject.CreateChildGameObject<FillArea>(RectTransform, "Fill Area").GetComponent<FillArea>();
-            base.Awake();
+            RectTransform = GetComponent<RectTransform>();
         }
 
-        protected override void Start()
+        protected virtual void Start()
         {
-            fillRect = FillArea.ImageRenderer.rectTransform;
-            base.Start();
+
         }
 
         public void SetAnchors(Vector2 anchorMin, Vector2 anchorMax)

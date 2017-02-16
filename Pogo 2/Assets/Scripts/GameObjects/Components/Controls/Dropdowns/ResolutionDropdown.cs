@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Assets.Scripts.GameObjects.Components.Controls.Dropdowns.Abstractions;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.GameObjects.Components.Controls.Dropdowns
 {
@@ -14,10 +15,10 @@ namespace Assets.Scripts.GameObjects.Components.Controls.Dropdowns
             base.Awake();
         }
 
-        public void AddOption(OptionData optionData, Resolution resolution)
+        public void AddOption(Dropdown.OptionData optionData, Resolution resolution)
         {
-            MappedValues.Add(options.Count + 1, resolution);
-            options.Add(optionData);
+            MappedValues.Add(Dropdown.options.Count + 1, resolution);
+            Dropdown.options.Add(optionData);
         }
     }
 }

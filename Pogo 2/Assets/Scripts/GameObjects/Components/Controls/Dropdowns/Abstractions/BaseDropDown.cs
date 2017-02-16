@@ -1,42 +1,23 @@
-﻿using Assets.Scripts.GameObjects.Components.Abstraction;
-using Assets.Scripts.GameObjects.Components.Controls.Dropdowns.Parts;
-using Assets.Scripts.GameObjects.Components.Controls.Text;
-using Assets.Scripts.GameObjects.Components.Image;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.GameObjects.Components.Controls.Dropdowns.Abstractions
 {
-    public abstract class BaseDropDown : Dropdown, IRectTransformAble
+    public abstract class BaseDropDown : MonoBehaviour
     {
         public RectTransform RectTransform;
-        public ControlText Label;
-        public CustomImage Arrow;
-        public Template Template;
+        public Dropdown Dropdown;
 
-        protected override void Awake()
+        protected virtual void Awake()
         {
-            Label = CreateGameObject.CreateChildGameObject<ControlText>(transform).GetComponent<ControlText>();
-            Arrow = CreateGameObject.CreateChildGameObject<CustomImage>(transform).GetComponent<CustomImage>();
-            Template = CreateGameObject.CreateChildGameObject<Template>(transform).GetComponent<Template>();
-            RectTransform = gameObject.GetComponent<RectTransform>();
+            var prefab = Resources.Load<GameObject>("Prefabs/Controls/Dropdowns/Dropdown");
+            var clone = Instantiate(prefab, Vector3.zero, Quaternion.identity);
+            clone.transform.parent = this.transform;
+            Dropdown = clone.GetComponent<Dropdown>();
         }
 
-        protected override void Start()
+        protected virtual void Start()
         {
-            Arrow.SetAnchors(new Vector2(1, 0.5f), new Vector2(1, 0.5f));
-            Arrow.rectTransform.sizeDelta = new Vector2(20, 20);
-            targetGraphic = Arrow;
-
-            template = Template.GetComponent<RectTransform>();
-            Label.SetAnchors(new Vector2(0, 0), new Vector2(1, 1));
-            Label.rectTransform.sizeDelta = new Vector2(25, 6);
-
-            captionText = Label;
-
-            RectTransform.sizeDelta = new Vector2(160, 30);
-
-            Template.enabled = false;
         }
 
         public void SetAnchors(Vector2 anchorMin, Vector2 anchorMax)
