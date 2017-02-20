@@ -6,22 +6,34 @@ namespace Assets.Scripts.Cameras
 {
     public class MainCamera : MonoBehaviour {
 
-        public Player Player;       //Public variable to store a reference to the player game object
-        private Vector3 _offset;         //Private variable to store the offset distance between the player and camera
+        public Player Player;       
+        public Bounds CameraBounds;
+        public Camera Camera;
 
-        // Use this for initialization
         void Start()
         {
-            //Calculate and store the offset value by getting the distance between the player's position and camera's position.
             Player = GameEngineHelper.GetCurrentGameEngine().Player;
-            _offset = transform.position - Player.transform.position;
+            Camera = GetComponent<Camera>();
+            var boundsRect = GameObject.Find("BoundingBox").GetComponent<RectTransform>();
+            CameraBounds.center = boundsRect.rect.center;
+            CameraBounds.min = boundsRect.rect.min;
+            CameraBounds.max = boundsRect.rect.max;
         }
 
-        // LateUpdate is called after Update each frame
         void LateUpdate()
         {
-            // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
-            transform.position = Player.transform.position + _offset;
+            float camVertExtent = Camera.orthographicSize;
+            float camHorzExtent = Camera.aspect * camVertExtent;
+
+            float leftBound = CameraBounds.min.x + camHorzExtent * 2;
+            float rightBound = CameraBounds.max.x - camHorzExtent * 0.1f;
+            float bottomBound = CameraBounds.min.y + camVertExtent;
+            float topBound = CameraBounds.max.y - camVertExtent;
+
+            float camX = Mathf.Clamp(Player.transform.position.x, leftBound, rightBound);
+            float camY = Mathf.Clamp(Player.transform.position.y, bottomBound, topBound);
+
+            Camera.transform.position = new Vector3(camX, camY, Camera.transform.position.z);        
         }
     }
 }

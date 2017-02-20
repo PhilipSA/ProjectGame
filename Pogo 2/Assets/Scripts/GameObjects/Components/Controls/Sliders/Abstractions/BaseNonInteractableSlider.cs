@@ -6,7 +6,7 @@ namespace Assets.Scripts.GameObjects.Components.Controls.Sliders.Abstractions
 {
     public class BaseNonInteractableSlider : MonoBehaviour, IRectTransformAble
     {
-        public RectTransform RectTransform { get; private set; }
+        public RectTransform RectTransform { get; set; }
         public Slider Slider;
 
         protected virtual void Awake()
@@ -16,12 +16,12 @@ namespace Assets.Scripts.GameObjects.Components.Controls.Sliders.Abstractions
             clone.transform.parent = this.transform;
             Slider = clone.GetComponent<Slider>();
 
-            RectTransform = GetComponent<RectTransform>();
+            RectTransform = gameObject.AddComponent<RectTransform>();
         }
 
         protected virtual void Start()
         {
-
+            Slider.interactable = false;
         }
 
         public void SetAnchors(Vector2 anchorMin, Vector2 anchorMax)

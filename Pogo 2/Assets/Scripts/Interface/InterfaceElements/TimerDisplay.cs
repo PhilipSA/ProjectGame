@@ -25,8 +25,12 @@ namespace Assets.Scripts.Interface.InterfaceElements
         void Start()
         {
             Text.alignment = TextAnchor.MiddleCenter;
+            Text.color = Color.white;
+            Text.fontSize = 25;
+
+            Texture2D.color = new Color32(67, 67, 67, 255);
             Texture2D.SetAnchorsAndPivot(new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, 1));
-            Texture2D.rectTransform.sizeDelta = new Vector2(100, 20);
+            Texture2D.rectTransform.sizeDelta = new Vector2(120, 30);
         }
 
         // Update is called once per frame
