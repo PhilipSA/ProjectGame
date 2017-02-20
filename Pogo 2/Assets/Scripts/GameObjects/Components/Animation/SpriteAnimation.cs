@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.GameObjects.Components.Animation
 {
-    public class AnimationSprite : AnimationHandler
+    public class SpriteAnimation : AnimationHandler
     {
         protected override void Start()
         {
@@ -15,7 +15,6 @@ namespace Assets.Scripts.GameObjects.Components.Animation
         public void SetBlinkSprites(string spriteNameOne, string spriteNameTwo)
         {
             BlinkSprites = Sprites.Where(x => x.name == spriteNameOne || x.name == spriteNameTwo).ToArray();
-            Debug.Log(BlinkSprites.Length);
         }
 
         public void AnimateBlink(string spriteNameOne, string spriteNameTwo)

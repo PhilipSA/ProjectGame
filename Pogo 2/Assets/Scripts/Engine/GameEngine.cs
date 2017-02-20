@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Scripts.Cameras;
 using Assets.Scripts.Engine.Events;
 using Assets.Scripts.Engine.Input;
 using Assets.Scripts.Engine.Levels;
@@ -22,6 +23,7 @@ namespace Assets.Scripts.Engine
         public bool Paused { get; private set; }
         public BestLevelTimeFileHandler BestLevelTime { get; private set; }
         public Level Level { get; private set; }
+        public MainCamera MainCamera;
 
         void Awake()
         {
@@ -34,6 +36,8 @@ namespace Assets.Scripts.Engine
             Level = new Level(BestLevelTime.LoadBestTimeForLevel(SceneManager.GetActiveScene().buildIndex), SceneManager.GetActiveScene().name, 
                 (LevelEnum)SceneManager.GetActiveScene().buildIndex);
             InterfaceHandler.SetBestTimeDisplay(Level.BestTime);
+
+            MainCamera = GetComponentInChildren<MainCamera>();
 
             GameEvents = new GameEvents();
             GameEvents.PlayerOnGoalCollision += Victory;

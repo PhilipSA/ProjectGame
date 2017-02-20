@@ -48,9 +48,21 @@ namespace Assets.Scripts.InteractingObjects.Player
             }
         }
 
+        public void OnTrampolineCollision()
+        {
+            Debug.Log("TEST");
+            _playerRigidbody2D.velocity = new Vector2(_playerRigidbody2D.velocity.x, _playerRigidbody2D.velocity.y + 200);
+        }
+
         public void OnHeadCollision()
         {
-            PlayerHitpoints.CalculateDamage(_playerRigidbody2D);
+            PlayerHitpoints.CalculateImpactDamage(_playerRigidbody2D);
+            DeadCheck();
+        }
+
+        public void OnHazardCollision()
+        {
+            PlayerHitpoints.InflictHazardDamage();
             DeadCheck();
         }
 

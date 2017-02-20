@@ -11,9 +11,14 @@ namespace Assets.Scripts.InteractingObjects.Player
             get { return _hitpoints; }
         }
 
-        public void CalculateDamage(Rigidbody2D rigidbody2D)
+        public void CalculateImpactDamage(Rigidbody2D rigidbody2D)
         {
             _hitpoints -= rigidbody2D.velocity.magnitude;
+        }
+
+        public void InflictHazardDamage()
+        {
+            _hitpoints -= 20;
         }
     }
 }
