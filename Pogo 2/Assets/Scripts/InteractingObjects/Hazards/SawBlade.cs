@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Engine;
 using Assets.Scripts.GameObjects.Components.Animation;
+using Assets.Scripts.Engine.Audio;
 using UnityEngine;
 
 namespace Assets.Scripts.InteractingObjects.Hazards
@@ -8,6 +9,19 @@ namespace Assets.Scripts.InteractingObjects.Hazards
     {
         private SpriteRenderer _spriteRenderer;
         private SpriteAnimation _animationHandler;
+        public AudioSource AudioSource;
+
+        public void Awake()
+        {
+            AudioSource = gameObject.AddComponent<AudioSource>();
+            AudioSource.clip = Resources.Load<AudioClip>("Audio/InteractingObjectsAudio/HazardsAudio/SawBladeIdle");
+            AudioSource.loop = true;            
+        }
+
+        public void Start()
+        {
+            AudioHandler.PlayAudio(AudioSource);
+        }
 
         void OnCollisionEnter2D(Collision2D col)
         {
