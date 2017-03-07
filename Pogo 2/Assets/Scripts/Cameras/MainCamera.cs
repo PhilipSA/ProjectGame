@@ -25,8 +25,8 @@ namespace Assets.Scripts.Cameras
             float camVertExtent = Camera.orthographicSize;
             float camHorzExtent = Camera.aspect * camVertExtent;
 
-            float leftBound = CameraBounds.min.x + camHorzExtent * 2;
-            float rightBound = CameraBounds.max.x - camHorzExtent * 0.1f;
+            float leftBound = CameraBounds.min.x + camHorzExtent;
+            float rightBound = CameraBounds.max.x - camHorzExtent;
             float bottomBound = CameraBounds.min.y + camVertExtent;
             float topBound = CameraBounds.max.y - camVertExtent;
 

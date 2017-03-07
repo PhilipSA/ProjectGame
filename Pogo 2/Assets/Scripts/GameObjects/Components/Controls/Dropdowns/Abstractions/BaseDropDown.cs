@@ -12,7 +12,7 @@ namespace Assets.Scripts.GameObjects.Components.Controls.Dropdowns.Abstractions
         {
             var prefab = Resources.Load<GameObject>("Prefabs/Controls/Dropdowns/Dropdown");
             var clone = Instantiate(prefab, Vector3.zero, Quaternion.identity);
-            clone.transform.parent = this.transform;
+            clone.transform.SetParent(this.transform);
             Dropdown = clone.GetComponent<Dropdown>();
         }
 

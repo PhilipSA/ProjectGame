@@ -13,7 +13,7 @@ namespace Assets.Scripts.GameObjects.Components.Controls.Sliders.Abstractions
         {
             var prefab = Resources.Load<GameObject>("Prefabs/Controls/Sliders/Slider");
             var clone = Instantiate(prefab, Vector3.zero, Quaternion.identity);
-            clone.transform.parent = this.transform;
+            clone.transform.SetParent(this.transform);
             Slider = clone.GetComponent<Slider>();
 
             RectTransform = gameObject.AddComponent<RectTransform>();

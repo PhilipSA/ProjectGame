@@ -25,7 +25,14 @@ namespace Assets.Scripts.InteractingObjects.Hazards
 
         void OnCollisionEnter2D(Collision2D col)
         {
+            AudioSource.clip = Resources.Load<AudioClip>("Audio/InteractingObjectsAudio/HazardsAudio/SawBladeDamage");
+            AudioHandler.PlayAudio(AudioSource);
             GameEngineHelper.GetCurrentGameEngine().Player.OnHazardCollision();
+        }
+
+        void OnCollisionExit2D(Collision2D col)
+        {
+            AudioSource.clip = Resources.Load<AudioClip>("Audio/InteractingObjectsAudio/HazardsAudio/SawBladeIdle");
         }
 
         public void Update()

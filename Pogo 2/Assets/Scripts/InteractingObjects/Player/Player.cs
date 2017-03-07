@@ -83,11 +83,11 @@ namespace Assets.Scripts.InteractingObjects.Player
         void MovePlayer()
         {
             var moveDirection = _playerControl.GetMoveDirection(_playerRigidbody2D);
-            moveDirection.y *= PlayerBounceLogic.GetBouncePower() * 2;
-            moveDirection.x *= PlayerBounceLogic.GetBouncePower() * 2;
+            moveDirection.y *= PlayerBounceLogic.GetBouncePower();
+            moveDirection.x *= PlayerBounceLogic.GetBouncePower();
             _playerRigidbody2D.velocity = new Vector2(moveDirection.x + _playerRigidbody2D.velocity.x, moveDirection.y + _playerRigidbody2D.velocity.y);
         }
-
+        
         void AnglePlayer()
         {
             var newRotationAngle = _playerControl.GetRotationAngle(_playerRigidbody2D);
