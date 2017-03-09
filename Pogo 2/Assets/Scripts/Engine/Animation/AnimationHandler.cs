@@ -16,6 +16,7 @@ namespace Assets.Scripts.Engine.Animation
         protected Sprite[] Sprites;
         protected int Frame = 0;
         protected float DeltaTime = 0;
+        protected int Priority = 0;
 
         // Use this for initialization
         protected virtual void Start()
@@ -42,6 +43,7 @@ namespace Assets.Scripts.Engine.Animation
                 DeltaTime -= FrameSeconds;
                 SpriteRenderer.sprite = BlinkSprites.First();
                 AnimationType = AnimationTypeEnum.None;
+                Priority = 0;
                 return;
             }
             //Animate sprite with selected frame

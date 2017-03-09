@@ -1,5 +1,10 @@
-﻿using Assets.Scripts.Engine;
+﻿using System;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using Assets.Scripts.Engine;
 using Assets.Scripts.Engine.Audio;
+using Assets.Scripts.Enums;
+using Assets.Scripts.Enums.Player.PlayerHead;
 using Assets.Scripts.InteractingObjects.Abstraction;
 using UnityEngine;
 
@@ -31,13 +36,15 @@ namespace Assets.Scripts.InteractingObjects.Player.Parts
         {
             if (_headRigidbody2D.velocity.magnitude > 200)
             {
-                SpriteAnimation.AnimateBlink("headHighRes", "headHighResExcited");
+                SpriteAnimation.AnimateBlink(EnumHelper.GetMemberName(() => PlayerHeadAnimationsEnum.HeadHighRes), EnumHelper.GetMemberName(() => PlayerHeadAnimationsEnum.HeadHighResExcited), 
+                    PlayerHeadAnimationsEnum.HeadHighResExcited);
             }
             foreach (var collider in Physics2D.OverlapBoxAll(GameEngineHelper.GetCurrentGameEngine().MainCamera.transform.position, new Vector2(100, 100), 0))
             {
                 if (Vector2.Distance(collider.bounds.ClosestPoint(transform.position), transform.position) < 25 && collider.name.Contains("Quad"))
                 {
-                    SpriteAnimation.AnimateBlink("headHighRes", "headHighResPanic");
+                    SpriteAnimation.AnimateBlink(EnumHelper.GetMemberName(() => PlayerHeadAnimationsEnum.HeadHighRes), EnumHelper.GetMemberName(() => PlayerHeadAnimationsEnum.HeadHighResPanic),
+                        PlayerHeadAnimationsEnum.HeadHighResPanic);
                 }
             }
             
@@ -47,7 +54,8 @@ namespace Assets.Scripts.InteractingObjects.Player.Parts
         {
             if (_parent.enabled)
             {
-                SpriteAnimation.AnimateBlink("headHighRes", "headHighResDamage");
+                SpriteAnimation.AnimateBlink(EnumHelper.GetMemberName(() => PlayerHeadAnimationsEnum.HeadHighRes), EnumHelper.GetMemberName(() => PlayerHeadAnimationsEnum.HeadHighResDamage),
+                        PlayerHeadAnimationsEnum.HeadHighResDamage);
                 _parent.OnHeadCollision();
                 AudioHandler.PlayAudio(_audioSource);
             }

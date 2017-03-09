@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using Assets.Scripts.Engine.Animation;
 using Assets.Scripts.Enums;
-using UnityEngine;
 
 namespace Assets.Scripts.GameObjects.Components.Animation
 {
@@ -17,10 +16,14 @@ namespace Assets.Scripts.GameObjects.Components.Animation
             BlinkSprites = Sprites.Where(x => x.name == spriteNameOne || x.name == spriteNameTwo).ToArray();
         }
 
-        public void AnimateBlink(string spriteNameOne, string spriteNameTwo)
+        public void AnimateBlink(string spriteNameOne, string spriteNameTwo, int priority)
         {
-            SetBlinkSprites(spriteNameOne, spriteNameTwo);
-            AnimationType = AnimationTypeEnum.Blink;
+            if (priority > Priority)
+            {
+                SetBlinkSprites(spriteNameOne, spriteNameTwo);
+                AnimationType = AnimationTypeEnum.Blink;
+                Priority = priority;
+            }
         }
     }
 }
