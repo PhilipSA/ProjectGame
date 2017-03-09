@@ -16,8 +16,8 @@ namespace Assets.Scripts.Cameras
             Camera = GetComponent<Camera>();
             var boundsRect = GameObject.Find("BoundingBox").GetComponent<RectTransform>();
             CameraBounds.center = boundsRect.rect.center;
-            CameraBounds.min = boundsRect.rect.min;
-            CameraBounds.max = boundsRect.rect.max;
+            CameraBounds.min = boundsRect.offsetMin;
+            CameraBounds.max = boundsRect.offsetMax;
         }
 
         void LateUpdate()
