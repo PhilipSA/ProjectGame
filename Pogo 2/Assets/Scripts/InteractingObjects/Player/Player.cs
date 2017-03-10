@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Engine;
+using Assets.Scripts.InteractingObjects.Player.Parts;
 using UnityEngine;
 
 namespace Assets.Scripts.InteractingObjects.Player
@@ -6,13 +7,22 @@ namespace Assets.Scripts.InteractingObjects.Player
     public class Player : MonoBehaviour
     {
         private Rigidbody2D _playerRigidbody2D;
-        private CircleCollider2D _playerFootCollider2D;
+
+        private PlayerFoot _playerFoot;
+        private PlayerHead _playerHead;
 
         private PlayerControl _playerControl;
         public PlayerBounceLogic PlayerBounceLogic;
         public PlayerHitpoints PlayerHitpoints;
 
         public Collider2D BoxCollider2D { get; private set; }
+
+        void Awake()
+        {
+            _playerFoot = GetComponentInChildren<PlayerFoot>();
+            _playerHead = GetComponentInChildren<PlayerHead>();
+            _playerRigidbody2D = GetComponent<Rigidbody2D>();
+        }
 
         // Use this for initialization
         void Start ()
@@ -21,10 +31,7 @@ namespace Assets.Scripts.InteractingObjects.Player
             PlayerBounceLogic = new PlayerBounceLogic();
             PlayerHitpoints = new PlayerHitpoints();
 
-            _playerRigidbody2D = GetComponent<Rigidbody2D>();
             _playerRigidbody2D.freezeRotation = true;
-
-            _playerFootCollider2D = GetComponentInChildren<CircleCollider2D>();
 
             BoxCollider2D = GetComponent<BoxCollider2D>();
         }
@@ -50,7 +57,6 @@ namespace Assets.Scripts.InteractingObjects.Player
 
         public void OnTrampolineCollision()
         {
-            Debug.Log("TEST");
             _playerRigidbody2D.velocity = new Vector2(_playerRigidbody2D.velocity.x, _playerRigidbody2D.velocity.y + 200);
         }
 
@@ -63,6 +69,7 @@ namespace Assets.Scripts.InteractingObjects.Player
         public void OnHazardCollision()
         {
             PlayerHitpoints.InflictHazardDamage();
+            _playerHead.AnimateDamage();
             DeadCheck();
         }
 

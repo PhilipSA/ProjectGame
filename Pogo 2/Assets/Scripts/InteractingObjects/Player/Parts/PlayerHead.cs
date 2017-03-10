@@ -1,7 +1,4 @@
-﻿using System;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using Assets.Scripts.Engine;
+﻿using Assets.Scripts.Engine;
 using Assets.Scripts.Engine.Audio;
 using Assets.Scripts.Enums;
 using Assets.Scripts.Enums.Player.PlayerHead;
@@ -32,6 +29,12 @@ namespace Assets.Scripts.InteractingObjects.Player.Parts
             _headRigidbody2D.freezeRotation = true;
         }
 
+        public void AnimateDamage()
+        {
+            SpriteAnimation.AnimateBlink(EnumHelper.GetMemberName(() => PlayerHeadAnimationsEnum.HeadHighRes), EnumHelper.GetMemberName(() => PlayerHeadAnimationsEnum.HeadHighResDamage),
+                PlayerHeadAnimationsEnum.HeadHighResDamage);
+        }
+
         void Update()
         {
             if (_headRigidbody2D.velocity.magnitude > 200)
@@ -54,8 +57,7 @@ namespace Assets.Scripts.InteractingObjects.Player.Parts
         {
             if (_parent.enabled)
             {
-                SpriteAnimation.AnimateBlink(EnumHelper.GetMemberName(() => PlayerHeadAnimationsEnum.HeadHighRes), EnumHelper.GetMemberName(() => PlayerHeadAnimationsEnum.HeadHighResDamage),
-                        PlayerHeadAnimationsEnum.HeadHighResDamage);
+                AnimateDamage();
                 _parent.OnHeadCollision();
                 AudioHandler.PlayAudio(_audioSource);
             }
