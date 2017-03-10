@@ -35,6 +35,11 @@ namespace Assets.Scripts.InteractingObjects.Player.Parts
                 PlayerHeadAnimationsEnum.HeadHighResDamage);
         }
 
+        public void AnimateDeath()
+        {
+            SpriteAnimation.AnimatePermanent(EnumHelper.GetMemberName(() => PlayerHeadAnimationsEnum.HeadHighResDead));
+        }
+
         void Update()
         {
             if (_headRigidbody2D.velocity.magnitude > 200)

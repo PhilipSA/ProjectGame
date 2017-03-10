@@ -30,13 +30,13 @@ namespace Assets.Scripts.Engine.Input
             }
         }
 
-        public void PlayerSubscribe(Player player)
+        public void PlayerSubscribeToInputs(Player player)
         {
             _inputEvents.PrimaryActionInputTriggered += player.ProcessInputs;
             _inputEvents.MovementActionInputTriggered += player.ProcessInputs;
         }
 
-        public void PlayerUnsubscribe(Player player)
+        public void PlayerUnsubscribeToInputs(Player player)
         {
             _inputEvents.PrimaryActionInputTriggered -= player.ProcessInputs;
             _inputEvents.MovementActionInputTriggered -= player.ProcessInputs;
@@ -50,7 +50,7 @@ namespace Assets.Scripts.Engine.Input
         public void ToggleIgnorePlayerInputs(bool ignoreInputs, Player player)
         {
             _ignorePlayerInputs = ignoreInputs;
-            if (_ignorePlayerInputs) PlayerUnsubscribe(player); else PlayerSubscribe(player);
+            if (_ignorePlayerInputs) PlayerUnsubscribeToInputs(player); else PlayerSubscribeToInputs(player);
         }
 
         void ChangeInputDevice()

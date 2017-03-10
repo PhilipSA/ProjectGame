@@ -17,6 +17,7 @@ namespace Assets.Scripts.Engine.Animation
         protected int Frame = 0;
         protected float DeltaTime = 0;
         protected int Priority = 0;
+        protected Sprite DefaultSprite;
 
         // Use this for initialization
         protected virtual void Start()
@@ -31,6 +32,17 @@ namespace Assets.Scripts.Engine.Animation
             if (AnimationType == AnimationTypeEnum.Loop) Loop();
             if (AnimationType == AnimationTypeEnum.Iterate) Iterate();
             if (AnimationType == AnimationTypeEnum.Blink) Blink();
+        }
+
+        protected void SetDefaultSprite(Sprite defaultSprite)
+        {
+            DefaultSprite = defaultSprite;
+            SpriteRenderer.sprite = defaultSprite;
+        }
+
+        protected virtual void SetAnimationType(AnimationTypeEnum animationTypeEnum)
+        {
+            if (enabled) AnimationType = animationTypeEnum;
         }
 
         private void Blink()

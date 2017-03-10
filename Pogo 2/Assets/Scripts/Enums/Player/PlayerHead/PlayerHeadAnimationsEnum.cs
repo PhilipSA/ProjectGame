@@ -6,5 +6,6 @@
         public static int HeadHighResPanic = 1;
         public static int HeadHighResDamage = 2;
         public static int HeadHighRes = 1;
+        public static int HeadHighResDead = 3;
     }
 }

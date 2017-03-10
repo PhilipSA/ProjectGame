@@ -53,7 +53,7 @@ namespace Assets.Scripts.Engine
 
         void InputSubscriptions()
         {
-            InputHandler.PlayerSubscribe(Player);
+            InputHandler.PlayerSubscribeToInputs(Player);
             InputHandler.GuiSubscribe(InterfaceHandler);
         }
 

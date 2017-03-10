@@ -81,9 +81,10 @@ namespace Assets.Scripts.InteractingObjects.Player
 
         void DeadCheck()
         {
-            if (PlayerHitpoints.Hitpoints <= 0)
+            if (PlayerHitpoints.Hitpoints <= 0 && enabled)
             {
                 GameEngineHelper.GetCurrentGameEngine().Defeat();
+                _playerHead.AnimateDeath();
             }
         }
 
