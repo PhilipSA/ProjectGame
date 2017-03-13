@@ -32,19 +32,19 @@ namespace Assets.Scripts.Engine.Input
 
         public void PlayerSubscribeToInputs(Player player)
         {
-            _inputEvents.PrimaryActionInputTriggered += player.ProcessInputs;
-            _inputEvents.MovementActionInputTriggered += player.ProcessInputs;
+            _inputEvents.PrimaryActionInputTriggered += player.PrimaryActionInvoke;
+            _inputEvents.MovementActionInputTriggered += player.MovementInvoke;
         }
 
         public void PlayerUnsubscribeToInputs(Player player)
         {
-            _inputEvents.PrimaryActionInputTriggered -= player.ProcessInputs;
-            _inputEvents.MovementActionInputTriggered -= player.ProcessInputs;
+            _inputEvents.PrimaryActionInputTriggered -= player.PrimaryActionInvoke;
+            _inputEvents.MovementActionInputTriggered -= player.MovementInvoke;
         }
 
         public void GuiSubscribe(InterfaceHandler interfaceHandler)
         {
-            _inputEvents.PauseActionInputTriggered += interfaceHandler.ProcessInputs;
+            _inputEvents.PauseActionInputTriggered += interfaceHandler.PauseInvoked;
         }
 
         public void ToggleIgnorePlayerInputs(bool ignoreInputs, Player player)

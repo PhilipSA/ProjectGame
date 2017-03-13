@@ -51,12 +51,9 @@ namespace Assets.Scripts.Interface
             _healthBar.BarDisplay = PlayerData.PlayerHitpoints.Hitpoints;
         }
 
-        public void ProcessInputs(KeyCode keyCode)
+        public void PauseInvoked()
         {
-            if (keyCode == KeyCode.Escape)
-            {
-                GameEngineHelper.GetCurrentGameEngine().TogglePause();
-            }
+            GameEngineHelper.GetCurrentGameEngine().TogglePause();
         }
 
         public void ToggleOverlayScreen(OverlayScreen overlayScreen)

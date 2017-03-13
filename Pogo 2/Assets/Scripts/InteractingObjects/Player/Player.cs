@@ -43,16 +43,14 @@ namespace Assets.Scripts.InteractingObjects.Player
             StraightenUp();
         }
 
-        public void ProcessInputs(KeyCode keyCode)
+        public void PrimaryActionInvoke()
         {
-            if (keyCode == KeyCode.Mouse0)
-            {
-                PlayerBounceLogic.IncreaseBouncePower();
-            }
-            if (keyCode == KeyCode.Mouse6)
-            {
-                AnglePlayerTowardsMouse();
-            }
+            PlayerBounceLogic.IncreaseBouncePower();
+        }
+
+        public void MovementInvoke()
+        {
+            AnglePlayerTowardsMouse();
         }
 
         public void OnTrampolineCollision()
