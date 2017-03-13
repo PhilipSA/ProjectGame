@@ -1,5 +1,4 @@
 ﻿using Assets.Scripts.Enums.Input;
-using UnityEngine;
 
 namespace Assets.Scripts.Engine.Input
 {

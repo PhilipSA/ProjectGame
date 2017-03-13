@@ -5,14 +5,15 @@ namespace Assets.Scripts.Engine.Input
 {
     public class InputTouchEvents
     {
+        private Vector2 _startPosition;
+
         public InputActionEnum? CheckForInputs()
         {
-            var touch = UnityEngine.Input.GetTouch(0);
-            var start = 0f;
+            var touch = UnityEngine.Input.GetTouch(0);          
 
-            if (touch.phase == TouchPhase.Began) start = touch.position.magnitude;
+            if (touch.phase == TouchPhase.Began) _startPosition = touch.position;
 
-            if (touch.phase == TouchPhase.Ended && touch.tapCount == 1 && touch.deltaPosition.magnitude<start)
+            if (touch.phase == TouchPhase.Ended && touch.position == _startPosition)
             {
                 return InputActionEnum.PrimaryAction;
             }
