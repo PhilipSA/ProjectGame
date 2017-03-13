@@ -90,7 +90,8 @@ namespace Assets.Scripts.InteractingObjects.Player
         {
             var moveDirection = _playerControl.GetMoveDirection(_playerRigidbody2D);
             moveDirection.y *= PlayerBounceLogic.GetRandomBouncePower();
-            _playerRigidbody2D.velocity = new Vector2(moveDirection.x + _playerRigidbody2D.velocity.x, moveDirection.y + _playerRigidbody2D.velocity.y);
+            moveDirection.x *= PlayerBounceLogic.GetRandomBouncePower();
+            _playerRigidbody2D.velocity = new Vector2(moveDirection.x, moveDirection.y);
         }
         
         void AnglePlayer()
