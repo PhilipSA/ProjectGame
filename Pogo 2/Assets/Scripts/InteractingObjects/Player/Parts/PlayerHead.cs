@@ -9,24 +9,24 @@ namespace Assets.Scripts.InteractingObjects.Player.Parts
 {
     public class PlayerHead : AnimatedSprite
     {
-        private Player _parent;
-        private Rigidbody2D _headRigidbody2D;
-        private SpriteRenderer _spriteRenderer;
-        private AudioSource _audioSource;
+        public Player Parent;
+        public Rigidbody2D HeadRigidbody2D;
+        public SpriteRenderer SpriteRenderer;
+        public AudioSource AudioSource;
 
         protected void Awake()
         {
-            _headRigidbody2D = GetComponent<Rigidbody2D>();
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-            _audioSource = GetComponent<AudioSource>();
-            _parent = transform.parent.GetComponent<Player>();
+            HeadRigidbody2D = GetComponent<Rigidbody2D>();
+            SpriteRenderer = GetComponent<SpriteRenderer>();
+            AudioSource = GetComponent<AudioSource>();
+            Parent = transform.parent.GetComponent<Player>();
 
             base.Awake("Textures/Player/PlayerHead/");
         }
 
         void Start()
         {
-            _headRigidbody2D.freezeRotation = true;
+            HeadRigidbody2D.freezeRotation = true;
         }
 
         public void AnimateDamage()
@@ -42,7 +42,7 @@ namespace Assets.Scripts.InteractingObjects.Player.Parts
 
         void Update()
         {
-            if (_headRigidbody2D.velocity.magnitude > 200)
+            if (HeadRigidbody2D.velocity.magnitude > 200)
             {
                 SpriteAnimation.AnimateBlink(EnumHelper.GetMemberName(() => PlayerHeadAnimationsEnum.HeadHighRes), EnumHelper.GetMemberName(() => PlayerHeadAnimationsEnum.HeadHighResExcited), 
                     PlayerHeadAnimationsEnum.HeadHighResExcited);
@@ -60,11 +60,10 @@ namespace Assets.Scripts.InteractingObjects.Player.Parts
 
         void OnCollisionEnter2D(Collision2D col)
         {
-            if (_parent.enabled)
+            if (Parent.enabled)
             {
                 AnimateDamage();
-                _parent.OnHeadCollision();
-                AudioHandler.PlayAudio(_audioSource);
+                Parent.PlayerCollider.OnHeadCollision(col);
             }
         }
     }

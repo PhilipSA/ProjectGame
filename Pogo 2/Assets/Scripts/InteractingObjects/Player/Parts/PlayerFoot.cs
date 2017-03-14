@@ -21,7 +21,7 @@ namespace Assets.Scripts.InteractingObjects.Player.Parts
         {
             if (_parent.enabled && col.gameObject != _parent.gameObject)
             {
-                _parent.OnFootCollision();
+                _parent.PlayerCollider.OnFootCollision(col);
                 AudioHandler.PlayAudio(_audioSource);
             }
         }

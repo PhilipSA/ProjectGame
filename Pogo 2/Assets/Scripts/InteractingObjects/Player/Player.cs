@@ -7,22 +7,24 @@ namespace Assets.Scripts.InteractingObjects.Player
 {
     public class Player : MonoBehaviour
     {
-        private Rigidbody2D _playerRigidbody2D;
+        public Rigidbody2D PlayerRigidbody2D { get; private set; }
 
-        private PlayerFoot _playerFoot;
-        private PlayerHead _playerHead;
+        public PlayerFoot PlayerFoot;
+        public PlayerHead PlayerHead;
 
         private PlayerControl _playerControl;
         public PlayerBounceLogic PlayerBounceLogic;
         public PlayerHitpoints PlayerHitpoints;
+        public PlayerCollider PlayerCollider;
 
         public Collider2D BoxCollider2D { get; private set; }
 
         void Awake()
         {
-            _playerFoot = GetComponentInChildren<PlayerFoot>();
-            _playerHead = GetComponentInChildren<PlayerHead>();
-            _playerRigidbody2D = GetComponent<Rigidbody2D>();
+            PlayerCollider = new PlayerCollider(this);
+            PlayerFoot = GetComponentInChildren<PlayerFoot>();
+            PlayerHead = GetComponentInChildren<PlayerHead>();
+            PlayerRigidbody2D = GetComponent<Rigidbody2D>();
         }
 
         // Use this for initialization
@@ -32,7 +34,7 @@ namespace Assets.Scripts.InteractingObjects.Player
             PlayerBounceLogic = new PlayerBounceLogic();
             PlayerHitpoints = new PlayerHitpoints();
 
-            _playerRigidbody2D.freezeRotation = true;
+            PlayerRigidbody2D.freezeRotation = true;
 
             BoxCollider2D = GetComponent<BoxCollider2D>();
         }
@@ -55,65 +57,41 @@ namespace Assets.Scripts.InteractingObjects.Player
             if (inputDeviceEnum == InputDeviceEnum.TouchDevice) AnglePlayerTowardsTouch();
         }
 
-        public void OnTrampolineCollision()
-        {
-            _playerRigidbody2D.velocity = new Vector2(_playerRigidbody2D.velocity.x, _playerRigidbody2D.velocity.y + 200);
-        }
-
-        public void OnHeadCollision()
-        {
-            PlayerHitpoints.CalculateImpactDamage(_playerRigidbody2D);
-            DeadCheck();
-        }
-
-        public void OnHazardCollision()
-        {
-            PlayerHitpoints.InflictHazardDamage();
-            _playerHead.AnimateDamage();
-            DeadCheck();
-        }
-
-        public void OnFootCollision()
-        {
-            AnglePlayer();
-            MovePlayerOnBounce();
-        }
-
-        void DeadCheck()
+        public void DeadCheck()
         {
             if (PlayerHitpoints.Hitpoints <= 0 && enabled)
             {
                 GameEngineHelper.GetCurrentGameEngine().Defeat();
-                _playerHead.AnimateDeath();
+                PlayerHead.AnimateDeath();
             }
         }
 
-        void MovePlayerOnBounce()
+        public void MovePlayerOnBounce()
         {
-            var moveDirection = _playerControl.GetMoveDirection(_playerRigidbody2D);
+            var moveDirection = _playerControl.GetMoveDirection(PlayerRigidbody2D);
             moveDirection.y *= PlayerBounceLogic.GetRandomBouncePower();
             moveDirection.x *= PlayerBounceLogic.GetRandomBouncePower();
-            _playerRigidbody2D.velocity = new Vector2(moveDirection.x, moveDirection.y);
+            PlayerRigidbody2D.velocity = new Vector2(moveDirection.x, moveDirection.y);
         }
-        
-        void AnglePlayer()
+
+        public void AnglePlayer()
         {
-            var newRotationAngle = _playerControl.GetRotationAngleMouse(_playerRigidbody2D);
+            var newRotationAngle = _playerControl.GetRotationAngleMouse(PlayerRigidbody2D);
             transform.rotation = Quaternion.Slerp(transform.rotation, newRotationAngle, 0.1f);
         }
 
         void AnglePlayerTowardsMouse()
         {
-            var newRotationAngle = _playerControl.GetRotationAngleMouse(_playerRigidbody2D);
+            var newRotationAngle = _playerControl.GetRotationAngleMouse(PlayerRigidbody2D);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotationAngle, 0.5f);
-            _playerRigidbody2D.velocity = new Vector2(_playerRigidbody2D.velocity.x - _playerRigidbody2D.rotation/100, _playerRigidbody2D.velocity.y);
+            PlayerRigidbody2D.velocity = new Vector2(PlayerRigidbody2D.velocity.x - PlayerRigidbody2D.rotation/100, PlayerRigidbody2D.velocity.y);
         }
 
         void AnglePlayerTowardsTouch()
         {
-            var newRotationAngle = _playerControl.GetRotationAngleTouch(_playerRigidbody2D);
+            var newRotationAngle = _playerControl.GetRotationAngleTouch(PlayerRigidbody2D);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotationAngle, 1.5f);
-            _playerRigidbody2D.velocity = new Vector2(_playerRigidbody2D.velocity.x - _playerRigidbody2D.rotation / 100, _playerRigidbody2D.velocity.y);
+            PlayerRigidbody2D.velocity = new Vector2(PlayerRigidbody2D.velocity.x - PlayerRigidbody2D.rotation / 100, PlayerRigidbody2D.velocity.y);
         }
 
         void StraightenUp()
