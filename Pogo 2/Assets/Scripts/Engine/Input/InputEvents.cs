@@ -1,10 +1,11 @@
-﻿using Assets.Scripts.Enums.Input;
+﻿using Assets.Scripts.Enums;
+using Assets.Scripts.Enums.Input;
 
 namespace Assets.Scripts.Engine.Input
 {
     public class InputEvents
     {
-        public delegate void InputProcess();
+        public delegate void InputProcess(InputDeviceEnum inputDeviceEnum);
 
         public event InputProcess PrimaryActionInputTriggered;
         public event InputProcess PauseActionInputTriggered;
@@ -34,11 +35,11 @@ namespace Assets.Scripts.Engine.Input
         public void InvokeEventFromInputAction(InputActionEnum inputActionEnum)
         {
             if (inputActionEnum == InputActionEnum.PrimaryAction)
-                if (PrimaryActionInputTriggered != null) PrimaryActionInputTriggered.Invoke();
+                if (PrimaryActionInputTriggered != null) PrimaryActionInputTriggered.Invoke(InputHandler.CurrentInputDevice);
             if (inputActionEnum == InputActionEnum.PauseAction)
-                if (PauseActionInputTriggered != null) PauseActionInputTriggered.Invoke();
+                if (PauseActionInputTriggered != null) PauseActionInputTriggered.Invoke(InputHandler.CurrentInputDevice);
             if (inputActionEnum == InputActionEnum.MovementAction)
-                if (MovementActionInputTriggered != null) MovementActionInputTriggered.Invoke();
+                if (MovementActionInputTriggered != null) MovementActionInputTriggered.Invoke(InputHandler.CurrentInputDevice);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Assets.Scripts.Engine.Input
 {
     public class InputHandler : MonoBehaviour
     {
-        private InputDeviceEnum _currentInputDevice;
+        public static InputDeviceEnum CurrentInputDevice;
         private InputEvents _inputEvents;
         private bool _ignorePlayerInputs;
 
@@ -20,11 +20,11 @@ namespace Assets.Scripts.Engine.Input
         void Update()
         {
             ChangeInputDevice();
-            if (_currentInputDevice == InputDeviceEnum.KeyboardAndMouse)
+            if (CurrentInputDevice == InputDeviceEnum.KeyboardAndMouse)
             {
                 _inputEvents.CheckAllInputsForMouseEvents();
             }
-            if (_currentInputDevice == InputDeviceEnum.TouchDevice)
+            if (CurrentInputDevice == InputDeviceEnum.TouchDevice)
             {
                 _inputEvents.CheckAllInputsForTouchEvents();
             }
@@ -57,11 +57,11 @@ namespace Assets.Scripts.Engine.Input
         {
             if (UnityEngine.Input.touchSupported)
             {
-                _currentInputDevice = InputDeviceEnum.TouchDevice;
+                CurrentInputDevice = InputDeviceEnum.TouchDevice;
             }
             if (UnityEngine.Input.mousePresent)
             {
-                _currentInputDevice = InputDeviceEnum.KeyboardAndMouse;
+                CurrentInputDevice = InputDeviceEnum.KeyboardAndMouse;
             }
         }
     }

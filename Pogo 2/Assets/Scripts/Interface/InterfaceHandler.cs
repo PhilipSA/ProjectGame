@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Engine;
+using Assets.Scripts.Enums;
 using Assets.Scripts.GameObjects;
 using Assets.Scripts.InteractingObjects.Player;
 using Assets.Scripts.Interface.InterfaceElements;
@@ -51,7 +52,7 @@ namespace Assets.Scripts.Interface
             _healthBar.BarDisplay = PlayerData.PlayerHitpoints.Hitpoints;
         }
 
-        public void PauseInvoked()
+        public void PauseInvoked(InputDeviceEnum inputDeviceEnum)
         {
             GameEngineHelper.GetCurrentGameEngine().TogglePause();
         }

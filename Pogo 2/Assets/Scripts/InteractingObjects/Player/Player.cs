@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Engine;
+using Assets.Scripts.Enums;
 using Assets.Scripts.InteractingObjects.Player.Parts;
 using UnityEngine;
 
@@ -43,14 +44,15 @@ namespace Assets.Scripts.InteractingObjects.Player
             StraightenUp();
         }
 
-        public void PrimaryActionInvoke()
+        public void PrimaryActionInvoke(InputDeviceEnum inputDeviceEnum)
         {
             PlayerBounceLogic.IncreaseBouncePower();
         }
 
-        public void MovementInvoke()
+        public void MovementInvoke(InputDeviceEnum inputDeviceEnum)
         {
-            AnglePlayerTowardsMouse();
+            if (inputDeviceEnum == InputDeviceEnum.KeyboardAndMouse) AnglePlayerTowardsMouse();
+            if (inputDeviceEnum == InputDeviceEnum.TouchDevice) AnglePlayerTowardsTouch();
         }
 
         public void OnTrampolineCollision()
@@ -74,7 +76,7 @@ namespace Assets.Scripts.InteractingObjects.Player
         public void OnFootCollision()
         {
             AnglePlayer();
-            MovePlayer();
+            MovePlayerOnBounce();
         }
 
         void DeadCheck()
@@ -86,7 +88,7 @@ namespace Assets.Scripts.InteractingObjects.Player
             }
         }
 
-        void MovePlayer()
+        void MovePlayerOnBounce()
         {
             var moveDirection = _playerControl.GetMoveDirection(_playerRigidbody2D);
             moveDirection.y *= PlayerBounceLogic.GetRandomBouncePower();
@@ -96,14 +98,22 @@ namespace Assets.Scripts.InteractingObjects.Player
         
         void AnglePlayer()
         {
-            var newRotationAngle = _playerControl.GetRotationAngle(_playerRigidbody2D);
+            var newRotationAngle = _playerControl.GetRotationAngleMouse(_playerRigidbody2D);
             transform.rotation = Quaternion.Slerp(transform.rotation, newRotationAngle, 0.1f);
         }
 
         void AnglePlayerTowardsMouse()
         {
-            var newRotationAngle = _playerControl.GetRotationAngle(_playerRigidbody2D);
+            var newRotationAngle = _playerControl.GetRotationAngleMouse(_playerRigidbody2D);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotationAngle, 0.5f);
+            _playerRigidbody2D.velocity = new Vector2(_playerRigidbody2D.velocity.x - _playerRigidbody2D.rotation/100, _playerRigidbody2D.velocity.y);
+        }
+
+        void AnglePlayerTowardsTouch()
+        {
+            var newRotationAngle = _playerControl.GetRotationAngleTouch(_playerRigidbody2D);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotationAngle, 1.5f);
+            _playerRigidbody2D.velocity = new Vector2(_playerRigidbody2D.velocity.x - _playerRigidbody2D.rotation / 100, _playerRigidbody2D.velocity.y);
         }
 
         void StraightenUp()

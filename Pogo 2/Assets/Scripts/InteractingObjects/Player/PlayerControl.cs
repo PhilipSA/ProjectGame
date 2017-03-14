@@ -14,10 +14,18 @@ namespace Assets.Scripts.InteractingObjects.Player
             return moveDirection;
         }
 
-        public Quaternion GetRotationAngle(Rigidbody2D playerRigidbody2D)
+        public Quaternion GetRotationAngleMouse(Rigidbody2D playerRigidbody2D)
         {
             var mousePositionInWorld = GetMousePositionInWorld();
             float deltaX = mousePositionInWorld.x - playerRigidbody2D.position.x;
+            float angle = -deltaX;
+            return Quaternion.Euler(new Vector3(0f, 0f, angle));
+        }
+
+        public Quaternion GetRotationAngleTouch(Rigidbody2D playerRigidbody2D)
+        {
+            var touchPositionInWorld = GetTouchPositionInWorld();
+            float deltaX = touchPositionInWorld.x - playerRigidbody2D.position.x;
             float angle = -deltaX;
             return Quaternion.Euler(new Vector3(0f, 0f, angle));
         }
@@ -26,6 +34,12 @@ namespace Assets.Scripts.InteractingObjects.Player
         {
             var mousePosition = Input.mousePosition;
             return Camera.main.ScreenToWorldPoint(mousePosition);
+        }
+
+        public Vector3 GetTouchPositionInWorld()
+        {
+            var touchPosition = Input.touches[0].position;
+            return Camera.main.ScreenToWorldPoint(touchPosition);
         }
     }
 }
