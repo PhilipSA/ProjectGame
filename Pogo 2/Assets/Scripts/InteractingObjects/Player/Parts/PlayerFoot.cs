@@ -7,13 +7,13 @@ namespace Assets.Scripts.InteractingObjects.Player.Parts
     {
         private Player _parent;
         public CircleCollider2D Collider2D { get; set; }
-        private AudioSource _audioSource;
+        public AudioSource AudioSource;
 
         void OnEnable()
         {
             Collider2D = GetComponent<CircleCollider2D>();
             _parent = (Player)GetComponentInParent(typeof(Player));
-            _audioSource = GetComponent<AudioSource>();
+            AudioSource = GetComponent<AudioSource>();
             Physics2D.IgnoreCollision(Collider2D, _parent.BoxCollider2D);
         }
 
@@ -22,7 +22,6 @@ namespace Assets.Scripts.InteractingObjects.Player.Parts
             if (_parent.enabled && col.gameObject != _parent.gameObject)
             {
                 _parent.PlayerCollider.OnFootCollision(col);
-                AudioHandler.PlayAudio(_audioSource);
             }
         }
     }

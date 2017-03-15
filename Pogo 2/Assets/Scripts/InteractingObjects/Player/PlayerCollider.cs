@@ -19,18 +19,23 @@ namespace Assets.Scripts.InteractingObjects.Player
 
         public void OnPaddingCollision(Collision2D collision2D)
         {
-            _player.PlayerHitpoints.InflictDamage(-10);
+            _player.PlayerHitpoints.InflictDamage(5);
             _player.DeadCheck();
+        }
+
+        public void OnIceCollision(Collision2D collision2D)
+        {
+            //_player.AnglePlayer();
+            _player.PlayerRigidbody2D.AddForce(new Vector2(), ForceMode2D.Force);
         }
 
         public void OnHeadCollision(Collision2D collision2D)
         {
-            if (collision2D.gameObject.name == "Padding") return;
+            if (collision2D.gameObject.CompareTag("Padding")) return;
+            if (collision2D.gameObject.CompareTag("Player")) return;
 
             AudioHandler.PlayAudio(_player.PlayerHead.AudioSource);
             _player.PlayerHitpoints.CalculateImpactDamage(_player.PlayerRigidbody2D);
-
-
             _player.DeadCheck();
         }
 
@@ -43,6 +48,9 @@ namespace Assets.Scripts.InteractingObjects.Player
 
         public void OnFootCollision(Collision2D collision2D)
         {
+            if (collision2D.gameObject.CompareTag("Ice")) return;
+
+            AudioHandler.PlayAudio(_player.PlayerFoot.AudioSource);
             _player.AnglePlayer();
             _player.MovePlayerOnBounce();
         }
