@@ -21,7 +21,7 @@ namespace Assets.Scripts.InteractingObjects.Player
         public float GetRandomBouncePower()
         {
             var random = new Random();
-            return random.Next((int) BouncePower, (int) (BouncePower + BouncePowerIncrease));
+            return random.Next((int) BouncePower, (int) (BouncePower + 1.0f));
         }
 
         public void UpdateBouncePower()

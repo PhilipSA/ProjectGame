@@ -6,7 +6,7 @@ namespace Assets.Scripts.InteractingObjects.Player
 {
     public class PlayerCollider
     {
-        private Player _player;
+        private readonly Player _player;
 
         public PlayerCollider(Player player)
         {
