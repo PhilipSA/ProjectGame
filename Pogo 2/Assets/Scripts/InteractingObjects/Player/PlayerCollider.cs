@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Engine.Audio;
+using Assets.Scripts.Enums;
 using UnityEngine;
 
 namespace Assets.Scripts.InteractingObjects.Player
@@ -12,9 +13,9 @@ namespace Assets.Scripts.InteractingObjects.Player
             _player = player;
         }
 
-        public void OnTrampolineCollision(Collision2D collision2D)
+        public void OnTrampolineCollision(Collision2D collision2D, float force)
         {
-            _player.PlayerRigidbody2D.velocity = new Vector2(_player.PlayerRigidbody2D.velocity.x, _player.PlayerRigidbody2D.velocity.y + 200);
+            _player.PlayerRigidbody2D.velocity = new Vector2(_player.PlayerRigidbody2D.velocity.x, _player.PlayerRigidbody2D.velocity.y + force);
         }
 
         public void OnPaddingCollision(Collision2D collision2D)
@@ -31,7 +32,7 @@ namespace Assets.Scripts.InteractingObjects.Player
 
         public void OnHeadCollision(Collision2D collision2D)
         {
-            if (collision2D.gameObject.CompareTag("Padding")) return;
+            if (collision2D.gameObject.CompareTag(TagsEnum.IgnoreHeadCollision)) return;
             if (collision2D.gameObject.CompareTag("Player")) return;
 
             AudioHandler.PlayAudio(_player.PlayerHead.AudioSource);
@@ -48,7 +49,7 @@ namespace Assets.Scripts.InteractingObjects.Player
 
         public void OnFootCollision(Collision2D collision2D)
         {
-            if (collision2D.gameObject.CompareTag("Ice")) return;
+            if (collision2D.gameObject.CompareTag(TagsEnum.IgnoreFootCollision)) return;
 
             AudioHandler.PlayAudio(_player.PlayerFoot.AudioSource);
             _player.AnglePlayer();

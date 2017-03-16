@@ -8,6 +8,7 @@ namespace Assets.Scripts.InteractingObjects.Contraptions
     public class Trampoline : AnimatedSprite
     {
         public AudioSource AudioSource;
+        public float Force = 350;
 
         void Awake()
         {
@@ -23,7 +24,7 @@ namespace Assets.Scripts.InteractingObjects.Contraptions
         void OnCollisionEnter2D(Collision2D col)
         {
             AudioHandler.PlayAudio(AudioSource);
-            GameEngineHelper.GetCurrentGameEngine().Player.PlayerCollider.OnTrampolineCollision(col);
+            GameEngineHelper.GetCurrentGameEngine().Player.PlayerCollider.OnTrampolineCollision(col, Force);
         }
     }
 }
