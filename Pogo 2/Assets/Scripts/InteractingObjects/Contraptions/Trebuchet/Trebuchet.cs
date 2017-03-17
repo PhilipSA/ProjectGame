@@ -15,7 +15,7 @@ namespace Assets.Scripts.InteractingObjects.Contraptions.Trebuchet
 
         public void FIRREEEE()
         {
-            Counterweigh.AddMass(3800);
+            Counterweigh.AddMass(8000);
         }
     }
 }
