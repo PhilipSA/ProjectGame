@@ -1,4 +1,5 @@
-﻿using CustomComponents;
+﻿using Assets.Scripts.InteractingObjects.Contraptions.Trebuchet;
+using CustomComponents;
 using UnityEngine;
 
 namespace InteractingObjects.Contraptions.Trebuchet
@@ -7,6 +8,7 @@ namespace InteractingObjects.Contraptions.Trebuchet
     {
         public Counterweigh Counterweigh;
         public Sling Sling;
+        public Beam Beam;
         public bool Firing;
         public StopWatch ResetTimer;
 
@@ -14,6 +16,7 @@ namespace InteractingObjects.Contraptions.Trebuchet
         {
             Counterweigh = GetComponentInChildren<Counterweigh>();
             Sling = GetComponentInChildren<Sling>();
+            Beam = GetComponentInChildren<Beam>();
             ResetTimer = gameObject.AddComponent<StopWatch>();
         }
 
@@ -28,13 +31,14 @@ namespace InteractingObjects.Contraptions.Trebuchet
 
         public void FIRREEEE()
         {
-            Counterweigh.AddMass(8000);
+            Counterweigh.AddMass(10000);
             Firing = true;
             ResetTimer.StartTimer();
         }
 
         public void Reset()
         {
+            Beam.transform.Rotate(0f, 0f, 0f);
             ResetTimer.StopTimer();
             Counterweigh.ResetMass();
         }
