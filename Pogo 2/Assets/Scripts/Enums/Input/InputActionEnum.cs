@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Enums.Input
+﻿namespace Enums.Input
 {
     public enum InputActionEnum
     {

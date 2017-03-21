@@ -1,9 +1,9 @@
-﻿using Assets.Scripts.GameObjects;
-using Assets.Scripts.GameObjects.Components.Controls.Buttons;
-using Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction;
-using Assets.Scripts.Menus;
+﻿using GameObjects;
+using GameObjects.Components.Controls.Buttons;
+using Interface.OverlayScreens.SubScreens.Abstraction;
+using Menus;
 
-namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
+namespace Interface.OverlayScreens.SubScreens
 {
     public class OptionsScreen : SubScreen
     {

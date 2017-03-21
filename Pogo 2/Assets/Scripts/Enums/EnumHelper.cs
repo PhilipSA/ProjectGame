@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace Assets.Scripts.Enums
+namespace Enums
 {
     public static class EnumHelper
     {

@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.GameObjects;
-using Assets.Scripts.GameObjects.Components.Image;
-using Assets.Scripts.Interface.InterfaceElements.Abstraction;
+using GameObjects;
+using GameObjects.Components.Image;
+using Interface.InterfaceElements.Abstraction;
 using UnityEngine;
 
-namespace Assets.Scripts.Interface.InterfaceElements
+namespace Interface.InterfaceElements
 {
     public class ChargeBar : InterfaceElement {
 

@@ -1,9 +1,9 @@
-﻿using Assets.Scripts.Enums;
-using Assets.Scripts.InteractingObjects.Player;
-using Assets.Scripts.Interface;
+﻿using Enums.Input;
+using InteractingObjects.Player;
+using Interface;
 using UnityEngine;
 
-namespace Assets.Scripts.Engine.Input
+namespace Engine.Input
 {
     public class InputHandler : MonoBehaviour
     {

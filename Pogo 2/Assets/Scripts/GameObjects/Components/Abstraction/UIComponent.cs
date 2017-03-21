@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Assets.Scripts.GameObjects.Components.Abstraction
+namespace GameObjects.Components.Abstraction
 {
     public class UIComponent : UIBehaviour, IRectTransformAble
     {

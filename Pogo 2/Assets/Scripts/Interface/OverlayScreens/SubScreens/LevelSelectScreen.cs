@@ -1,8 +1,8 @@
-﻿using Assets.Scripts.GameObjects;
-using Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction;
-using Assets.Scripts.Menus;
+﻿using GameObjects;
+using Interface.OverlayScreens.SubScreens.Abstraction;
+using Menus;
 
-namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
+namespace Interface.OverlayScreens.SubScreens
 {
     public class LevelSelectScreen : SubScreen
     {

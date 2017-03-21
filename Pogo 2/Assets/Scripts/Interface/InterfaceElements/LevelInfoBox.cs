@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using Assets.Scripts.Engine.Levels;
-using Assets.Scripts.Interface.DisplayFormats;
+using Engine.Levels;
+using Interface.DisplayFormats;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Interface.InterfaceElements
+namespace Interface.InterfaceElements
 {
     public class LevelInfoBox : MonoBehaviour
     {

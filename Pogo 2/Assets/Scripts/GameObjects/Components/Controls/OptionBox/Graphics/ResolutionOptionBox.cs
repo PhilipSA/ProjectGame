@@ -1,10 +1,10 @@
-﻿using Assets.Scripts.GameObjects.Components.Controls.Dropdowns;
-using Assets.Scripts.GameObjects.Components.Controls.OptionBox.Abstraction;
-using Assets.Scripts.MainEngineComponents;
+﻿using GameObjects.Components.Controls.Dropdowns;
+using GameObjects.Components.Controls.OptionBox.Abstraction;
+using MainEngineComponents;
 using SmartLocalization;
 using UnityEngine;
 
-namespace Assets.Scripts.GameObjects.Components.Controls.OptionBox.Graphics
+namespace GameObjects.Components.Controls.OptionBox.Graphics
 {
     public class ResolutionOptionBox : LocalizeableOptionBox
     {

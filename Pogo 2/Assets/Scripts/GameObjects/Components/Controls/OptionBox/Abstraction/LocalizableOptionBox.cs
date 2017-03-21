@@ -1,9 +1,9 @@
-﻿using Assets.Scripts.GameObjects.Components.Controls.Abstraction;
-using Assets.Scripts.GameObjects.Components.Controls.Text;
+﻿using GameObjects.Components.Controls.Abstraction;
+using GameObjects.Components.Controls.Text;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Assets.Scripts.GameObjects.Components.Controls.OptionBox.Abstraction
+namespace GameObjects.Components.Controls.OptionBox.Abstraction
 {
     public abstract class LocalizeableOptionBox : UIBehaviour, ILocalizableControl
     {

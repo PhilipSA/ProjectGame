@@ -1,18 +1,18 @@
 ﻿using System;
-using Assets.Scripts.Cameras;
-using Assets.Scripts.Engine.Events;
-using Assets.Scripts.Engine.Input;
-using Assets.Scripts.Engine.Levels;
-using Assets.Scripts.Enums;
-using Assets.Scripts.GameObjects;
-using Assets.Scripts.InteractingObjects.Player;
-using Assets.Scripts.Interface;
-using Assets.Scripts.Interface.DisplayFormats;
+using Cameras;
+using Engine.Events;
+using Engine.Input;
+using Engine.Levels;
+using Enums.Levels;
+using GameObjects;
+using InteractingObjects.Player;
+using Interface;
+using Interface.DisplayFormats;
 using SmartLocalization;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Assets.Scripts.Engine
+namespace Engine
 {
     public class GameEngine : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.GameObjects.Components.Abstraction
+namespace GameObjects.Components.Abstraction
 {
     public interface IRectTransformAble
     {

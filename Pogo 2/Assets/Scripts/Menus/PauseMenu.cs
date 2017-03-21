@@ -1,8 +1,8 @@
-﻿using Assets.Scripts.GameObjects;
-using Assets.Scripts.Interface.OverlayScreens;
+﻿using GameObjects;
+using Interface.OverlayScreens;
 using UnityEngine;
 
-namespace Assets.Scripts.Menus
+namespace Menus
 {
     public class PauseMenu : MonoBehaviour
     {

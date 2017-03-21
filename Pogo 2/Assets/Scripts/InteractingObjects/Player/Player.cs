@@ -1,9 +1,9 @@
-﻿using Assets.Scripts.Engine;
-using Assets.Scripts.Enums;
-using Assets.Scripts.InteractingObjects.Player.Parts;
+﻿using Engine;
+using Enums.Input;
+using InteractingObjects.Player.Parts;
 using UnityEngine;
 
-namespace Assets.Scripts.InteractingObjects.Player
+namespace InteractingObjects.Player
 {
     public class Player : MonoBehaviour
     {

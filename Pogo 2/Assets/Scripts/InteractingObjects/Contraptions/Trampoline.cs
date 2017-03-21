@@ -1,9 +1,9 @@
-﻿using Assets.Scripts.Engine;
-using Assets.Scripts.Engine.Audio;
-using Assets.Scripts.InteractingObjects.Abstraction;
+﻿using Engine;
+using Engine.Audio;
+using InteractingObjects.Abstraction;
 using UnityEngine;
 
-namespace Assets.Scripts.InteractingObjects.Contraptions
+namespace InteractingObjects.Contraptions
 {
     public class Trampoline : AnimatedSprite
     {

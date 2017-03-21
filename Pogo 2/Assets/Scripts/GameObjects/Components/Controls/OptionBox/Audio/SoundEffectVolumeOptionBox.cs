@@ -1,9 +1,9 @@
-﻿using Assets.Scripts.GameObjects.Components.Controls.OptionBox.Abstraction;
-using Assets.Scripts.GameObjects.Components.Controls.Sliders;
-using Assets.Scripts.MainEngineComponents;
+﻿using GameObjects.Components.Controls.OptionBox.Abstraction;
+using GameObjects.Components.Controls.Sliders;
+using MainEngineComponents;
 using SmartLocalization;
 
-namespace Assets.Scripts.GameObjects.Components.Controls.OptionBox.Audio
+namespace GameObjects.Components.Controls.OptionBox.Audio
 {
     public class SoundEffectVolumeOptionBox : LocalizeableOptionBox
     {

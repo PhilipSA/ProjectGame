@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Enums.Player.PlayerHead
+﻿namespace Enums.Player.PlayerHead
 {
     public static class PlayerHeadAnimationsEnum
     {

@@ -1,10 +1,8 @@
-﻿using Assets.Scripts.CustomComponents;
-using Assets.Scripts.Engine;
-using Assets.Scripts.Interface;
+﻿using Engine;
 using SmartLocalization;
 using UnityEngine;
 
-namespace Assets.Scripts.InteractingObjects.TriggerObjects
+namespace InteractingObjects.TriggerObjects
 {
     public class FloatingText : TriggerObject
     {

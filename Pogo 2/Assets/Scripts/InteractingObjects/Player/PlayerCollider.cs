@@ -1,8 +1,8 @@
-﻿using Assets.Scripts.Engine.Audio;
-using Assets.Scripts.Enums;
+﻿using Engine.Audio;
+using Enums;
 using UnityEngine;
 
-namespace Assets.Scripts.InteractingObjects.Player
+namespace InteractingObjects.Player
 {
     public class PlayerCollider
     {

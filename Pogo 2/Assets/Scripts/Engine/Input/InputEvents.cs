@@ -1,7 +1,6 @@
-﻿using Assets.Scripts.Enums;
-using Assets.Scripts.Enums.Input;
+﻿using Enums.Input;
 
-namespace Assets.Scripts.Engine.Input
+namespace Engine.Input
 {
     public class InputEvents
     {

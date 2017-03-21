@@ -1,6 +1,6 @@
-﻿using Assets.Scripts.GameObjects.Components.Abstraction;
+﻿using GameObjects.Components.Abstraction;
 
-namespace Assets.Scripts.GameObjects.Components.Controls.Abstraction
+namespace GameObjects.Components.Controls.Abstraction
 {
     public interface ILocalizableControl : IRectTransformAble
     {

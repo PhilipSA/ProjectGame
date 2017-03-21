@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Enums
+﻿namespace Enums.Screen
 {
     public enum ScreenTypeEnum
     {

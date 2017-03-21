@@ -1,14 +1,10 @@
-﻿
-using Assets.SmartLocalization.Scripts.uGUI;
-
-namespace SmartLocalization.Editor{
-using UnityEngine.UI;
-using UnityEngine;
+﻿using SmartLocalization.Editor;
 using UnityEditor;
-using System.Collections;
+using UnityEngine;
 
-[CustomEditor(typeof(LocalizedText))]
-public class LocalizedTextInspector : Editor 
+namespace SmartLocalization.Scripts.uGUI.Editor{
+    [CustomEditor(typeof(LocalizedText))]
+public class LocalizedTextInspector : UnityEditor.Editor 
 {
 	private string selectedKey = null;
 	

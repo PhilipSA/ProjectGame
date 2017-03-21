@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Assets.Scripts.Enums;
+using Enums.Levels;
 using UnityEngine.SceneManagement;
 
-namespace Assets.Scripts.Engine.Levels
+namespace Engine.Levels
 {
     public class LevelHandler
     {

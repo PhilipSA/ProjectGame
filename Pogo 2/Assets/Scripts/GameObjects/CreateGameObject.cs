@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.GameObjects
+namespace GameObjects
 {
     public class CreateGameObject
     {

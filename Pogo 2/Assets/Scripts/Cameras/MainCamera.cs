@@ -1,8 +1,8 @@
-﻿using Assets.Scripts.Engine;
-using Assets.Scripts.InteractingObjects.Player;
+﻿using Engine;
+using InteractingObjects.Player;
 using UnityEngine;
 
-namespace Assets.Scripts.Cameras
+namespace Cameras
 {
     public class MainCamera : MonoBehaviour {
 

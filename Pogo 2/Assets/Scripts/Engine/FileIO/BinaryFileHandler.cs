@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using UnityEngine;
 
-namespace Assets.Scripts.Engine.FileIO
+namespace Engine.FileIO
 {
     public abstract class BinaryFileHandler
     {

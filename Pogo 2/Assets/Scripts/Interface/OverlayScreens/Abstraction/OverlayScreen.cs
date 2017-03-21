@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Interface.OverlayScreens.Abstraction
+namespace Interface.OverlayScreens.Abstraction
 {
     public abstract class OverlayScreen : MonoBehaviour
     {

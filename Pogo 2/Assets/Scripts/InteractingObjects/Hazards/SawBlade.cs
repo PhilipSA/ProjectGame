@@ -1,9 +1,9 @@
-﻿using Assets.Scripts.Engine;
-using Assets.Scripts.GameObjects.Components.Animation;
-using Assets.Scripts.Engine.Audio;
+﻿using Engine;
+using Engine.Audio;
+using GameObjects.Components.Animation;
 using UnityEngine;
 
-namespace Assets.Scripts.InteractingObjects.Hazards
+namespace InteractingObjects.Hazards
 {
     public class SawBlade : MonoBehaviour
     {

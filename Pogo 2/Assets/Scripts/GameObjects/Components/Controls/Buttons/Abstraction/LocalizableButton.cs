@@ -1,11 +1,11 @@
-﻿using Assets.Scripts.Engine.Audio;
-using Assets.Scripts.GameObjects.Components.Controls.Abstraction;
-using Assets.Scripts.GameObjects.Components.Controls.Text;
-using Assets.Scripts.GameObjects.Components.Image;
+﻿using Engine.Audio;
+using GameObjects.Components.Controls.Abstraction;
+using GameObjects.Components.Controls.Text;
+using GameObjects.Components.Image;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.GameObjects.Components.Controls.Buttons.Abstraction
+namespace GameObjects.Components.Controls.Buttons.Abstraction
 {
     public abstract class LocalizableButton : Button, ILocalizableControl
     {

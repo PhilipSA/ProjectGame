@@ -1,22 +1,32 @@
-﻿using Assets.Scripts.Interface.DisplayFormats;
+﻿using Interface.DisplayFormats;
 using UnityEngine;
 
-namespace Assets.Scripts.CustomComponents
+namespace CustomComponents
 {
-    public class StopWatch
+    public class StopWatch : MonoBehaviour
     {
-        public float TimeSinceStarted { get; private set; }   
-        public bool Enabled { get; set; }
+        public float TimeSinceStarted { get; private set; }
 
-        public StopWatch(bool enabled)
+        void Awake()
         {
-            Enabled = enabled;
+            enabled = false;
+        }
+
+        public void StartTimer()
+        {
+            TimeSinceStarted = 0;
+            enabled = true;
+        }
+
+        public void StopTimer()
+        {
+            enabled = false;
         }
 	
         // Update is called once per frame
-        public void Tick()
+        public void Update()
         {
-            if (Enabled) TimeSinceStarted += Time.deltaTime;
+            TimeSinceStarted += Time.deltaTime;
         }
 
         public string GetTimeInMmssffFormat()

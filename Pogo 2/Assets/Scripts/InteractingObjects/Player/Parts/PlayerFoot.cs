@@ -1,7 +1,6 @@
-﻿using Assets.Scripts.Engine.Audio;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.InteractingObjects.Player.Parts
+namespace InteractingObjects.Player.Parts
 {
     public class PlayerFoot : MonoBehaviour
     {

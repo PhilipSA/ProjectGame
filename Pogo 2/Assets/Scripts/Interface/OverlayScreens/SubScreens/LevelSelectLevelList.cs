@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Assets.Scripts.Engine.Levels;
-using Assets.Scripts.Interface.InterfaceElements;
+using Engine.Levels;
+using Interface.InterfaceElements;
 using UnityEngine;
 
-namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
+namespace Interface.OverlayScreens.SubScreens
 {
     public class LevelSelectLevelList : MonoBehaviour
     {

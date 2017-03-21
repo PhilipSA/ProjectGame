@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.MainEngineComponents
+namespace MainEngineComponents
 {
     public class GraphicsComponent
     {

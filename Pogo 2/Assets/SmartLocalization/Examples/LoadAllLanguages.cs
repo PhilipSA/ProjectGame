@@ -6,10 +6,9 @@
 //
 
 using System.Collections.Generic;
-using SmartLocalization;
 using UnityEngine;
 
-namespace Assets.SmartLocalization.Examples
+namespace SmartLocalization.Examples
 {
     public class LoadAllLanguages : MonoBehaviour 
     {

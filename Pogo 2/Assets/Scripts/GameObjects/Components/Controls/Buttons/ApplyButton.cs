@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.GameObjects.Components.Controls.Buttons.Abstraction;
+﻿using GameObjects.Components.Controls.Buttons.Abstraction;
 using SmartLocalization;
 
-namespace Assets.Scripts.GameObjects.Components.Controls.Buttons
+namespace GameObjects.Components.Controls.Buttons
 {
     public class ApplyButton : LocalizableButton
     {

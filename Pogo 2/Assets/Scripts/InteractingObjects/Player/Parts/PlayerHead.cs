@@ -1,11 +1,10 @@
-﻿using Assets.Scripts.Engine;
-using Assets.Scripts.Engine.Audio;
-using Assets.Scripts.Enums;
-using Assets.Scripts.Enums.Player.PlayerHead;
-using Assets.Scripts.InteractingObjects.Abstraction;
+﻿using Engine;
+using Enums;
+using Enums.Player.PlayerHead;
+using InteractingObjects.Abstraction;
 using UnityEngine;
 
-namespace Assets.Scripts.InteractingObjects.Player.Parts
+namespace InteractingObjects.Player.Parts
 {
     public class PlayerHead : AnimatedSprite
     {

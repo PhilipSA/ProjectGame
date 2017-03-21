@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Assets.Scripts.Interface.DisplayFormats
+namespace Interface.DisplayFormats
 {
     public static class TimeFormatter
     {

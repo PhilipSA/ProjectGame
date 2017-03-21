@@ -1,10 +1,10 @@
-﻿using Assets.Scripts.GameObjects;
-using Assets.Scripts.GameObjects.Components.Controls.OptionBox.Graphics;
-using Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction;
-using Assets.Scripts.MainEngineComponents;
-using Assets.Scripts.Menus;
+﻿using GameObjects;
+using GameObjects.Components.Controls.OptionBox.Graphics;
+using Interface.OverlayScreens.SubScreens.Abstraction;
+using MainEngineComponents;
+using Menus;
 
-namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
+namespace Interface.OverlayScreens.SubScreens
 {
     public class GraphicOptionsSubScreen : OptionsSubScreen
     {

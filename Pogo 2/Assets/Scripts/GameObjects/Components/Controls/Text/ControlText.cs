@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.GameObjects.Components.Controls.Abstraction;
+﻿using GameObjects.Components.Controls.Abstraction;
 using UnityEngine;
 
-namespace Assets.Scripts.GameObjects.Components.Controls.Text
+namespace GameObjects.Components.Controls.Text
 {
     public class ControlText : UnityEngine.UI.Text, ILocalizableControl
     {

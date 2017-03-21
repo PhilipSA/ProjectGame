@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.Engine;
+﻿using Engine;
 using UnityEngine;
 
-namespace Assets.Scripts.InteractingObjects
+namespace InteractingObjects
 {
     public class PlayerSpawn : MonoBehaviour
     {

@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using Assets.Scripts.Engine.Animation;
-using Assets.Scripts.Enums;
+using Engine.Animation;
+using Enums.Animation;
 
-namespace Assets.Scripts.GameObjects.Components.Animation
+namespace GameObjects.Components.Animation
 {
     public class SpriteAnimation : AnimationHandler
     {

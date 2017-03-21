@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.Enums.Input;
+﻿using Enums.Input;
 using UnityEngine;
 
-namespace Assets.Scripts.Engine.Input
+namespace Engine.Input
 {
     public class InputTouchEvents
     {

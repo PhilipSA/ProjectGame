@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Engine
+namespace Engine
 {
     public static class GameEngineHelper
     {

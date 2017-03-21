@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using Assets.Scripts.Enums;
+using Enums.Animation;
 using UnityEngine;
 
-namespace Assets.Scripts.Engine.Animation
+namespace Engine.Animation
 {
     //Attach to a sprite that has animations
     public class AnimationHandler : MonoBehaviour

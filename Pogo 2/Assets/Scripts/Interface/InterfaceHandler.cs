@@ -1,14 +1,14 @@
-﻿using Assets.Scripts.Engine;
-using Assets.Scripts.Enums;
-using Assets.Scripts.GameObjects;
-using Assets.Scripts.InteractingObjects.Player;
-using Assets.Scripts.Interface.InterfaceElements;
-using Assets.Scripts.Interface.OverlayScreens;
-using Assets.Scripts.Interface.OverlayScreens.Abstraction;
-using Assets.Scripts.Menus;
+﻿using Engine;
+using Enums.Input;
+using GameObjects;
+using InteractingObjects.Player;
+using Interface.InterfaceElements;
+using Interface.OverlayScreens;
+using Interface.OverlayScreens.Abstraction;
+using Menus;
 using UnityEngine;
 
-namespace Assets.Scripts.Interface
+namespace Interface
 {
     public class InterfaceHandler : MonoBehaviour
     {

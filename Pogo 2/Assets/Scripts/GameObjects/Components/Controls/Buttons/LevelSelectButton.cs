@@ -1,8 +1,8 @@
-﻿using Assets.Scripts.GameObjects.Components.Controls.Buttons.Abstraction;
-using Assets.Scripts.Menus;
+﻿using GameObjects.Components.Controls.Buttons.Abstraction;
+using Menus;
 using SmartLocalization;
 
-namespace Assets.Scripts.GameObjects.Components.Controls.Buttons
+namespace GameObjects.Components.Controls.Buttons
 {
     public class LevelSelectButton : LocalizableButton
     {

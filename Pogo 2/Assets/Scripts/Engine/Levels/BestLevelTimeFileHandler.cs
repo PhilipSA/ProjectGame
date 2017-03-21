@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using Assets.Scripts.Engine.FileIO;
+using Engine.FileIO;
 
-namespace Assets.Scripts.Engine.Levels
+namespace Engine.Levels
 {
     public class BestLevelTimeFileHandler : BinaryFileHandler
     {

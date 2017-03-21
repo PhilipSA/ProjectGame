@@ -1,8 +1,8 @@
-﻿using Assets.Scripts.GameObjects;
-using Assets.Scripts.GameObjects.Components.Controls.Buttons;
-using Assets.Scripts.Interface.OverlayScreens.Abstraction;
+﻿using GameObjects;
+using GameObjects.Components.Controls.Buttons;
+using Interface.OverlayScreens.Abstraction;
 
-namespace Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction
+namespace Interface.OverlayScreens.SubScreens.Abstraction
 {
     public abstract class SubScreen : OverlayScreen
     {

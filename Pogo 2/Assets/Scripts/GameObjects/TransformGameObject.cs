@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.GameObjects
+namespace GameObjects
 {
     public class TransformGameObject
     {

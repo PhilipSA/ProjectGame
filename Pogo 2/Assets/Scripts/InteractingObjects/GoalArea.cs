@@ -1,8 +1,8 @@
-﻿using Assets.Scripts.Engine;
-using Assets.Scripts.Engine.Audio;
+﻿using Engine;
+using Engine.Audio;
 using UnityEngine;
 
-namespace Assets.Scripts.InteractingObjects
+namespace InteractingObjects
 {
     public class GoalArea : MonoBehaviour
     {

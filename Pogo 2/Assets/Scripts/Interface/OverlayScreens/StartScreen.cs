@@ -1,9 +1,9 @@
-﻿using Assets.Scripts.GameObjects;
-using Assets.Scripts.GameObjects.Components.Controls.Buttons;
-using Assets.Scripts.GameObjects.Components.Controls.Text;
-using Assets.Scripts.Interface.OverlayScreens.Abstraction;
+﻿using GameObjects;
+using GameObjects.Components.Controls.Buttons;
+using GameObjects.Components.Controls.Text;
+using Interface.OverlayScreens.Abstraction;
 
-namespace Assets.Scripts.Interface.OverlayScreens
+namespace Interface.OverlayScreens
 {
     public class StartScreen : OverlayScreen
     {

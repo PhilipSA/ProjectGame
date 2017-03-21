@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Interface.InterfaceElements.Abstraction
+namespace Interface.InterfaceElements.Abstraction
 {
     public abstract class InterfaceElement : MonoBehaviour
     {

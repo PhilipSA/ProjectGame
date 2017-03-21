@@ -1,10 +1,10 @@
-﻿using Assets.Scripts.CustomComponents;
-using Assets.Scripts.GameObjects;
-using Assets.Scripts.GameObjects.Components.Controls.Text;
-using Assets.Scripts.Interface.InterfaceElements.Abstraction;
+﻿using CustomComponents;
+using GameObjects;
+using GameObjects.Components.Controls.Text;
+using Interface.InterfaceElements.Abstraction;
 using UnityEngine;
 
-namespace Assets.Scripts.Interface.InterfaceElements
+namespace Interface.InterfaceElements
 {
     public class FloatingTextDisplay : InterfaceElement
     {
@@ -16,17 +16,15 @@ namespace Assets.Scripts.Interface.InterfaceElements
             ControlText = CreateGameObject.CreateChildGameObject<ControlText>(transform).GetComponent<ControlText>();
             ControlText.color = Color.white;
             ControlText.rectTransform.sizeDelta = new Vector2(300, 50);
-            StopWatch = new StopWatch(false);
+            StopWatch = gameObject.AddComponent<StopWatch>();
             base.Awake();
         }
 
         public void Update()
         {
-            StopWatch.Tick();
-
             if (StopWatch.TimeSinceStarted > 3)
             {
-                StopWatch.Enabled = false;
+                StopWatch.StopTimer();
                 Canvas.enabled = false;
             }
             else
@@ -38,10 +36,10 @@ namespace Assets.Scripts.Interface.InterfaceElements
 
         public void SetAndEnable(string text)
         {
-            if (!StopWatch.Enabled)
+            if (!StopWatch.enabled)
             {
                 ControlText.SetAnchors(new Vector2(ControlText.rectTransform.anchorMin.x, 0.1f), new Vector2(ControlText.rectTransform.anchorMax.x, 0.1f));
-                StopWatch = new StopWatch(true);
+                StopWatch.StartTimer();
                 ControlText.text = text;
                 Canvas.enabled = true;
             }

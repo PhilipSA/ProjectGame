@@ -1,10 +1,10 @@
 ﻿using System;
-using Assets.Scripts.GameObjects;
-using Assets.Scripts.GameObjects.Components.Controls.Text;
-using Assets.Scripts.Interface.InterfaceElements.Abstraction;
+using GameObjects;
+using GameObjects.Components.Controls.Text;
+using Interface.InterfaceElements.Abstraction;
 using UnityEngine;
 
-namespace Assets.Scripts.Interface.InterfaceElements
+namespace Interface.InterfaceElements
 {
     public class BestTimeDisplay : InterfaceElement
     {

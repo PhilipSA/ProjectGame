@@ -1,8 +1,8 @@
-﻿using Assets.Scripts.Engine;
-using Assets.Scripts.GameObjects.Components.Controls.Buttons.Abstraction;
+﻿using Engine;
+using GameObjects.Components.Controls.Buttons.Abstraction;
 using SmartLocalization;
 
-namespace Assets.Scripts.GameObjects.Components.Controls.Buttons
+namespace GameObjects.Components.Controls.Buttons
 {
     public class ContinueButton : LocalizableButton
     {

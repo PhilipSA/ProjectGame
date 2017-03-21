@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.GameObjects.Components.Controls.Dropdowns.Abstractions
+namespace GameObjects.Components.Controls.Dropdowns.Abstractions
 {
     public abstract class BaseDropDown : MonoBehaviour
     {

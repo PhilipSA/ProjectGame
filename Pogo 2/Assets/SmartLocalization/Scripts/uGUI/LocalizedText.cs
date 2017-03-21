@@ -1,8 +1,7 @@
-﻿using SmartLocalization;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.SmartLocalization.Scripts.uGUI
+namespace SmartLocalization.Scripts.uGUI
 {
     [RequireComponent (typeof (Text))]
 public class LocalizedText : MonoBehaviour 

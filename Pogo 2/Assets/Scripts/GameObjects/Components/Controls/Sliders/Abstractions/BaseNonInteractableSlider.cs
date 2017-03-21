@@ -1,8 +1,8 @@
-﻿using Assets.Scripts.GameObjects.Components.Abstraction;
+﻿using GameObjects.Components.Abstraction;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.GameObjects.Components.Controls.Sliders.Abstractions
+namespace GameObjects.Components.Controls.Sliders.Abstractions
 {
     public class BaseNonInteractableSlider : MonoBehaviour, IRectTransformAble
     {

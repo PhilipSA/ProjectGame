@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.GameObjects.Components.Abstraction;
+﻿using GameObjects.Components.Abstraction;
 using UnityEngine;
 
-namespace Assets.Scripts.GameObjects.Components.Image
+namespace GameObjects.Components.Image
 {
     public class CustomImage : UnityEngine.UI.Image, IRectTransformAble
     {

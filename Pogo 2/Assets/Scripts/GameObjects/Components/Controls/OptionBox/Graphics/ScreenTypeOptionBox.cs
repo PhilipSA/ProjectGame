@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
-using Assets.Scripts.Enums;
-using Assets.Scripts.GameObjects.Components.Controls.Dropdowns;
-using Assets.Scripts.GameObjects.Components.Controls.OptionBox.Abstraction;
+using Enums.Screen;
+using GameObjects.Components.Controls.Dropdowns;
+using GameObjects.Components.Controls.OptionBox.Abstraction;
 using SmartLocalization;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.GameObjects.Components.Controls.OptionBox.Graphics
+namespace GameObjects.Components.Controls.OptionBox.Graphics
 {
     public class ScreenTypeOptionBox : LocalizeableOptionBox
     {

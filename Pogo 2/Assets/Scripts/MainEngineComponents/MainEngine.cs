@@ -1,7 +1,7 @@
-﻿using Assets.Scripts.Engine.Audio;
+﻿using Engine.Audio;
 using UnityEngine;
 
-namespace Assets.Scripts.MainEngineComponents
+namespace MainEngineComponents
 {
     public class MainEngine : MonoBehaviour
     {

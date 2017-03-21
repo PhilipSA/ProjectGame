@@ -1,11 +1,11 @@
-﻿using Assets.Scripts.CustomComponents;
-using Assets.Scripts.GameObjects;
-using Assets.Scripts.GameObjects.Components.Controls.Text;
-using Assets.Scripts.GameObjects.Components.Image;
-using Assets.Scripts.Interface.InterfaceElements.Abstraction;
+﻿using CustomComponents;
+using GameObjects;
+using GameObjects.Components.Controls.Text;
+using GameObjects.Components.Image;
+using Interface.InterfaceElements.Abstraction;
 using UnityEngine;
 
-namespace Assets.Scripts.Interface.InterfaceElements
+namespace Interface.InterfaceElements
 {
     public class TimerDisplay : InterfaceElement
     {
@@ -18,7 +18,7 @@ namespace Assets.Scripts.Interface.InterfaceElements
         {
             Texture2D = CreateGameObject.CreateChildGameObject<CustomImage>(transform).GetComponent<CustomImage>();      
             Text = CreateGameObject.CreateChildGameObject<ControlText>(Texture2D.rectTransform).GetComponent<ControlText>();
-            StopWatch = new StopWatch(true);
+            StopWatch = gameObject.AddComponent<StopWatch>();
             base.Awake();
         }
 
@@ -31,18 +31,19 @@ namespace Assets.Scripts.Interface.InterfaceElements
             Texture2D.color = new Color32(67, 67, 67, 255);
             Texture2D.SetAnchorsAndPivot(new Vector2(0, 1), new Vector2(0, 1), new Vector2(0, 1));
             Texture2D.rectTransform.sizeDelta = new Vector2(120, 30);
+
+            StopWatch.StartTimer();
         }
 
         // Update is called once per frame
         void Update()
         {
-            StopWatch.Tick();
             Text.text = StopWatch.GetTimeInMmssffFormat();
         }
 
         public void StopTimer()
         {
-            StopWatch.Enabled = false;
+            StopWatch.StopTimer();
         }
     }
 }

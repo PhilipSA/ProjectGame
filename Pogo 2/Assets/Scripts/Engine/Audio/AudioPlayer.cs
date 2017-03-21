@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Engine.Audio
+namespace Engine.Audio
 {
     public class AudioPlayer
     {

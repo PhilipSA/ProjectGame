@@ -1,9 +1,9 @@
-﻿using Assets.Scripts.GameObjects;
-using Assets.Scripts.Interface.OverlayScreens.Abstraction;
-using Assets.Scripts.Interface.OverlayScreens.SubScreens;
+﻿using GameObjects;
+using Interface.OverlayScreens.Abstraction;
+using Interface.OverlayScreens.SubScreens;
 using UnityEngine;
 
-namespace Assets.Scripts.Menus
+namespace Menus
 {
     public class Menu : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.InteractingObjects.Contraptions.Trebuchet
+namespace InteractingObjects.Contraptions.Trebuchet
 {
     public class Sling : MonoBehaviour
     {

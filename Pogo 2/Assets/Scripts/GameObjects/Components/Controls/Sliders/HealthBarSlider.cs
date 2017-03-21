@@ -1,8 +1,8 @@
-﻿using Assets.Scripts.GameObjects.Components.Controls.Sliders.Abstractions;
+﻿using GameObjects.Components.Controls.Sliders.Abstractions;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.GameObjects.Components.Controls.Sliders
+namespace GameObjects.Components.Controls.Sliders
 {
     public class HealthBarSlider : BaseNonInteractableSlider
     {

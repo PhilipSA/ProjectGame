@@ -1,4 +1,4 @@
-﻿namespace Assets.Scripts.Enums
+﻿namespace Enums.Animation
 {
     public enum AnimationTypeEnum
     {

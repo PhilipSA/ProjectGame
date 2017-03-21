@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using Assets.Scripts.GameObjects.Components.Controls.Dropdowns.Abstractions;
+using GameObjects.Components.Controls.Dropdowns.Abstractions;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.GameObjects.Components.Controls.Dropdowns
+namespace GameObjects.Components.Controls.Dropdowns
 {
     public class ResolutionDropdown : BaseDropDown
     {

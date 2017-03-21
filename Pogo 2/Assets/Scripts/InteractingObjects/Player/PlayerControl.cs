@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.InteractingObjects.Player
+namespace InteractingObjects.Player
 {
     public class PlayerControl
     {

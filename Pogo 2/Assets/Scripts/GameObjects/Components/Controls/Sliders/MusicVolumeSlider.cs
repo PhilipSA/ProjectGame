@@ -1,6 +1,6 @@
-﻿using Assets.Scripts.GameObjects.Components.Controls.Sliders.Abstractions;
+﻿using GameObjects.Components.Controls.Sliders.Abstractions;
 
-namespace Assets.Scripts.GameObjects.Components.Controls.Sliders
+namespace GameObjects.Components.Controls.Sliders
 {
     public class MusicVolumeSlider : BaseSlider
     {

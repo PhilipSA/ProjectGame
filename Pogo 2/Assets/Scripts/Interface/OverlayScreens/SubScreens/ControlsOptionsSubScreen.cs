@@ -1,6 +1,6 @@
-﻿using Assets.Scripts.Interface.OverlayScreens.SubScreens.Abstraction;
+﻿using Interface.OverlayScreens.SubScreens.Abstraction;
 
-namespace Assets.Scripts.Interface.OverlayScreens.SubScreens
+namespace Interface.OverlayScreens.SubScreens
 {
     public class ControlsOptionsSubScreen : OptionsSubScreen
     {

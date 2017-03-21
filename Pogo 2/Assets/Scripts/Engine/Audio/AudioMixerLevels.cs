@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
 
-namespace Assets.Scripts.Engine.Audio
+namespace Engine.Audio
 {
     public class AudioMixerLevels : MonoBehaviour
     {
