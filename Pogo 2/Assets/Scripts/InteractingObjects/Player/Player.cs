@@ -51,6 +51,11 @@ namespace InteractingObjects.Player
             PlayerBounceLogic.IncreaseBouncePower();
         }
 
+        public void SecondaryActionInvoke(InputDeviceEnum inputDeviceEnum)
+        {
+            PlayerBounceLogic.DecreaseBouncePower();
+        }
+
         public void MovementInvoke(InputDeviceEnum inputDeviceEnum)
         {
             if (inputDeviceEnum == InputDeviceEnum.KeyboardAndMouse) AnglePlayerTowardsMouse();

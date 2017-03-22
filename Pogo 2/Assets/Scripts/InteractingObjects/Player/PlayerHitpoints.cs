@@ -18,7 +18,7 @@ namespace InteractingObjects.Player
 
         public void CalculateImpactDamage(Rigidbody2D rigidbody2D)
         {
-            _hitpoints -= rigidbody2D.velocity.magnitude;
+            _hitpoints -= Mathf.Abs(rigidbody2D.velocity.x + rigidbody2D.velocity.y)/2;
         }
 
         public void InflictHazardDamage()

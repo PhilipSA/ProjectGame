@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Engine.Audio;
+﻿using Engine.Audio;
 using Enums;
 using UnityEngine;
 
@@ -27,7 +26,11 @@ namespace InteractingObjects.Player
 
         public void OnBouncyCollision(Collision2D collision2D, float force)
         {
-            //_player.PlayerRigidbody2D.velocity = new Vector2(_player.PlayerRigidbody2D.velocity.x + force, _player.PlayerRigidbody2D.velocity.y + force);
+            if (collision2D.gameObject.name == "PlayerHead")
+            {
+                _player.PlayerHitpoints.InflictDamage(10);
+                _player.DeadCheck();
+            }
         }
 
         public void OnIceCollision(Collision2D collision2D)

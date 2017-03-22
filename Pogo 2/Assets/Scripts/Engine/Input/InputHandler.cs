@@ -33,12 +33,14 @@ namespace Engine.Input
         public void PlayerSubscribeToInputs(Player player)
         {
             _inputEvents.PrimaryActionInputTriggered += player.PrimaryActionInvoke;
+            _inputEvents.SecondaryActionInputTriggered += player.SecondaryActionInvoke;
             _inputEvents.MovementActionInputTriggered += player.MovementInvoke;
         }
 
         public void PlayerUnsubscribeToInputs(Player player)
         {
             _inputEvents.PrimaryActionInputTriggered -= player.PrimaryActionInvoke;
+            _inputEvents.SecondaryActionInputTriggered -= player.SecondaryActionInvoke;
             _inputEvents.MovementActionInputTriggered -= player.MovementInvoke;
         }
 

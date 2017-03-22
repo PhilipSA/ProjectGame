@@ -3,6 +3,7 @@
     public enum InputActionEnum
     {
         PrimaryAction,
+        SecondaryAction,
         PauseAction,
         MovementAction
     }

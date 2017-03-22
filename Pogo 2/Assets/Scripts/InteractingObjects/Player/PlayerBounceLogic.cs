@@ -31,5 +31,10 @@ namespace InteractingObjects.Player
         {
             if (BouncePower < MaximumBouncePower) BouncePower += BouncePowerIncrease;
         }
+
+        public void DecreaseBouncePower()
+        {
+            if (BouncePower > MinimumBouncePower) BouncePower -= BouncePowerIncrease;
+        }
     }
 }

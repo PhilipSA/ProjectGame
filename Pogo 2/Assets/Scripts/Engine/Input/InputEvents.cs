@@ -7,6 +7,7 @@ namespace Engine.Input
         public delegate void InputProcess(InputDeviceEnum inputDeviceEnum);
 
         public event InputProcess PrimaryActionInputTriggered;
+        public event InputProcess SecondaryActionInputTriggered;
         public event InputProcess PauseActionInputTriggered;
         public event InputProcess MovementActionInputTriggered;
 
@@ -35,6 +36,8 @@ namespace Engine.Input
         {
             if (inputActionEnum == InputActionEnum.PrimaryAction)
                 if (PrimaryActionInputTriggered != null) PrimaryActionInputTriggered.Invoke(InputHandler.CurrentInputDevice);
+            if (inputActionEnum == InputActionEnum.SecondaryAction)
+                if (SecondaryActionInputTriggered != null) SecondaryActionInputTriggered.Invoke(InputHandler.CurrentInputDevice);
             if (inputActionEnum == InputActionEnum.PauseAction)
                 if (PauseActionInputTriggered != null) PauseActionInputTriggered.Invoke(InputHandler.CurrentInputDevice);
             if (inputActionEnum == InputActionEnum.MovementAction)

@@ -11,6 +11,10 @@ namespace Engine.Input
             {
                 return InputActionEnum.PrimaryAction;
             }
+            if (UnityEngine.Input.GetMouseButtonDown(1))
+            {
+                return InputActionEnum.SecondaryAction;
+            }
             if (UnityEngine.Input.GetKeyDown(KeyCode.Escape))
             {
                 return InputActionEnum.PauseAction;
