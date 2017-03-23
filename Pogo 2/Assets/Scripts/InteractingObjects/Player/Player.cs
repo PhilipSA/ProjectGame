@@ -27,12 +27,11 @@ namespace InteractingObjects.Player
             PlayerRigidbody2D = GetComponent<Rigidbody2D>();
         }
 
-        // Use this for initialization
         void Start ()
         {
             _playerControl = new PlayerControl();
             PlayerBounceLogic = new PlayerBounceLogic();
-            PlayerHitpoints = new PlayerHitpoints();
+            PlayerHitpoints = new PlayerHitpoints(this);
 
             PlayerRigidbody2D.freezeRotation = true;
 
@@ -58,8 +57,8 @@ namespace InteractingObjects.Player
 
         public void MovementInvoke(InputDeviceEnum inputDeviceEnum)
         {
-            if (inputDeviceEnum == InputDeviceEnum.KeyboardAndMouse) AnglePlayerTowardsMouse();
-            if (inputDeviceEnum == InputDeviceEnum.TouchDevice) AnglePlayerTowardsTouch();
+            if (inputDeviceEnum == InputDeviceEnum.KeyboardAndMouse) AnglePlayerTowardsInput(inputDeviceEnum, 0.5f);
+            if (inputDeviceEnum == InputDeviceEnum.TouchDevice) AnglePlayerTowardsInput(inputDeviceEnum, 1.5f);
         }
 
         public void DeadCheck()
@@ -79,24 +78,11 @@ namespace InteractingObjects.Player
             PlayerRigidbody2D.velocity = new Vector2(moveDirection.x, moveDirection.y);
         }
 
-        public void AnglePlayer()
+        void AnglePlayerTowardsInput(InputDeviceEnum inputDeviceEnum, float rotationFactor)
         {
-            var newRotationAngle = _playerControl.GetRotationAngleMouse(PlayerRigidbody2D);
-            transform.rotation = Quaternion.Slerp(transform.rotation, newRotationAngle, 0.1f);
-        }
-
-        void AnglePlayerTowardsMouse()
-        {
-            var newRotationAngle = _playerControl.GetRotationAngleMouse(PlayerRigidbody2D);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotationAngle, 0.5f);
+            var newRotationAngle = _playerControl.GetRotationAngleInput(PlayerRigidbody2D, inputDeviceEnum);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotationAngle, rotationFactor);
             PlayerRigidbody2D.velocity = new Vector2(PlayerRigidbody2D.velocity.x - PlayerRigidbody2D.rotation/100, PlayerRigidbody2D.velocity.y);
-        }
-
-        void AnglePlayerTowardsTouch()
-        {
-            var newRotationAngle = _playerControl.GetRotationAngleTouch(PlayerRigidbody2D);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotationAngle, 1.5f);
-            PlayerRigidbody2D.velocity = new Vector2(PlayerRigidbody2D.velocity.x - PlayerRigidbody2D.rotation / 100, PlayerRigidbody2D.velocity.y);
         }
 
         void StraightenUp()

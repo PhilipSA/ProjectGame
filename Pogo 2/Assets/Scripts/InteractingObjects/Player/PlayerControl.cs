@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Enums.Input;
+using UnityEngine;
 
 namespace InteractingObjects.Player
 {
@@ -14,32 +15,18 @@ namespace InteractingObjects.Player
             return moveDirection;
         }
 
-        public Quaternion GetRotationAngleMouse(Rigidbody2D playerRigidbody2D)
+        public Quaternion GetRotationAngleInput(Rigidbody2D playerRigidbody2D, InputDeviceEnum inputDeviceEnum)
         {
-            var mousePositionInWorld = GetMousePositionInWorld();
-            float deltaX = mousePositionInWorld.x - playerRigidbody2D.position.x;
+            var inputPositionInWorld = GetInputPositionInWorld(inputDeviceEnum);
+            float deltaX = inputPositionInWorld.x - playerRigidbody2D.position.x;
             float angle = -deltaX;
             return Quaternion.Euler(new Vector3(0f, 0f, angle));
         }
 
-        public Quaternion GetRotationAngleTouch(Rigidbody2D playerRigidbody2D)
+        public Vector3 GetInputPositionInWorld(InputDeviceEnum inputDeviceEnum)
         {
-            var touchPositionInWorld = GetTouchPositionInWorld();
-            float deltaX = touchPositionInWorld.x - playerRigidbody2D.position.x;
-            float angle = -deltaX;
-            return Quaternion.Euler(new Vector3(0f, 0f, angle));
-        }
-
-        public Vector3 GetMousePositionInWorld()
-        {
-            var mousePosition = Input.mousePosition;
-            return Camera.main.ScreenToWorldPoint(mousePosition);
-        }
-
-        public Vector3 GetTouchPositionInWorld()
-        {
-            var touchPosition = Input.touches[0].position;
-            return Camera.main.ScreenToWorldPoint(touchPosition);
+            var inputPosition = inputDeviceEnum == InputDeviceEnum.KeyboardAndMouse ? Input.mousePosition : (Vector3)Input.touches[0].position;
+            return Camera.main.ScreenToWorldPoint(inputPosition);
         }
     }
 }
