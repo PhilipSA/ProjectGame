@@ -33,8 +33,6 @@ namespace InteractingObjects.Player
             PlayerBounceLogic = new PlayerBounceLogic();
             PlayerHitpoints = new PlayerHitpoints(this);
 
-            PlayerRigidbody2D.freezeRotation = true;
-
             BoxCollider2D = GetComponent<BoxCollider2D>();
         }
 	

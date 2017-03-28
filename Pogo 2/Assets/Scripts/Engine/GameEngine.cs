@@ -59,12 +59,9 @@ namespace Engine
 
         public void Victory()
         {
-            GameEvents.PlayerOnGoalCollision -= Victory;
-            InputHandler.ToggleIgnorePlayerInputs(true, Player);
-            InterfaceHandler.StopTimer();
+            LevelEnded();
             CheckIfBestTime();
             InterfaceHandler.ToggleOverlayScreen(InterfaceHandler.VictoryScreen);
-            Player.enabled = false;
         }
 
         public void CheckIfBestTime()
@@ -81,12 +78,18 @@ namespace Engine
             }
         }
 
-        public void Defeat()
+        public void LevelEnded()
         {
-            InterfaceHandler.ToggleOverlayScreen(InterfaceHandler.DefeatScreen);
+            GameEvents.PlayerOnGoalCollision -= Victory;
             InputHandler.ToggleIgnorePlayerInputs(true, Player);
             InterfaceHandler.StopTimer();
             Player.enabled = false;
+        }
+
+        public void Defeat()
+        {
+            LevelEnded();
+            InterfaceHandler.ToggleOverlayScreen(InterfaceHandler.DefeatScreen);
         }
 
         public void TogglePauseMenu(bool toggle)

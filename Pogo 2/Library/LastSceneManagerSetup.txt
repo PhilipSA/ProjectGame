@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Padding.unity
+- path: Assets/Scenes/SkiJump.unity
   isLoaded: 1
   isActive: 1
