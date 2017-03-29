@@ -7,14 +7,14 @@ namespace Menus
 {
     public class Menu : MonoBehaviour
     {
-        private static OverlayScreen _currentActiveScreen;
-        public static OverlayScreen ParentScreen;
-        public static LevelSelectScreen LevelSelectScreen;
-        public static OptionsScreen OptionsScreen;
-        public static GraphicOptionsSubScreen GraphicOptionsSubScreen;
-        public static AudioOptionsSubScreen AudioOptionsSubScreen;
-        public static ControlsOptionsSubScreen ControlsOptionsSubScreen;
-        public static GameOptionsSubScreen GameOptionsSubScreen;
+        private OverlayScreen _currentActiveScreen;
+        public OverlayScreen ParentScreen;
+        public LevelSelectScreen LevelSelectScreen;
+        public OptionsScreen OptionsScreen;
+        public GraphicOptionsSubScreen GraphicOptionsSubScreen;
+        public AudioOptionsSubScreen AudioOptionsSubScreen;
+        public ControlsOptionsSubScreen ControlsOptionsSubScreen;
+        public GameOptionsSubScreen GameOptionsSubScreen;
 
         void Awake()
         {
@@ -26,7 +26,7 @@ namespace Menus
             GameOptionsSubScreen = CreateGameObject.CreateChildGameObject<GameOptionsSubScreen>(transform).GetComponent<GameOptionsSubScreen>();
         }
 
-        public static void ChangeCurrentActiveScreen(OverlayScreen screen = null)
+        public void ChangeCurrentActiveScreen(OverlayScreen screen = null)
         {
             if (_currentActiveScreen != null) _currentActiveScreen.SetVisibility(false);
             if(screen != null) screen.SetVisibility(true);

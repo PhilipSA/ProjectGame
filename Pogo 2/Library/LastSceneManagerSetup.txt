@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/SkiJump.unity
+- path: Assets/Scenes/Trebuchet.unity
   isLoaded: 1
   isActive: 1

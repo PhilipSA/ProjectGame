@@ -8,7 +8,7 @@ namespace GameObjects.Components.Controls.Buttons
     {
         public override void OnClick()
         {
-            Menu.ChangeCurrentActiveScreen(Menu.GraphicOptionsSubScreen);
+            MenuHelper.GetCurrentMenu().ChangeCurrentActiveScreen(MenuHelper.GetCurrentMenu().GraphicOptionsSubScreen);
             base.OnClick();
         }
 

@@ -22,7 +22,7 @@ namespace Interface.OverlayScreens.SubScreens
 
         protected override void OnBackButtonClick()
         {
-            Menu.ChangeCurrentActiveScreen(Menu.ParentScreen);
+            MenuHelper.GetCurrentMenu().ChangeCurrentActiveScreen(MenuHelper.GetCurrentMenu().ParentScreen);
         }
     }
 }

@@ -18,7 +18,7 @@ namespace Menus
         void Start()
         {
             _menu.SetParentScreen(_startScreen);
-            Menu.ChangeCurrentActiveScreen(_startScreen);
+            _menu.ChangeCurrentActiveScreen(_startScreen);
         }
     }
 }
