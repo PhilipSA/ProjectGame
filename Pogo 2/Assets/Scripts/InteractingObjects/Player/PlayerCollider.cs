@@ -61,7 +61,7 @@ namespace InteractingObjects.Player
             if (collision2D.gameObject.CompareTag(TagsEnum.IgnoreFootCollision)) return;
 
             AudioHandler.PlayAudio(_player.PlayerFoot.AudioSource);
-            _player.MovePlayerOnBounce();
+            _player.PlayerControl.MovePlayerOnBounce();
         }
     }
 }

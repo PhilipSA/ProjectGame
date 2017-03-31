@@ -12,7 +12,7 @@ namespace InteractingObjects.Player
         public PlayerFoot PlayerFoot;
         public PlayerHead PlayerHead;
 
-        private PlayerControl _playerControl;
+        public PlayerControl PlayerControl;
         public PlayerBounceLogic PlayerBounceLogic;
         public PlayerHitpoints PlayerHitpoints;
         public PlayerCollider PlayerCollider;
@@ -29,7 +29,7 @@ namespace InteractingObjects.Player
 
         void Start ()
         {
-            _playerControl = new PlayerControl();
+            PlayerControl = new PlayerControl(this);
             PlayerBounceLogic = new PlayerBounceLogic();
             PlayerHitpoints = new PlayerHitpoints(this);
 
@@ -40,7 +40,7 @@ namespace InteractingObjects.Player
         void Update()
         {
             PlayerBounceLogic.UpdateBouncePower();
-            StraightenUp();
+            PlayerControl.StraightenUp();
         }
 
         public void PrimaryActionInvoke(InputDeviceEnum inputDeviceEnum)
@@ -55,8 +55,8 @@ namespace InteractingObjects.Player
 
         public void MovementInvoke(InputDeviceEnum inputDeviceEnum)
         {
-            if (inputDeviceEnum == InputDeviceEnum.KeyboardAndMouse) AnglePlayerTowardsInput(inputDeviceEnum, 0.5f);
-            if (inputDeviceEnum == InputDeviceEnum.TouchDevice) AnglePlayerTowardsInput(inputDeviceEnum, 1.5f);
+            if (inputDeviceEnum == InputDeviceEnum.KeyboardAndMouse) PlayerControl.AnglePlayerTowardsInput(inputDeviceEnum, 0.5f);
+            if (inputDeviceEnum == InputDeviceEnum.TouchDevice) PlayerControl.AnglePlayerTowardsInput(inputDeviceEnum, 1.5f);
         }
 
         public void DeadCheck()
@@ -66,27 +66,6 @@ namespace InteractingObjects.Player
                 GameEngineHelper.GetCurrentGameEngine().Defeat();
                 PlayerHead.AnimateDeath();
             }
-        }
-
-        public void MovePlayerOnBounce()
-        {
-            var moveDirection = _playerControl.GetMoveDirection(PlayerRigidbody2D);
-            moveDirection.y *= PlayerBounceLogic.GetRandomBouncePower();
-            moveDirection.x *= PlayerBounceLogic.GetRandomBouncePower();
-            PlayerRigidbody2D.velocity = new Vector2(moveDirection.x, moveDirection.y);
-        }
-
-        void AnglePlayerTowardsInput(InputDeviceEnum inputDeviceEnum, float rotationFactor)
-        {
-            var newRotationAngle = _playerControl.GetRotationAngleInput(PlayerRigidbody2D, inputDeviceEnum);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotationAngle, rotationFactor);
-            PlayerRigidbody2D.velocity = new Vector2(PlayerRigidbody2D.velocity.x - PlayerRigidbody2D.rotation/100, PlayerRigidbody2D.velocity.y);
-        }
-
-        void StraightenUp()
-        {
-            var defaultAngle = Quaternion.Euler(0, 0, 0);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, defaultAngle, 0.099f);
         }
     }
 }
