@@ -1,4 +1,5 @@
 ﻿using Engine.Audio;
+using Engine.Input;
 using Enums;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ namespace InteractingObjects.Player
 
         public void OnTrampolineCollision(Collision2D collision2D, float force)
         {
-            _player.PlayerRigidbody2D.AddForce(new Vector2(0, _player.PlayerRigidbody2D.velocity.y + force), ForceMode2D.Force);
+            _player.PlayerRigidbody2D.AddForce(new Vector2(0, force), ForceMode2D.Force);
         }
 
         public void OnPaddingCollision(Collision2D collision2D)
@@ -60,7 +61,7 @@ namespace InteractingObjects.Player
             if (collision2D.gameObject.CompareTag(TagsEnum.IgnoreFootCollision)) return;
 
             AudioHandler.PlayAudio(_player.PlayerFoot.AudioSource);
-            _player.PlayerControl.MovePlayerOnBounce();
+            _player.PlayerControl.MovePlayerOnBounce(InputHandler.CurrentInputDevice);
         }
     }
 }

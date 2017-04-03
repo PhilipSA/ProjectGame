@@ -12,13 +12,13 @@ namespace Assets.Scripts.InteractingObjects.Contraptions.Fan
         void OnTriggerEnter2D(Collider2D col)
         {
             Debug.Log(col.gameObject);
-            col.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-20002, 0), ForceMode2D.Force);
+            col.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 0), ForceMode2D.Force);
         }
 
         void OnTriggerStay2D(Collider2D col)
         {
             Debug.Log(col.gameObject);
-            col.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-20002, 0), ForceMode2D.Force);
+            col.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-200, 0), ForceMode2D.Force);
         }
     }
 }

@@ -36,24 +36,22 @@ namespace InteractingObjects.Player
 
         public Vector3 GetInputPositionInWorld(InputDeviceEnum inputDeviceEnum)
         {
-            var inputPosition = inputDeviceEnum == InputDeviceEnum.KeyboardAndMouse ? Input.mousePosition : (Vector3)Input.touches[0].position;
-            return Camera.main.ScreenToWorldPoint(inputPosition);
+            return Camera.main.ScreenToWorldPoint(GetPositionOfInput(inputDeviceEnum));
         }
 
-        public void MovePlayerOnBounce()
+        public void MovePlayerOnBounce(InputDeviceEnum inputDeviceEnum)
         {
-            AnglePlayerTowardsInputOnBounce(InputDeviceEnum.KeyboardAndMouse);
+            AnglePlayerTowardsInputOnBounce(inputDeviceEnum);
             var moveDirection = GetMoveDirection(Player.PlayerRigidbody2D);
-            moveDirection.y *= Player.PlayerBounceLogic.GetRandomBouncePower();
-            moveDirection.x *= Player.PlayerBounceLogic.GetRandomBouncePower();
-            Player.PlayerRigidbody2D.AddForce(new Vector2(moveDirection.x*100, moveDirection.y*100), ForceMode2D.Force);
+            Player.PlayerRigidbody2D.AddForce(new Vector2(moveDirection.x*50*Player.PlayerBounceLogic.GetRandomBouncePower(), moveDirection.y*100*Player.PlayerBounceLogic.GetRandomBouncePower()));
         }
 
         public void AnglePlayerTowardsInputOnBounce(InputDeviceEnum inputDeviceEnum)
         {
-            var normalizedAngle = Input.mousePosition.x < Camera.main.WorldToScreenPoint(Player.transform.position).x
-                    ? -Mathf.Abs(Input.mousePosition.x - Camera.main.WorldToScreenPoint(Player.transform.position).x)
-                    : Mathf.Abs(Input.mousePosition.x - Camera.main.WorldToScreenPoint(Player.transform.position).x);
+            var inputPosition = GetPositionOfInput(inputDeviceEnum);
+            var normalizedAngle = inputPosition.x < Camera.main.WorldToScreenPoint(Player.transform.position).x
+                    ? -Mathf.Abs(inputPosition.x - Camera.main.WorldToScreenPoint(Player.transform.position).x)
+                    : Mathf.Abs(inputPosition.x - Camera.main.WorldToScreenPoint(Player.transform.position).x);
             var factor = Mathf.Clamp(normalizedAngle/100, minBounceStep, maxBounceStep);
             var newRotationAngle = Quaternion.Euler(new Vector3(0f, 0f, -factor*18));
             Player.transform.rotation = Quaternion.RotateTowards(Player.transform.rotation, newRotationAngle, 6);
@@ -70,6 +68,11 @@ namespace InteractingObjects.Player
         {
             var defaultAngle = Quaternion.Euler(0, 0, 0);
             Player.transform.rotation = Quaternion.RotateTowards(Player.transform.rotation, defaultAngle, 0.099f);
+        }
+
+        public Vector3 GetPositionOfInput(InputDeviceEnum inputDeviceEnum)
+        {
+            return inputDeviceEnum == InputDeviceEnum.KeyboardAndMouse ? Input.mousePosition : (Vector3)Input.touches[0].position;
         }
     }
 }
