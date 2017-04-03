@@ -45,7 +45,7 @@ namespace InteractingObjects.Player
             var moveDirection = GetMoveDirection(Player.PlayerRigidbody2D);
             moveDirection.y *= Player.PlayerBounceLogic.GetRandomBouncePower();
             moveDirection.x *= Player.PlayerBounceLogic.GetRandomBouncePower();
-            Player.PlayerRigidbody2D.velocity = new Vector2(moveDirection.x, moveDirection.y);
+            Player.PlayerRigidbody2D.AddForce(new Vector2(moveDirection.x*10000, moveDirection.y*10000), ForceMode2D.Force);
         }
 
         public void AnglePlayerTowardsInputOnBounce(InputDeviceEnum inputDeviceEnum)
