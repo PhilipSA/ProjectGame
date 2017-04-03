@@ -7,10 +7,12 @@ namespace InteractingObjects.Player.Parts
         private Player _parent;
         public CircleCollider2D Collider2D { get; set; }
         public AudioSource AudioSource;
+        public Rigidbody2D Rigidbody2D;
 
         void OnEnable()
         {
             Collider2D = GetComponent<CircleCollider2D>();
+            Rigidbody2D = GetComponent<Rigidbody2D>();
             _parent = (Player)GetComponentInParent(typeof(Player));
             AudioSource = GetComponent<AudioSource>();
             Physics2D.IgnoreCollision(Collider2D, _parent.BoxCollider2D);

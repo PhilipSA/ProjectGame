@@ -15,7 +15,7 @@ namespace InteractingObjects.Player
 
         public void OnTrampolineCollision(Collision2D collision2D, float force)
         {
-            _player.PlayerRigidbody2D.velocity = new Vector2(_player.PlayerRigidbody2D.velocity.x, _player.PlayerRigidbody2D.velocity.y + force);
+            _player.PlayerRigidbody2D.AddForce(new Vector2(0, _player.PlayerRigidbody2D.velocity.y + force), ForceMode2D.Force);
         }
 
         public void OnPaddingCollision(Collision2D collision2D)
@@ -35,7 +35,6 @@ namespace InteractingObjects.Player
 
         public void OnIceCollision(Collision2D collision2D)
         {
-            //_player.AnglePlayer();
             _player.PlayerRigidbody2D.AddForce(new Vector2(), ForceMode2D.Force);
         }
 
