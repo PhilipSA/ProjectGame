@@ -43,7 +43,8 @@ namespace InteractingObjects.Player
         {
             if (InputHandler.CurrentInputDevice == InputDeviceEnum.KeyboardAndMouse) AnglePlayerTowardsInputOnBounce();
             var moveDirection = GetMoveDirection(Player.PlayerRigidbody2D);
-            Player.PlayerRigidbody2D.AddForce(new Vector2(moveDirection.x*1.5f*Player.PlayerBounceLogic.GetRandomBouncePower(), 100+moveDirection.y*2*Player.PlayerBounceLogic.GetRandomBouncePower()), ForceMode2D.Impulse);
+            moveDirection.y += 100;
+            Player.PlayerRigidbody2D.AddForce(moveDirection*Player.PlayerBounceLogic.GetRandomBouncePower(), ForceMode2D.Impulse);
         }
 
         public void AnglePlayerTowardsInputOnBounce()
