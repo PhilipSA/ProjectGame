@@ -1,4 +1,5 @@
-﻿using Enums.Input;
+﻿using System;
+using Enums.Input;
 using InteractingObjects.Player;
 using Interface;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace Engine.Input
         public static InputDeviceEnum CurrentInputDevice;
         private InputEvents _inputEvents;
         private bool _ignorePlayerInputs;
+        public Vector3 LastInputPosition;
 
         void Awake()
         {
@@ -65,6 +67,17 @@ namespace Engine.Input
             {
                 CurrentInputDevice = InputDeviceEnum.KeyboardAndMouse;
             }
+        }
+
+        public Vector3 GetLastPositionOfInput()
+        {
+            if (CurrentInputDevice == InputDeviceEnum.KeyboardAndMouse) return UnityEngine.Input.mousePosition;
+            if (CurrentInputDevice == InputDeviceEnum.TouchDevice)
+            {
+                LastInputPosition = Math.Abs(UnityEngine.Input.touches[0].position.x) < 0 ? LastInputPosition : (Vector3)UnityEngine.Input.touches[0].position;
+                return LastInputPosition;
+            }
+            return new Vector3();
         }
     }
 }

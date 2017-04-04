@@ -10,7 +10,7 @@ namespace GameObjects.Components.Controls.Sliders
         {
             var prefab = Resources.Load<GameObject>("Prefabs/Controls/Sliders/HealthBarSlider");
             var clone = Instantiate(prefab, Vector3.zero, Quaternion.identity);
-            clone.transform.parent = this.transform;
+            clone.transform.SetParent(transform);
             Slider = clone.GetComponent<Slider>();
 
             RectTransform = gameObject.AddComponent<RectTransform>();

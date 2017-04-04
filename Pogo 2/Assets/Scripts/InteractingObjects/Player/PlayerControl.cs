@@ -1,6 +1,5 @@
 ﻿using System;
-using Enums.Input;
-using InteractingObjects.Player.Parts;
+using Engine;
 using UnityEngine;
 
 namespace InteractingObjects.Player
@@ -21,34 +20,33 @@ namespace InteractingObjects.Player
         {
             float deltaX = -playerRigidbody2D.rotation;
             float deltaY = Mathf.Sin(Mathf.Deg2Rad * (playerRigidbody2D.rotation + 90)) * 50;
-            var moveDirection = new Vector2(deltaX, deltaY);
-            return moveDirection;
+            return new Vector2(deltaX, deltaY);
         }
 
-        public Quaternion GetRotationAngleInput(Rigidbody2D playerRigidbody2D, InputDeviceEnum inputDeviceEnum)
+        public Quaternion GetRotationAngleInput(Rigidbody2D playerRigidbody2D)
         {
-            var inputPositionInWorld = GetInputPositionInWorld(inputDeviceEnum);
+            var inputPositionInWorld = GetLastInputPositionInWorld();
             float deltaX = inputPositionInWorld.x < playerRigidbody2D.position.x ? 
                 Math.Abs(inputPositionInWorld.x - playerRigidbody2D.position.x) :
                 -Math.Abs(inputPositionInWorld.x - playerRigidbody2D.position.x);
             return Quaternion.Euler(new Vector3(0f, 0f, Mathf.Clamp(deltaX, -75, 75)));
         }
 
-        public Vector3 GetInputPositionInWorld(InputDeviceEnum inputDeviceEnum)
+        public Vector3 GetLastInputPositionInWorld()
         {
-            return Camera.main.ScreenToWorldPoint(GetPositionOfInput(inputDeviceEnum));
+            return Camera.main.ScreenToWorldPoint(GameEngineHelper.GetCurrentGameEngine().InputHandler.GetLastPositionOfInput());
         }
 
-        public void MovePlayerOnBounce(InputDeviceEnum inputDeviceEnum)
+        public void MovePlayerOnBounce()
         {
-            AnglePlayerTowardsInputOnBounce(inputDeviceEnum);
+            AnglePlayerTowardsInputOnBounce();
             var moveDirection = GetMoveDirection(Player.PlayerRigidbody2D);
             Player.PlayerRigidbody2D.AddForce(new Vector2(moveDirection.x*1.5f*Player.PlayerBounceLogic.GetRandomBouncePower(), 100+moveDirection.y*2*Player.PlayerBounceLogic.GetRandomBouncePower()), ForceMode2D.Impulse);
         }
 
-        public void AnglePlayerTowardsInputOnBounce(InputDeviceEnum inputDeviceEnum)
+        public void AnglePlayerTowardsInputOnBounce()
         {
-            var inputPosition = GetPositionOfInput(inputDeviceEnum);
+            var inputPosition = GameEngineHelper.GetCurrentGameEngine().InputHandler.GetLastPositionOfInput();
             var normalizedAngle = inputPosition.x < Camera.main.WorldToScreenPoint(Player.transform.position).x
                     ? -Mathf.Abs(inputPosition.x - Camera.main.WorldToScreenPoint(Player.transform.position).x)
                     : Mathf.Abs(inputPosition.x - Camera.main.WorldToScreenPoint(Player.transform.position).x);
@@ -56,21 +54,16 @@ namespace InteractingObjects.Player
             Player.PlayerRigidbody2D.AddTorque(-factor*500, ForceMode2D.Impulse);
         }
 
-        public void AnglePlayerTowardsInputOnChange(InputDeviceEnum inputDeviceEnum, float rotationFactor)
+        public void AnglePlayerTowardsInputOnChange(float rotationFactor)
         {
-            var newRotationAngle = GetRotationAngleInput(Player.PlayerRigidbody2D, inputDeviceEnum);
+            var newRotationAngle = GetRotationAngleInput(Player.PlayerRigidbody2D);
             Player.transform.rotation = Quaternion.RotateTowards(Player.transform.rotation, newRotationAngle, rotationFactor);
             Player.PlayerRigidbody2D.AddForce(new Vector2(Player.PlayerRigidbody2D.rotation / 100, 0));
         }
 
         public void StraightenUp()
         {
-            Player.PlayerRigidbody2D.AddTorque(-50);
-        }
-
-        public Vector3 GetPositionOfInput(InputDeviceEnum inputDeviceEnum)
-        {
-            return inputDeviceEnum == InputDeviceEnum.KeyboardAndMouse ? Input.mousePosition : (Vector3)Input.touches[0].position;
+            Player.PlayerRigidbody2D.AddTorque(-Player.PlayerRigidbody2D.rotation);
         }
     }
 }

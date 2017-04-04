@@ -8,7 +8,7 @@ namespace InteractingObjects.Player
         public const float MaximumBouncePower = 5.0f;
         public const float MinimumBouncePower = 1.0f;
         public const float BouncePowerIncrease = 1.0f;
-        public const float BouncePowerDecrease = 0.008f;
+        public const float BouncePowerDecrease = 0.0016f;
         public float BouncePower = 1.0f;
         // Use this for initialization
 
