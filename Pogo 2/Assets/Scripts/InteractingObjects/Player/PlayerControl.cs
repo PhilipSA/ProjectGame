@@ -31,7 +31,7 @@ namespace InteractingObjects.Player
             float deltaX = inputPositionInWorld.x < playerRigidbody2D.position.x ? 
                 Math.Abs(inputPositionInWorld.x - playerRigidbody2D.position.x) :
                 -Math.Abs(inputPositionInWorld.x - playerRigidbody2D.position.x);
-            return Quaternion.Euler(new Vector3(0f, 0f, Mathf.Clamp(deltaX, -90, 90)));
+            return Quaternion.Euler(new Vector3(0f, 0f, Mathf.Clamp(deltaX, -75, 75)));
         }
 
         public Vector3 GetInputPositionInWorld(InputDeviceEnum inputDeviceEnum)
@@ -43,7 +43,7 @@ namespace InteractingObjects.Player
         {
             AnglePlayerTowardsInputOnBounce(inputDeviceEnum);
             var moveDirection = GetMoveDirection(Player.PlayerRigidbody2D);
-            Player.PlayerRigidbody2D.AddForce(new Vector2(moveDirection.x*50*Player.PlayerBounceLogic.GetRandomBouncePower(), moveDirection.y*100*Player.PlayerBounceLogic.GetRandomBouncePower()));
+            Player.PlayerRigidbody2D.AddForce(new Vector2(moveDirection.x*1.5f*Player.PlayerBounceLogic.GetRandomBouncePower(), 100+moveDirection.y*2*Player.PlayerBounceLogic.GetRandomBouncePower()), ForceMode2D.Impulse);
         }
 
         public void AnglePlayerTowardsInputOnBounce(InputDeviceEnum inputDeviceEnum)
@@ -53,21 +53,19 @@ namespace InteractingObjects.Player
                     ? -Mathf.Abs(inputPosition.x - Camera.main.WorldToScreenPoint(Player.transform.position).x)
                     : Mathf.Abs(inputPosition.x - Camera.main.WorldToScreenPoint(Player.transform.position).x);
             var factor = Mathf.Clamp(normalizedAngle/100, minBounceStep, maxBounceStep);
-            var newRotationAngle = Quaternion.Euler(new Vector3(0f, 0f, -factor*18));
-            Player.transform.rotation = Quaternion.RotateTowards(Player.transform.rotation, newRotationAngle, 6);
+            Player.PlayerRigidbody2D.AddTorque(-factor*500, ForceMode2D.Impulse);
         }
 
-        public void AnglePlayerTowardsInput(InputDeviceEnum inputDeviceEnum, float rotationFactor)
+        public void AnglePlayerTowardsInputOnChange(InputDeviceEnum inputDeviceEnum, float rotationFactor)
         {
             var newRotationAngle = GetRotationAngleInput(Player.PlayerRigidbody2D, inputDeviceEnum);
             Player.transform.rotation = Quaternion.RotateTowards(Player.transform.rotation, newRotationAngle, rotationFactor);
-            Player.PlayerRigidbody2D.velocity = new Vector2(Player.PlayerRigidbody2D.velocity.x - Player.PlayerRigidbody2D.rotation / 100, Player.PlayerRigidbody2D.velocity.y);
+            Player.PlayerRigidbody2D.AddForce(new Vector2(Player.PlayerRigidbody2D.rotation / 100, 0));
         }
 
         public void StraightenUp()
         {
-            var defaultAngle = Quaternion.Euler(0, 0, 0);
-            Player.transform.rotation = Quaternion.RotateTowards(Player.transform.rotation, defaultAngle, 0.099f);
+            Player.PlayerRigidbody2D.AddTorque(-50);
         }
 
         public Vector3 GetPositionOfInput(InputDeviceEnum inputDeviceEnum)

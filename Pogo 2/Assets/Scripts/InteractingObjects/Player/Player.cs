@@ -55,8 +55,8 @@ namespace InteractingObjects.Player
 
         public void MovementInvoke(InputDeviceEnum inputDeviceEnum)
         {
-            if (inputDeviceEnum == InputDeviceEnum.KeyboardAndMouse) PlayerControl.AnglePlayerTowardsInput(inputDeviceEnum, 0.5f);
-            if (inputDeviceEnum == InputDeviceEnum.TouchDevice) PlayerControl.AnglePlayerTowardsInput(inputDeviceEnum, 1.5f);
+            if (inputDeviceEnum == InputDeviceEnum.KeyboardAndMouse) PlayerControl.AnglePlayerTowardsInputOnChange(inputDeviceEnum, 0.5f);
+            if (inputDeviceEnum == InputDeviceEnum.TouchDevice) PlayerControl.AnglePlayerTowardsInputOnChange(inputDeviceEnum, 1.5f);
         }
 
         public void DeadCheck()
