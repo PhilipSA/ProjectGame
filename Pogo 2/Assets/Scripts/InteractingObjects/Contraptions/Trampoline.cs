@@ -8,7 +8,7 @@ namespace InteractingObjects.Contraptions
     public class Trampoline : AnimatedSprite
     {
         public AudioSource AudioSource;
-        public float Force = 30000;
+        public float Force = 35000;
 
         void Awake()
         {

@@ -1,5 +1,7 @@
 ﻿using System;
 using Engine;
+using Engine.Input;
+using Enums.Input;
 using UnityEngine;
 
 namespace InteractingObjects.Player
@@ -39,7 +41,7 @@ namespace InteractingObjects.Player
 
         public void MovePlayerOnBounce()
         {
-            AnglePlayerTowardsInputOnBounce();
+            if (InputHandler.CurrentInputDevice == InputDeviceEnum.KeyboardAndMouse) AnglePlayerTowardsInputOnBounce();
             var moveDirection = GetMoveDirection(Player.PlayerRigidbody2D);
             Player.PlayerRigidbody2D.AddForce(new Vector2(moveDirection.x*1.5f*Player.PlayerBounceLogic.GetRandomBouncePower(), 100+moveDirection.y*2*Player.PlayerBounceLogic.GetRandomBouncePower()), ForceMode2D.Impulse);
         }
