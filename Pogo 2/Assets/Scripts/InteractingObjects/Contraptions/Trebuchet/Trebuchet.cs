@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.InteractingObjects.Contraptions.Trebuchet;
 using CustomComponents;
+using Engine.Audio;
 using UnityEngine;
 
 namespace InteractingObjects.Contraptions.Trebuchet
@@ -11,6 +12,7 @@ namespace InteractingObjects.Contraptions.Trebuchet
         public Beam Beam;
         public bool Firing;
         public StopWatch ResetTimer;
+        public AudioSource AudioSource;
 
         public void Awake()
         {
@@ -18,6 +20,12 @@ namespace InteractingObjects.Contraptions.Trebuchet
             Sling = GetComponentInChildren<Sling>();
             Beam = GetComponentInChildren<Beam>();
             ResetTimer = gameObject.AddComponent<StopWatch>();
+            AudioSource = gameObject.GetComponent<AudioSource>();
+        }
+
+        void Start()
+        {
+            AudioSource.clip = Resources.Load<AudioClip>("Audio/InteractingObjectsAudio/ContraptionsAudio/Trebuchet_NONLICENSED");
         }
 
         public void Update()
@@ -31,9 +39,13 @@ namespace InteractingObjects.Contraptions.Trebuchet
 
         public void FIRREEEE()
         {
-            Counterweigh.AddMass(10000);
-            Firing = true;
-            ResetTimer.StartTimer();
+            if (!Firing)
+            {
+                AudioHandler.PlayAudio(AudioSource);
+                Counterweigh.AddMass(10000);
+                Firing = true;
+                ResetTimer.StartTimer();
+            }
         }
 
         public void Reset()

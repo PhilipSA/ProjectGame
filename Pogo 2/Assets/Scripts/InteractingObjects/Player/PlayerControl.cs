@@ -20,9 +20,7 @@ namespace InteractingObjects.Player
 
         public Vector2 GetMoveDirection(Rigidbody2D playerRigidbody2D)
         {
-            float deltaX = -playerRigidbody2D.rotation;
-            float deltaY = Mathf.Sin(Mathf.Deg2Rad * (playerRigidbody2D.rotation + 90)) * 50;
-            return new Vector2(deltaX, deltaY);
+            return Vector2.up;
         }
 
         public Quaternion GetRotationAngleInput(Rigidbody2D playerRigidbody2D)
@@ -43,8 +41,7 @@ namespace InteractingObjects.Player
         {
             if (InputHandler.CurrentInputDevice == InputDeviceEnum.KeyboardAndMouse) AnglePlayerTowardsInputOnBounce();
             var moveDirection = GetMoveDirection(Player.PlayerRigidbody2D);
-            moveDirection.y += 100;
-            Player.PlayerRigidbody2D.AddForce(moveDirection*Player.PlayerBounceLogic.GetRandomBouncePower(), ForceMode2D.Impulse);
+            Player.PlayerRigidbody2D.AddRelativeForce(moveDirection*Player.PlayerBounceLogic.GetRandomBouncePower(), ForceMode2D.Impulse);
         }
 
         public void AnglePlayerTowardsInputOnBounce()
