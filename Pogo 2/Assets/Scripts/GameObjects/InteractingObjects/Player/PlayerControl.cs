@@ -52,7 +52,7 @@ namespace InteractingObjects.Player
                     ? -Mathf.Abs(inputPosition.x - Camera.main.WorldToScreenPoint(Player.transform.position).x)
                     : Mathf.Abs(inputPosition.x - Camera.main.WorldToScreenPoint(Player.transform.position).x);
             var factor = Mathf.Clamp(normalizedAngle/100, minBounceStep, maxBounceStep);
-            Player.PlayerRigidbody2D.AddTorque(-factor*500, ForceMode2D.Impulse);
+            Player.PlayerRigidbody2D.AddTorque(-factor*50, ForceMode2D.Impulse);
         }
 
         public void AnglePlayerTowardsInputOnChange(float rotationFactor)

@@ -23,11 +23,6 @@ namespace InteractingObjects.Player.Parts
             base.Awake("Textures/Player/PlayerHead/");
         }
 
-        void Start()
-        {
-            HeadRigidbody2D.freezeRotation = true;
-        }
-
         public void AnimateDamage()
         {
             SpriteAnimation.AnimateBlink(EnumHelper.GetMemberName(() => PlayerHeadAnimationsEnum.HeadHighRes), EnumHelper.GetMemberName(() => PlayerHeadAnimationsEnum.HeadHighResDamage),

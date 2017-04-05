@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Engine;
 using GameObjects;
 using GameObjects.Components.Image;
 using Interface.InterfaceElements.Abstraction;
@@ -37,6 +38,7 @@ namespace Interface.InterfaceElements
 
         void Update()
         {
+            BarDisplay = Mathf.FloorToInt(GameEngineHelper.GetCurrentGameEngine().Player.PlayerBounceLogic.BouncePower);
             foreach (var bar in _barsList)
             {
                 bar.enabled = _barsList.IndexOf(bar) <= BarDisplay;

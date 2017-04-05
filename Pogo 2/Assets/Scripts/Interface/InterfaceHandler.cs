@@ -48,7 +48,6 @@ namespace Interface
 
         void Update()
         {
-            _chargeBar.BarDisplay = Mathf.FloorToInt(PlayerData.PlayerBounceLogic.BouncePower);
             _healthBar.BarDisplay = PlayerData.PlayerHitpoints.Hitpoints;
         }
 

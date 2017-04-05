@@ -1,4 +1,5 @@
-﻿using Engine.Audio;
+﻿using System.Linq;
+using Engine.Audio;
 using Engine.Input;
 using Enums;
 using UnityEngine;
@@ -44,6 +45,7 @@ namespace InteractingObjects.Player
             if (collision2D.gameObject.CompareTag(TagsEnum.IgnoreHeadCollision)) return;
             if (collision2D.gameObject.CompareTag("Player")) return;
 
+            //_player.PlayerHead.HeadRigidbody2D.AddForceAtPosition(-_player.PlayerHead.HeadRigidbody2D.velocity * 20, _player.PlayerHead.HeadRigidbody2D.centerOfMass, ForceMode2D.Impulse);
             AudioHandler.PlayAudio(_player.PlayerHead.AudioSource);
             _player.PlayerHitpoints.CalculateImpactDamage(_player.PlayerRigidbody2D);
             _player.DeadCheck();
