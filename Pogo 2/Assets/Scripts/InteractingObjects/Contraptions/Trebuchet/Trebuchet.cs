@@ -13,6 +13,7 @@ namespace InteractingObjects.Contraptions.Trebuchet
         public bool Firing;
         public StopWatch ResetTimer;
         public AudioSource AudioSource;
+        public float Force = 80000;
 
         public void Awake()
         {
@@ -42,7 +43,7 @@ namespace InteractingObjects.Contraptions.Trebuchet
             if (!Firing)
             {
                 AudioHandler.PlayAudio(AudioSource);
-                Counterweigh.AddMass(10000);
+                Counterweigh.AddForce(Force);
                 Firing = true;
                 ResetTimer.StartTimer();
             }

@@ -18,9 +18,9 @@ namespace InteractingObjects.Contraptions.Trebuchet
             
         }
 
-        public void AddMass(float mass)
+        public void AddForce(float force)
         {
-            Rigidbody2D.mass = mass;
+            Rigidbody2D.AddForce(new Vector2(0, -force), ForceMode2D.Force);
         }
 
         public void ResetMass()

@@ -41,6 +41,7 @@ namespace InteractingObjects.Player
         {
             if (InputHandler.CurrentInputDevice == InputDeviceEnum.KeyboardAndMouse) AnglePlayerTowardsInputOnBounce();
             var moveDirection = GetMoveDirection(Player.PlayerRigidbody2D);
+            Player.PlayerRigidbody2D.AddForce(new Vector2(0, 100), ForceMode2D.Impulse);
             Player.PlayerRigidbody2D.AddRelativeForce(moveDirection*Player.PlayerBounceLogic.GetRandomBouncePower(), ForceMode2D.Impulse);
         }
 
@@ -63,7 +64,7 @@ namespace InteractingObjects.Player
 
         public void StraightenUp()
         {
-            Player.PlayerRigidbody2D.AddTorque(-Player.PlayerRigidbody2D.rotation);
+            Player.PlayerRigidbody2D.AddTorque(-Player.PlayerRigidbody2D.rotation*5);
         }
     }
 }
