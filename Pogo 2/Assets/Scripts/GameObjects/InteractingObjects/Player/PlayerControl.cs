@@ -1,4 +1,5 @@
 ﻿using System;
+using Assets.Scripts.CustomComponents;
 using Engine;
 using Engine.Input;
 using Enums.Input;
@@ -41,30 +42,29 @@ namespace InteractingObjects.Player
         {
             if (InputHandler.CurrentInputDevice == InputDeviceEnum.KeyboardAndMouse) AnglePlayerTowardsInputOnBounce();
             var moveDirection = GetMoveDirection(Player.PlayerRigidbody2D);
-            Player.PlayerRigidbody2D.AddForce(new Vector2(0, 50), ForceMode2D.Impulse);
+            Player.PlayerRigidbody2D.AddForce(new Vector2(0, 20), ForceMode2D.Impulse);
             Player.PlayerRigidbody2D.AddRelativeForce(moveDirection*Player.PlayerBounceLogic.GetRandomBouncePower(), ForceMode2D.Impulse);
         }
 
         public void AnglePlayerTowardsInputOnBounce()
         {
             var inputPosition = GameEngineHelper.GetCurrentGameEngine().InputHandler.GetLastPositionOfInput();
-            var normalizedAngle = inputPosition.x < Camera.main.WorldToScreenPoint(Player.transform.position).x
-                    ? -Mathf.Abs(inputPosition.x - Camera.main.WorldToScreenPoint(Player.transform.position).x)
-                    : Mathf.Abs(inputPosition.x - Camera.main.WorldToScreenPoint(Player.transform.position).x);
-            var factor = Mathf.Clamp(normalizedAngle, minBounceStep, maxBounceStep);
-            Player.PlayerRigidbody2D.AddTorque(-factor*50, ForceMode2D.Impulse);
+            var normalizedAngle = inputPosition.x - Camera.main.WorldToScreenPoint(Player.transform.position).x;
+            var forceFactor = IntervalConverter.ConvertValueInIntervalToOtherIntervalValue(-1000, 1000, minBounceStep,
+                maxBounceStep, normalizedAngle);
+            Player.PlayerRigidbody2D.AddTorque(-forceFactor*100, ForceMode2D.Impulse);
         }
 
         public void AnglePlayerTowardsInputOnChange(float rotationFactor)
         {
             var newRotationAngle = GetRotationAngleInput(Player.PlayerRigidbody2D);
-            Player.transform.rotation = Quaternion.RotateTowards(Player.transform.rotation, newRotationAngle, rotationFactor);
+            Player.PlayerRigidbody2D.AddTorque(rotationFactor*newRotationAngle.z);
             Player.PlayerRigidbody2D.AddForce(new Vector2(Player.PlayerRigidbody2D.rotation / 100, 0));
         }
 
         public void StraightenUp()
         {
-            Player.PlayerRigidbody2D.AddTorque(-Player.PlayerRigidbody2D.rotation*10);
+            Player.PlayerRigidbody2D.AddTorque(-Player.PlayerRigidbody2D.rotation*15);
         }
     }
 }

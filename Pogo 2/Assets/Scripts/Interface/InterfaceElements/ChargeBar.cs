@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Assets.Scripts.CustomComponents;
 using Engine;
 using GameObjects;
 using GameObjects.Components.Image;
@@ -39,8 +40,10 @@ namespace Interface.InterfaceElements
 
         void Update()
         {
-            BarDisplay = (GameEngineHelper.GetCurrentGameEngine().Player.PlayerBounceLogic.GetBouncePower() - PlayerBounceLogic.MinimumBouncePower) * (10 - 1) /
-                          (PlayerBounceLogic.MaximumBouncePower - PlayerBounceLogic.MinimumBouncePower) + 1;
+            BarDisplay =
+                IntervalConverter.ConvertValueInIntervalToOtherIntervalValue(PlayerBounceLogic.MinimumBouncePower,
+                    PlayerBounceLogic.MaximumBouncePower, 1, 10,
+                    GameEngineHelper.GetCurrentGameEngine().Player.PlayerBounceLogic.GetBouncePower());
             foreach (var bar in _barsList)
             {
                 bar.enabled = _barsList.IndexOf(bar) <= BarDisplay;
