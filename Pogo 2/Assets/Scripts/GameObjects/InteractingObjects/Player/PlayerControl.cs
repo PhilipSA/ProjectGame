@@ -41,7 +41,7 @@ namespace InteractingObjects.Player
         {
             if (InputHandler.CurrentInputDevice == InputDeviceEnum.KeyboardAndMouse) AnglePlayerTowardsInputOnBounce();
             var moveDirection = GetMoveDirection(Player.PlayerRigidbody2D);
-            Player.PlayerRigidbody2D.AddForce(new Vector2(0, 100), ForceMode2D.Impulse);
+            Player.PlayerRigidbody2D.AddForce(new Vector2(0, 50), ForceMode2D.Impulse);
             Player.PlayerRigidbody2D.AddRelativeForce(moveDirection*Player.PlayerBounceLogic.GetRandomBouncePower(), ForceMode2D.Impulse);
         }
 
@@ -51,7 +51,7 @@ namespace InteractingObjects.Player
             var normalizedAngle = inputPosition.x < Camera.main.WorldToScreenPoint(Player.transform.position).x
                     ? -Mathf.Abs(inputPosition.x - Camera.main.WorldToScreenPoint(Player.transform.position).x)
                     : Mathf.Abs(inputPosition.x - Camera.main.WorldToScreenPoint(Player.transform.position).x);
-            var factor = Mathf.Clamp(normalizedAngle/100, minBounceStep, maxBounceStep);
+            var factor = Mathf.Clamp(normalizedAngle, minBounceStep, maxBounceStep);
             Player.PlayerRigidbody2D.AddTorque(-factor*50, ForceMode2D.Impulse);
         }
 
@@ -64,7 +64,7 @@ namespace InteractingObjects.Player
 
         public void StraightenUp()
         {
-            Player.PlayerRigidbody2D.AddTorque(-Player.PlayerRigidbody2D.rotation*5);
+            Player.PlayerRigidbody2D.AddTorque(-Player.PlayerRigidbody2D.rotation*10);
         }
     }
 }

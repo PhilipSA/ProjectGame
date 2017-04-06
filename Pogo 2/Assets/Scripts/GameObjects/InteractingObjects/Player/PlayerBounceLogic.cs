@@ -5,10 +5,10 @@ namespace InteractingObjects.Player
 {
     public class PlayerBounceLogic {
 
-        public const float MaximumBouncePower = 500.0f;
+        public const float MaximumBouncePower = 200.0f;
         public const float MinimumBouncePower = MaximumBouncePower / 5;
         public const float BouncePowerIncrease = MaximumBouncePower/5;
-        public const float BouncePowerDecrease = 0.0016f;
+        public const float BouncePowerDecrease = MaximumBouncePower/2000;
         public float BouncePower = MinimumBouncePower;
         // Use this for initialization
 

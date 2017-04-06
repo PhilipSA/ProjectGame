@@ -3,6 +3,7 @@ using System.Linq;
 using Engine;
 using GameObjects;
 using GameObjects.Components.Image;
+using InteractingObjects.Player;
 using Interface.InterfaceElements.Abstraction;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ namespace Interface.InterfaceElements
 {
     public class ChargeBar : InterfaceElement {
 
-        public int BarDisplay; //current progress
+        public float BarDisplay { get; private set; } //current progress
         public CustomImage Bar { get; private set; }
         private List<CustomImage> _barsList;
 
@@ -30,7 +31,7 @@ namespace Interface.InterfaceElements
 
             base.Awake();
         }
-
+            
         void Start()
         {
             _barsList.First().enabled = true;
@@ -38,7 +39,8 @@ namespace Interface.InterfaceElements
 
         void Update()
         {
-            BarDisplay = Mathf.FloorToInt(GameEngineHelper.GetCurrentGameEngine().Player.PlayerBounceLogic.BouncePower);
+            BarDisplay = (GameEngineHelper.GetCurrentGameEngine().Player.PlayerBounceLogic.GetBouncePower() - PlayerBounceLogic.MinimumBouncePower) * (10 - 1) /
+                          (PlayerBounceLogic.MaximumBouncePower - PlayerBounceLogic.MinimumBouncePower) + 1;
             foreach (var bar in _barsList)
             {
                 bar.enabled = _barsList.IndexOf(bar) <= BarDisplay;
