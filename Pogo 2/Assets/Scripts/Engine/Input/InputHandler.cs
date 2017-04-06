@@ -1,6 +1,6 @@
 ﻿using System;
 using Enums.Input;
-using InteractingObjects.Player;
+using GameObjects.InteractingObjects.Player;
 using Interface;
 using UnityEngine;
 

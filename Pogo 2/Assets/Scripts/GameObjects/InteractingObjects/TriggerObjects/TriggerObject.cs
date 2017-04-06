@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace InteractingObjects.TriggerObjects
+namespace GameObjects.InteractingObjects.TriggerObjects
 {
     public abstract class TriggerObject : MonoBehaviour
     {

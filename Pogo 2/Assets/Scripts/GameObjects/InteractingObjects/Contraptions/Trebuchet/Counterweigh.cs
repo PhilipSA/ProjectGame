@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace InteractingObjects.Contraptions.Trebuchet
+namespace GameObjects.InteractingObjects.Contraptions.Trebuchet
 {
     public class Counterweigh : MonoBehaviour
     {

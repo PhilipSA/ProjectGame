@@ -1,9 +1,9 @@
 ﻿using Engine;
 using Engine.Audio;
-using InteractingObjects.Abstraction;
+using GameObjects.InteractingObjects.Abstraction;
 using UnityEngine;
 
-namespace InteractingObjects.Contraptions
+namespace GameObjects.InteractingObjects.Contraptions
 {
     public class Padding : AnimatedSprite
     {

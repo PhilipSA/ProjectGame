@@ -1,10 +1,8 @@
-﻿using System.Linq;
-using Engine.Audio;
-using Engine.Input;
+﻿using Engine.Audio;
 using Enums;
 using UnityEngine;
 
-namespace InteractingObjects.Player
+namespace GameObjects.InteractingObjects.Player
 {
     public class PlayerCollider
     {

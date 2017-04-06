@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace InteractingObjects.Contraptions.Fan
+namespace GameObjects.InteractingObjects.Contraptions.Fan
 {
     public class FanWind : MonoBehaviour
     {

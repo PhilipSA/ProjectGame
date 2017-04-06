@@ -1,14 +1,14 @@
 ﻿using Engine;
 using Enums;
 using Enums.Player.PlayerHead;
-using InteractingObjects.Abstraction;
+using GameObjects.InteractingObjects.Abstraction;
 using UnityEngine;
 
-namespace InteractingObjects.Player.Parts
+namespace GameObjects.InteractingObjects.Player.Parts
 {
     public class PlayerHead : AnimatedSprite
     {
-        public Player Parent;
+        public GameObjects.InteractingObjects.Player.Player Parent;
         public Rigidbody2D HeadRigidbody2D;
         public SpriteRenderer SpriteRenderer;
         public AudioSource AudioSource;
@@ -18,7 +18,7 @@ namespace InteractingObjects.Player.Parts
             HeadRigidbody2D = GetComponent<Rigidbody2D>();
             SpriteRenderer = GetComponent<SpriteRenderer>();
             AudioSource = GetComponent<AudioSource>();
-            Parent = transform.parent.GetComponent<Player>();
+            Parent = transform.parent.GetComponent<GameObjects.InteractingObjects.Player.Player>();
 
             base.Awake("Textures/Player/PlayerHead/");
         }

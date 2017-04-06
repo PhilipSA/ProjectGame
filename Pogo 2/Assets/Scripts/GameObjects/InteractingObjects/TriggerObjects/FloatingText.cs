@@ -2,7 +2,7 @@
 using SmartLocalization;
 using UnityEngine;
 
-namespace InteractingObjects.TriggerObjects
+namespace GameObjects.InteractingObjects.TriggerObjects
 {
     public class FloatingText : TriggerObject
     {

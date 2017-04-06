@@ -1,6 +1,4 @@
-﻿using InteractingObjects.Player;
-
-namespace Assets.Scripts.CustomComponents
+﻿namespace CustomComponents
 {
     public static class IntervalConverter
     {

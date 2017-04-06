@@ -1,18 +1,21 @@
-﻿using System;
-using Assets.Scripts.CustomComponents;
+﻿using CustomComponents;
 using Engine;
 using Engine.Input;
 using Enums.Input;
 using UnityEngine;
 
-namespace InteractingObjects.Player
+namespace GameObjects.InteractingObjects.Player
 {
     public class PlayerControl
     {
         public Vector3 MousePosition;
         public Player Player;
-        private int minBounceStep = -5;
-        private int maxBounceStep = 5;
+        private const int MinBounceStep = -5;
+        private const int MaxBounceStep = 5;
+        private const float MinRotation = -75;
+        private const float MaxRotation = 75;
+        private const float MaxNegativeInputDistance = -1000;
+        private const float MaxPositiveInputDistance = 1000;
 
         public PlayerControl(Player player)
         {
@@ -27,10 +30,10 @@ namespace InteractingObjects.Player
         public Quaternion GetRotationAngleInput(Rigidbody2D playerRigidbody2D)
         {
             var inputPositionInWorld = GetLastInputPositionInWorld();
-            float deltaX = inputPositionInWorld.x < playerRigidbody2D.position.x ? 
-                Math.Abs(inputPositionInWorld.x - playerRigidbody2D.position.x) :
-                -Math.Abs(inputPositionInWorld.x - playerRigidbody2D.position.x);
-            return Quaternion.Euler(new Vector3(0f, 0f, Mathf.Clamp(deltaX, -75, 75)));
+            float deltaX = inputPositionInWorld.x - playerRigidbody2D.position.x;
+            var forceFactor = IntervalConverter.ConvertValueInIntervalToOtherIntervalValue(MaxNegativeInputDistance, MaxPositiveInputDistance, MinRotation,
+                MaxRotation, deltaX);
+            return Quaternion.Euler(new Vector3(0f, 0f, forceFactor));
         }
 
         public Vector3 GetLastInputPositionInWorld()
@@ -50,8 +53,8 @@ namespace InteractingObjects.Player
         {
             var inputPosition = GameEngineHelper.GetCurrentGameEngine().InputHandler.GetLastPositionOfInput();
             var normalizedAngle = inputPosition.x - Camera.main.WorldToScreenPoint(Player.transform.position).x;
-            var forceFactor = IntervalConverter.ConvertValueInIntervalToOtherIntervalValue(-1000, 1000, minBounceStep,
-                maxBounceStep, normalizedAngle);
+            var forceFactor = IntervalConverter.ConvertValueInIntervalToOtherIntervalValue(MaxNegativeInputDistance, MaxPositiveInputDistance, MinBounceStep,
+                MaxBounceStep, normalizedAngle);
             Player.PlayerRigidbody2D.AddTorque(-forceFactor*100, ForceMode2D.Impulse);
         }
 

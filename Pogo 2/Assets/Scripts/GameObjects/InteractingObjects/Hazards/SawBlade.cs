@@ -3,7 +3,7 @@ using Engine.Audio;
 using GameObjects.Components.Animation;
 using UnityEngine;
 
-namespace InteractingObjects.Hazards
+namespace GameObjects.InteractingObjects.Hazards
 {
     public class SawBlade : MonoBehaviour
     {

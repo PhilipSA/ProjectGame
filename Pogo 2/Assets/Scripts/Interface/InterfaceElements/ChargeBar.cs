@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.CustomComponents;
+using CustomComponents;
 using Engine;
 using GameObjects;
 using GameObjects.Components.Image;
-using InteractingObjects.Player;
+using GameObjects.InteractingObjects.Player;
 using Interface.InterfaceElements.Abstraction;
 using UnityEngine;
 

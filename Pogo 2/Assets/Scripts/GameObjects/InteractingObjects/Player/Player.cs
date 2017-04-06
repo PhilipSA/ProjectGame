@@ -1,9 +1,9 @@
 ﻿using Engine;
 using Enums.Input;
-using InteractingObjects.Player.Parts;
+using GameObjects.InteractingObjects.Player.Parts;
 using UnityEngine;
 
-namespace InteractingObjects.Player
+namespace GameObjects.InteractingObjects.Player
 {
     public class Player : MonoBehaviour
     {

@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-namespace InteractingObjects.Player
+namespace GameObjects.InteractingObjects.Player
 {
     public class PlayerHitpoints
     {
         private float _hitpoints = 100;
-        private readonly Player _player;
+        private readonly GameObjects.InteractingObjects.Player.Player _player;
 
-        public PlayerHitpoints(Player player)
+        public PlayerHitpoints(GameObjects.InteractingObjects.Player.Player player)
         {
             _player = player;
         }

@@ -1,7 +1,7 @@
 ﻿using GameObjects.Components.Animation;
 using UnityEngine;
 
-namespace InteractingObjects.Abstraction
+namespace GameObjects.InteractingObjects.Abstraction
 {
     public abstract class AnimatedSprite : MonoBehaviour
     {

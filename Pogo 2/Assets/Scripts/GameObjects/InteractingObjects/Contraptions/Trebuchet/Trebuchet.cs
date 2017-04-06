@@ -1,9 +1,8 @@
-﻿using Assets.Scripts.InteractingObjects.Contraptions.Trebuchet;
-using CustomComponents;
+﻿using CustomComponents;
 using Engine.Audio;
 using UnityEngine;
 
-namespace InteractingObjects.Contraptions.Trebuchet
+namespace GameObjects.InteractingObjects.Contraptions.Trebuchet
 {
     public class Trebuchet : MonoBehaviour
     {

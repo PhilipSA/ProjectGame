@@ -1,7 +1,7 @@
 ﻿using Engine;
 using UnityEngine;
 
-namespace InteractingObjects
+namespace GameObjects.InteractingObjects
 {
     public class PlayerSpawn : MonoBehaviour
     {

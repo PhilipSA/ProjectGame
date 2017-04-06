@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using Random = System.Random;
 
-namespace InteractingObjects.Player
+namespace GameObjects.InteractingObjects.Player
 {
     public class PlayerBounceLogic {
 

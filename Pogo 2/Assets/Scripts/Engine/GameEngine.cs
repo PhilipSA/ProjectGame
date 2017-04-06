@@ -5,7 +5,7 @@ using Engine.Input;
 using Engine.Levels;
 using Enums.Levels;
 using GameObjects;
-using InteractingObjects.Player;
+using GameObjects.InteractingObjects.Player;
 using Interface;
 using Interface.DisplayFormats;
 using SmartLocalization;

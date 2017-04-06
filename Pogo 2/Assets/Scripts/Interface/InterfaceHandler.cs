@@ -1,7 +1,7 @@
 ﻿using Engine;
 using Enums.Input;
 using GameObjects;
-using InteractingObjects.Player;
+using GameObjects.InteractingObjects.Player;
 using Interface.InterfaceElements;
 using Interface.OverlayScreens;
 using Interface.OverlayScreens.Abstraction;

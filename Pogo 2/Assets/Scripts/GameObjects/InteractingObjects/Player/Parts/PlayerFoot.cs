@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-namespace InteractingObjects.Player.Parts
+namespace GameObjects.InteractingObjects.Player.Parts
 {
     public class PlayerFoot : MonoBehaviour
     {
-        private Player _parent;
+        private GameObjects.InteractingObjects.Player.Player _parent;
         public CircleCollider2D Collider2D { get; set; }
         public AudioSource AudioSource;
         public Rigidbody2D Rigidbody2D;
@@ -13,7 +13,7 @@ namespace InteractingObjects.Player.Parts
         {
             Collider2D = GetComponent<CircleCollider2D>();
             Rigidbody2D = GetComponent<Rigidbody2D>();
-            _parent = (Player)GetComponentInParent(typeof(Player));
+            _parent = (GameObjects.InteractingObjects.Player.Player)GetComponentInParent(typeof(GameObjects.InteractingObjects.Player.Player));
             AudioSource = GetComponent<AudioSource>();
             Physics2D.IgnoreCollision(Collider2D, _parent.BoxCollider2D);
         }

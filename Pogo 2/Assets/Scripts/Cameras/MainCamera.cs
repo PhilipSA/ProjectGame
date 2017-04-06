@@ -1,5 +1,5 @@
 ﻿using Engine;
-using InteractingObjects.Player;
+using GameObjects.InteractingObjects.Player;
 using UnityEngine;
 
 namespace Cameras

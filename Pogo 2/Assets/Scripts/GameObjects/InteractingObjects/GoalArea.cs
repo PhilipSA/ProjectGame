@@ -2,7 +2,7 @@
 using Engine.Audio;
 using UnityEngine;
 
-namespace InteractingObjects
+namespace GameObjects.InteractingObjects
 {
     public class GoalArea : MonoBehaviour
     {
